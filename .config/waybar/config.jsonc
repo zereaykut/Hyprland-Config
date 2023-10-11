@@ -1,0 +1,168 @@
+{
+  "layer": "top", // Waybar at top layer
+  "position": "top", // Waybar position (top|bottom|left|right)
+  "height": 30, // Waybar height (to be removed for auto height)  
+  "margin-top": 3,
+  "margin-left": 10,
+  "margin-bottom": 0,
+  "margin-right": 10,
+  "spacing": 3, // Gaps between modules (4px)
+  
+  "modules-left": ["cpu", "memory", "backlight", "custom/updates", "hyprland/workspaces"],
+  "modules-center": ["wlr/taskbar"],
+  "modules-right": ["pulseaudio", "battery", "network", "bluetooth",  "clock", "custom/wlogout"],
+    
+  "hyprland/window": {
+    "max-length": 100,
+    "separate-outputs": true
+    },
+
+    "hyprland/workspaces": {
+      "format": "{icon}",
+      "on-scroll-up": "hyprctl dispatch workspace e-1",
+      "on-scroll-down": "hyprctl dispatch workspace e+1",
+      "on-click": "activate",
+      "format-icons": {
+        "1": "1",
+        "2": "2",
+        "3": "3",
+        "4": "4",
+        "5": "5",
+        "6": "6",
+        "7": "7",
+        "8": "8",
+        "9": "9",
+        "10":"0",
+        "urgent": "",
+        //"active": "",
+        "default": ""
+      }
+    },
+    
+    "tray": {
+        "spacing": 10
+    },
+
+    "clock": {
+      "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+      "format-alt": "{:%Y-%m-%d}"
+    },
+
+    "cpu": {
+      "interval": 1,
+      "format": "💻 {usage}%",
+      "max-length": 100,
+    //  "on-click": "",
+    },
+
+    "memory": {
+        "interval": 30,
+        "format": " {used:0.1f}G",
+        "max-length": 10,
+      //  "on-click": "htop",
+    },
+
+    "backlight": {
+        "device": "DP-1",
+        "format": "{icon} {percent}%",
+        "format-icons": ["", "", "", "", "", "", "", "", ""],
+    },
+
+    "network": {
+        "format-wifi": "󰤨 {signalStrength}%",
+        "format-ethernet": "📶 wired",
+        "format-disconnected": "🌐",
+        //"on-click": "nm-applet --indicator",
+        "tooltip-format-wifi": "   {essid} ({signalStrength}%)",
+        "tooltip-format-ethernet": "  {ifname} ({ipaddr}/{cidr})",
+        "tooltip-format-disconnected": "Disconnected",
+
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "  {volume}%",
+        "format-bluetooth-muted": "婢 ",
+        "format-muted": "婢",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+       "on-click": "pavucontrol",
+       "tooltip": false
+    },
+
+    "bluetooth": {
+        "format": " {status}",
+        "on-click": "blueman-manager"
+    },
+
+    "battery": {
+      "bat": "BAT1",
+      "adapter": "ADP0",
+      "interval": 60,
+      "states": {
+          "warning": 30,
+          "critical": 15
+      },
+     // "on-click": "sh ~/.config/waybar/scripts/power-profiles", 
+      "max-length": 20,
+      "format": "{icon} {capacity}%",
+      "format-warning": "{icon} {capacity}%",
+      "format-critical": "{icon} {capacity}%",
+      "format-charging": "<span font-family='Font Awesome 6 Free'></span> {capacity}%",
+      "format-plugged": "  {capacity}%",
+      "format-alt": "{icon} {time}",
+      "format-full": "  {capacity}%",
+      "format-icons": [" ", " ", " ", " ", " "],
+    },
+
+    "wlr/taskbar": {
+      "format": "{icon}",
+      "icon-size": 18,
+      "icon-theme": "Tela-circle-dracula",
+      "spacing": 0,
+      "tooltip": false,
+      "on-click": "activate",
+      "on-click-middle": "close",
+      "ignore-list": [
+        "waybar"
+      ],
+      "app_ids-mapping": {
+        "firefoxdeveloperedition": "firefox-developer-edition"
+      }
+    },
+
+    "custom/wlogout": {
+      "format": "",
+      "interval": "once",
+      "on-click": "wlogout",
+      "tooltip": false
+    },
+
+    "custom/updates": {
+      "format": "{} {icon}",
+      "return-type": "json",
+      "format-icons": {
+          "has-updates": "󱍷",
+          "updated": "󰂪"
+      },
+      "exec-if": "which waybar-module-pacman-updates",
+      "exec": "waybar-module-pacman-updates"
+  },
+
+    "keyboard-state": {
+      "numlock": true,
+      "capslock": true,
+      "format": "{name} {icon}",
+      "format-icons": {
+          "locked": "🔒",
+          "unlocked": "🔓"
+      }
+    }
+}
