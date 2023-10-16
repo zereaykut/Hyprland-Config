@@ -58,6 +58,7 @@ sudo pacman --needed --noconfirm -S libpulse
 sudo pacman --needed --noconfirm -S sof-firmware
 sudo pacman --needed --noconfirm -S alsa-firmware
 sudo pacman --needed --noconfirm -S pavucontrol
+sudo pacman --needed --noconfirm -S pamixer
 sudo pacman --needed --noconfirm -S wireplumber
 
 #-----------#
@@ -90,7 +91,7 @@ sudo pacman --needed --noconfirm -S neofetch
 #------#
 sudo pacman --needed --noconfirm -S neovim
 sudo pacman --needed --noconfirm -S vlc
-sudo pacman --needed --noconfirm -S firefox
+sudo pacman --needed --noconfirm -S librewolf
 sudo pacman --needed --noconfirm -S bitwarden
 sudo pacman --needed --noconfirm -S gimp
 sudo pacman --needed --noconfirm -S gwenview
