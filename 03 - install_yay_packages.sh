@@ -15,6 +15,11 @@ yay --needed --noconfirm -S zoom
 #-------------#
 yay --needed --noconfirm -S wlogout
 
+#------------#
+# Screenlock #
+#------------#
+yay --needed --noconfirm -S swaylock-effects
+
 #-----------#
 # Top Panel #
 #-----------#
@@ -26,12 +31,6 @@ yay --needed --noconfirm -S waybar-module-pacman-updates-git
 yay --needed --noconfirm -S nwg-look
 yay --needed --noconfirm -S sddm-sugar-candy-git
 yay --needed --noconfirm -S tela-icon-theme
-#yay --needed --noconfirm -S oreo-cursors-git
 yay --needed --noconfirm -S bibata-cursor-theme
 yay --needed --noconfirm -S orchis-theme
 yay --needed --noconfirm -S orchis-kde-theme-git
-
-#--------------#
-# Notification #
-#--------------#
-#yay --needed --noconfirm -S swaync
