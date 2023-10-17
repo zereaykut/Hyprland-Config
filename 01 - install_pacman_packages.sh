@@ -62,12 +62,6 @@ sudo pacman --needed --noconfirm -S pamixer
 sudo pacman --needed --noconfirm -S wireplumber
 
 #-----------#
-# Screen Lock #
-#-----------#
-sudo pacman --needed --noconfirm -S swaylock
-sudo pacman --needed --noconfirm -S xautolock
-
-#-----------#
 # Top Panel #
 #-----------#
 sudo pacman --needed --noconfirm -S waybar
