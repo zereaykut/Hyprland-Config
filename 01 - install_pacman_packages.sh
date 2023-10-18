@@ -134,7 +134,7 @@ sudo pacman --needed --noconfirm -S hyprland
 #----------#
 # Firewall #
 #----------#
-#sudo pacman --needed --noconfirm -S ufw
+sudo pacman --needed --noconfirm -S firewalld
 
 #--------------#
 # Notification #
