@@ -5,7 +5,6 @@
 #------#
 yay --needed --noconfirm -S vscodium-bin
 yay --needed --noconfirm -S pycharm-community-edition
-yay --needed --noconfirm -S portmaster-stub-bin
 yay --needed --noconfirm -S brave-bin
 yay --needed --noconfirm -S komikku
 yay --needed --noconfirm -S zoom
