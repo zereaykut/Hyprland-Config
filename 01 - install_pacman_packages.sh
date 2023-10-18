@@ -131,6 +131,10 @@ sudo pacman --needed --noconfirm -S hyprland
 # Power #
 #-------#
 
+#----------#
+# Firewall #
+#----------#
+#sudo pacman --needed --noconfirm -S ufw
 
 #--------------#
 # Notification #
