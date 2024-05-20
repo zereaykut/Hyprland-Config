@@ -15,14 +15,26 @@ sudo systemctl enable bluetooth
 #-------#
 systemctl enable --user pipewire-pulse.service
 
+#----------#
+# Firewall #
+#----------#
+sudo systemctl enable firewalld.service
+
 #----------------#
 # Create Folders #
 #----------------#
-mkdir ~/Projects ~/Documents ~/Downloads ~/Videos
+mkdir ~/.themes ~/.icons ~/Projects ~/Documents ~/Downloads ~/Videos
+mkdir -p ~/.cache/swww
 mkdir -p ~/Pictures/Screenshots
-mkdir -p ~/Torrent/{torrents,torrent_files,finished_torrents,finished_torrent_files,watched_torrent_files}
+mkdir -p ~/Torrent/{torrents,torrent_files,finished_torrents/{Movie,TV,Music,TT},finished_torrent_files,watched_torrent_files}
+
+#---------------------#
+# Add User to a Group #
+#---------------------#
+sudo usermod -aG input $(whoami)   # Adds used user to input group for waybar keyboard-state widget to work
+sudo usermod -aG video $(whoami)
 
 #--------------#
 # Change Shell #
 #--------------#
-chsh -s $(which zsh)
+chsh -s $(which fish)
