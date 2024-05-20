@@ -6,16 +6,10 @@
   "margin-left": 10,
   "margin-bottom": 0,
   "margin-right": 10,
-  "spacing": 3, // Gaps between modules (4px)
   
-  "modules-left": ["cpu", "memory", "backlight", "custom/updates", "hyprland/workspaces"],
-  "modules-center": ["wlr/taskbar"],
-  "modules-right": ["pulseaudio", "battery", "network", "bluetooth",  "clock", "custom/wlogout"],
-    
-  "hyprland/window": {
-    "max-length": 100,
-    "separate-outputs": true
-    },
+  "modules-left": ["cpu", "memory", "temperature", "disk", "backlight", "pulseaudio", "pulseaudio#microphone"],
+  "modules-center": ["hyprland/workspaces", "wlr/taskbar", "clock", "keyboard-state", "mpris"],
+  "modules-right": ["battery", "network", "tray", "custom/pacman", "custom/yay", "custom/pikaur", "power-profiles-daemon", "group/menu"],
 
     "hyprland/workspaces": {
       "format": "{icon}",
@@ -40,50 +34,76 @@
     },
     
     "tray": {
-        "spacing": 10
+        "spacing": 10,
     },
 
     "clock": {
-      "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-      "format-alt": "{:%Y-%m-%d}"
+      "format": " {:%R}",
+      "format-alt": " {:%Y %B %d %A  %R}",
+      "tooltip-format": "<tt><big>{calendar}</big></tt>",
+      "calendar": {
+        "mode"          : "month",
+        "mode-mon-col"  : 2,
+        "weeks-pos"     : "right",
+        "on-scroll"     : 1,
+        "on-click-right": "mode",
+        "format": {
+          "months":     "<span color='#ffffff'><b>{}</b></span>",
+          "days":       "<span color='#ffffff'><b>{}</b></span>",
+          "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+          "weekdays":   "<span color='#99ffdd'><b>{}</b></span>",
+          "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+        }
+      },
+      "actions": {
+        "on-click-right": "mode",
+        "on-click-forward": "tz_up",
+        "on-click-backward": "tz_down",
+        "on-scroll-up": "shift_up",
+        "on-scroll-down": "shift_down"
+      }
     },
 
     "cpu": {
-      "interval": 1,
-      "format": "💻 {usage}%",
+      "interval": 5,
+      "format": " {usage}%",
       "max-length": 100,
-    //  "on-click": "",
+      "on-click": "kitty -e htop",
     },
-
+    
     "memory": {
-        "interval": 30,
-        "format": " {used:0.1f}G",
+        "interval": 5,
+        "format": " {}%",
         "max-length": 10,
-      //  "on-click": "htop",
+        "on-click": "kitty -e htop",
+        "tooltip-format": "{used:0.1f}G used / {}%",
     },
 
     "backlight": {
         "device": "DP-1",
         "format": "{icon} {percent}%",
         "format-icons": ["", "", "", "", "", "", "", "", ""],
+        "tooltip": false,
+        "on-scroll-up": "python ~/.config/hypr/scripts/brightness_control.py -a i",
+        "on-scroll-down": "python ~/.config/hypr/scripts/brightness_control.py -a d",
     },
 
     "network": {
-        "format-wifi": "󰤨 {signalStrength}%",
-        "format-ethernet": "📶 wired",
-        "format-disconnected": "🌐",
-        //"on-click": "nm-applet --indicator",
-        "tooltip-format-wifi": "   {essid} ({signalStrength}%)",
+        "interval": 5,
+        "format-wifi": " {bandwidthUpBits}   {bandwidthDownBits}",
+        "format-ethernet": " {bandwidthUpBits}   {bandwidthDownBits}",
+        "format-disconnected": "",
+        //"on-right-click": "kitty -e nmtui",
+        "tooltip-format-wifi": " {signalStrength}% {essid}",
         "tooltip-format-ethernet": "  {ifname} ({ipaddr}/{cidr})",
         "tooltip-format-disconnected": "Disconnected",
-
     },
 
     "pulseaudio": {
         "format": "{icon} {volume}%",
         "format-bluetooth": "  {volume}%",
         "format-bluetooth-muted": "婢 ",
-        "format-muted": "婢",
+        "format-muted": "",
         "format-icons": {
             "headphone": "",
             "hands-free": "",
@@ -93,8 +113,24 @@
             "car": "",
             "default": ["", "", ""]
         },
-       "on-click": "pavucontrol",
-       "tooltip": false
+        "on-click": "python ~/.config/hypr/scripts/volume_control.py -a m -d o",
+        "on-click-right": "pavucontrol -t 3",
+        "on-scroll-up": "python ~/.config/hypr/scripts/volume_control.py -a i -d o",
+        "on-scroll-down": "python ~/.config/hypr/scripts/volume_control.py -a d -d o",
+        "tooltip-format": "{icon} {desc} // {volume}%",
+        //"scroll-step": 5
+    },
+    
+    "pulseaudio#microphone": {
+      "format": "{format_source} {source_volume}%",
+      "format-source": "",
+      "format-source-muted": "",
+      "on-click-right": "pavucontrol -t 4",
+      "on-click": "python ~/.config/hypr/scripts/volume_control.py -a m -d i",
+      "on-scroll-up": "python ~/.config/hypr/scripts/volume_control.py -a i -d i",
+      "on-scroll-down": "python ~/.config/hypr/scripts/volume_control.py -a d -d i",
+      "tooltip-format": "{format_source} {source_desc} // {source_volume}%",
+      //"scroll-step": 5
     },
 
     "bluetooth": {
@@ -107,11 +143,11 @@
       "adapter": "ADP0",
       "interval": 60,
       "states": {
-          "warning": 30,
-          "critical": 15
+          "warning": 35,
+          "critical": 20
       },
      // "on-click": "sh ~/.config/waybar/scripts/power-profiles", 
-      "max-length": 20,
+      "max-length": 25,
       "format": "{icon} {capacity}%",
       "format-warning": "{icon} {capacity}%",
       "format-critical": "{icon} {capacity}%",
@@ -119,13 +155,23 @@
       "format-plugged": "  {capacity}%",
       "format-alt": "{icon} {time}",
       "format-full": "  {capacity}%",
-      "format-icons": [" ", " ", " ", " ", " "],
+      "format-icons": [
+        "󰛞 󱢠 󱢠 󱢠 󱢠 ",
+        "󰣐 󱢠 󱢠 󱢠 󱢠 ",
+        "󰣐 󰛞 󱢠 󱢠 󱢠 ",
+        "󰣐 󰣐 󱢠 󱢠 󱢠 ",
+        "󰣐 󰣐 󰛞 󱢠 󱢠 ",
+        "󰣐 󰣐 󰣐 󱢠 󱢠 ",
+        "󰣐 󰣐 󰣐 󰛞 󱢠 ",
+        "󰣐 󰣐 󰣐 󰣐 󱢠 ",
+        "󰣐 󰣐 󰣐 󰣐 󰛞 ",
+        "󰣐 󰣐 󰣐 󰣐 󰣐 "
+      ],
     },
 
     "wlr/taskbar": {
       "format": "{icon}",
       "icon-size": 18,
-      "icon-theme": "Tela-circle-dracula",
       "spacing": 0,
       "tooltip": false,
       "on-click": "activate",
@@ -138,31 +184,121 @@
       }
     },
 
-    "custom/wlogout": {
-      "format": "",
-      "interval": "once",
-      "on-click": "wlogout",
-      "tooltip": false
+    "keyboard-state": {
+      "numlock": false,
+      "capslock": true,
+      "format": "{icon}",
+      "format-icons": {
+          "locked": "",
+          "unlocked": ""
+      }
+    },
+    
+    "disk": {
+      "interval": 5,
+      "format": " {percentage_used:2}%",
+      "path": "/"
     },
 
-    "custom/updates": {
-      "format": "{} {icon}",
-      "return-type": "json",
-      "format-icons": {
-          "has-updates": "󱍷",
-          "updated": "󰂪"
-      },
-      "exec-if": "which waybar-module-pacman-updates",
-      "exec": "waybar-module-pacman-updates"
+    "custom/pacman": {
+      "format": "󰮯 {}",
+      "interval": 3600,                     // every hour
+      "exec": "python ~/.config/waybar/scripts/check_updates.py -a pacman",
+      "exec-if": "exit 0",                  // always run; consider advanced run conditions
+      "on-click": "kitty -e sudo pacman -Syu",
+      "signal": 8
   },
 
-    "keyboard-state": {
-      "numlock": true,
-      "capslock": true,
-      "format": "{name} {icon}",
-      "format-icons": {
-          "locked": "🔒",
-          "unlocked": "🔓"
-      }
+    "custom/yay": {
+      "format": " {}",
+      "interval": 3600,                     // every hour
+      "exec": "python ~/.config/waybar/scripts/check_updates.py -a yay",
+      "exec-if": "exit 0",                  // always run; consider advanced run conditions
+      "on-click": "kitty -e yay -Syu",
+      "signal": 8
+  },
+
+  "custom/pikaur": {
+    "format": " {}",
+    "interval": 3600,                     // every hour
+    "exec": "python ~/.config/waybar/scripts/check_updates.py -a pikaur",
+    "exec-if": "exit 0",                  // always run; consider advanced run conditions
+    "on-click": "kitty -e pikaur -Syu",
+    "signal": 8
+  },
+
+  "temperature": {
+    "interval": 10,
+    "critical-threshold": 80,
+    "format": "{icon} {temperatureC}°C",
+    "format-icons": ["", "", ""],
+    "tooltip": false,
+  },
+
+  "mpris": {
+    "format": "{player_icon}",
+    "format-paused": "{status_icon}",
+    "player-icons": {
+      "default": "▶",
+      "vlc": "󰕼"
+    },
+    "status-icons": {
+      "paused": "⏸"
+    },
+    "tooltip-format": "{player} ({status}) {dynamic}",
+    "on-click": "play-pause",
+    "on-middle-click": "previous track",
+    "on-right-click": "next track"
+  },
+
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "",
+      "performance": "",
+      "balanced": "",
+      "power-saver": ""
     }
+  },
+
+  "group/menu": {
+    "format": "",
+		"orientation": "inherit",
+    "drawer": {
+      "transition-duration": 500,
+      "transition-left-to-right": false,
+    },
+		"modules": [
+      "custom/menu",
+			"custom/logout",
+      "custom/reboot",
+      "custom/shutdown",
+		]
+	},
+  
+  "custom/menu": {
+    "format": "",
+    "tooltip": false,
+  },
+
+  "custom/shutdown": {
+    "format": "",
+    "on-click": "systemctl poweroff",
+    "tooltip": false,
+  },
+
+  "custom/reboot": {
+    "format": "",
+    "on-click": "systemctl reboot",
+    "tooltip": false,
+  },
+
+  "custom/logout": {
+    "format": "󰍃",
+    "on-click": "loginctl terminate-user $USER",
+    "tooltip": false,
+  },
+
 }
