@@ -17,7 +17,7 @@ rofi_search_input = sp.run(
 rofi_search = rofi_search_input.stdout
 
 search_url = rofi_search[:2]
-search = rofi_search[1:].strip().replace(" ", "+")
+search = rofi_search[2:].strip().replace(" ", "+")
 if search_url in search_urls.keys():
     sp.run(f"""xdg-open {search_urls[search_url]}{search}""", shell=True, check=False)
 else:
