@@ -71,7 +71,7 @@ yay --needed --noconfirm -S smile
 #-----#
 # VPN #
 #-----#
-yay --needed --noconfirm -S protonvpn
+# yay --needed --noconfirm -S protonvpn
 
 #------------#
 # Encryption #
