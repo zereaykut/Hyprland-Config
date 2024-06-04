@@ -162,11 +162,38 @@ with open(f"/home/{user}/.config/qt6ct/qt6ct.conf", "w", encoding="UTF-8") as fi
 print("qt6ct Completed")
 
 #%% GTK Theme/Icon
+# gsetings
 sp.run(f"""gsettings set org.gnome.desktop.interface cursor-theme '{cursor_theme}'""", shell=True,)
 sp.run("""gsettings set org.gnome.desktop.interface cursor-size 24""", shell=True,)
 sp.run(f"""gsettings set org.gnome.desktop.interface icon-theme '{icon_theme}'""", shell=True,)
 sp.run(f"""gsettings set org.gnome.desktop.interface gtk-theme '{gtk_theme}'""", shell=True,)
 sp.run(f"""gsettings set org.gnome.desktop.interface color-scheme '{color_scheme}'""", shell=True,)
+print("gsettings Completed")
+
+# gtk-2.0
+with open(f"/home/{user}/.gtkrc-2.0", "r", encoding="UTF-8") as file:
+    data = file.readlines()
+# replace specific lines
+data[4] = f"""gtk-theme-name="{gtk_theme}"\n"""
+data[5] = f"""gtk-icon-theme-name="{icon_theme}"\n"""
+data[7] = f"""gtk-cursor-theme-name="{cursor_theme}"\n"""
+
+with open(f"/home/{user}/.gtkrc-2.0", "w", encoding="UTF-8") as file:
+    file.writelines(data)
+print("gtk-2.0 Completed")
+
+# gtk-3.0
+with open(f"/home/{user}/.config/gtk-3.0/settings.ini", "r", encoding="UTF-8") as file:
+    data = file.readlines()
+# replace specific lines
+data[1] = f"gtk-theme-name={gtk_theme}\n"
+data[2] = f"gtk-icon-theme-name={icon_theme}\n"
+data[4] = f"gtk-cursor-theme-name={cursor_theme}\n"
+
+with open(f"/home/{user}/.config/gtk-3.0/settings.ini", "w", encoding="UTF-8") as file:
+    file.writelines(data)
+print("gtk-3.0 Completed")
+
 print("GTK Theme/Icon Completed")
 
 #%% Rofi Theme
