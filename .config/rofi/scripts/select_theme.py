@@ -194,6 +194,17 @@ with open(f"/home/{user}/.config/gtk-3.0/settings.ini", "w", encoding="UTF-8") a
     file.writelines(data)
 print("gtk-3.0 Completed")
 
+# .icons/default
+with open(f"/home/{user}/.icons/default/index.theme", "r", encoding="UTF-8") as file:
+    data = file.readlines()
+# replace specific lines
+# data[3] = f"Comment={cursor_theme}\n"
+data[4] = f"Inherits={cursor_theme}\n"
+
+with open(f"/home/{user}/.icons/default/index.theme", "w", encoding="UTF-8") as file:
+    file.writelines(data)
+print(".icons/default Completed")
+
 print("GTK Theme/Icon Completed")
 
 #%% Rofi Theme
