@@ -96,9 +96,14 @@ sudo pacman --needed --noconfirm -S fzf       # Fuzzy finder
 sudo pacman --needed --noconfirm -S neovim 
 sudo pacman --needed --noconfirm -S npm
 sudo pacman --needed --noconfirm -S unzip
+
+#-----------------#
+# Hyprland Plugin #
+#-----------------#
 sudo pacman --needed --noconfirm -S meson
 sudo pacman --needed --noconfirm -S cmake
 sudo pacman --needed --noconfirm -S cpio
+sudo pacman --needed --noconfirm -S hyprwayland-scanner
 
 #------#
 # Apps #
