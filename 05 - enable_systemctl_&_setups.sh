@@ -38,3 +38,8 @@ sudo usermod -aG video $(whoami)
 # Change Shell #
 #--------------#
 chsh -s $(which fish)
+
+#----------------------#
+# Add Hyprland Plugins #
+#----------------------#
+hyprpm add https://github.com/hyprwm/hyprland-plugins
