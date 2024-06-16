@@ -149,6 +149,7 @@ sudo pacman --needed --noconfirm -S pacman-contrib
 #-------#
 # Power #
 #-------#
+sudo pacman --needed --noconfirm -S upower
 
 #-----#
 # VPN #
