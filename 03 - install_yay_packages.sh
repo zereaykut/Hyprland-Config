@@ -4,10 +4,10 @@
 # Apps #
 #------#
 yay --needed --noconfirm -S vscodium-bin
-#yay --needed --noconfirm -S pycharm-community-edition
+yay --needed --noconfirm -S pycharm-community-edition
 yay --needed --noconfirm -S brave-bin
-yay --needed --noconfirm -S librewolf-bin
-#yay --needed --noconfirm -S zoom
+# yay --needed --noconfirm -S librewolf-bin
+# yay --needed --noconfirm -S zoom
 
 #-----#
 # AUR #
