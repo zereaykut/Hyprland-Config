@@ -24,7 +24,6 @@ sudo systemctl enable firewalld.service
 # Create Folders #
 #----------------#
 mkdir ~/.themes ~/.icons ~/Projects ~/Documents ~/Downloads ~/Videos
-mkdir -p ~/.cache/swww
 mkdir -p ~/Pictures/Screenshots
 mkdir -p ~/Torrent/{torrents,torrent_files,finished_torrents/{Movie,TV,Music,TT},finished_torrent_files,watched_torrent_files}
 
