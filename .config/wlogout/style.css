@@ -25,11 +25,12 @@ button {
     margin: 10px;
 }
 
-button:focus {
+/* button:focus {
     box-shadow: none;
     background-size : 20%;
-}
+} */
 
+button:focus,
 button:hover,
 button:active {
     background-size: 50%;
@@ -42,6 +43,7 @@ button:active {
 #shutdown {
     background-image: image(url("./icons/power.png"));
 }
+#shutdown:focus,
 #shutdown:hover,
 #shutdown:active {
   background-image: image(url("./icons/power-hover.png"));
@@ -51,6 +53,7 @@ button:active {
     background-image: image(url("./icons/logout.png"));
 
 }
+#logout:focus,
 #logout:hover,
 #logout:active {
   background-image: image(url("./icons/logout-hover.png"));
@@ -59,6 +62,7 @@ button:active {
 #reboot {
     background-image: image(url("./icons/restart.png"));
 }
+#reboot:focus,
 #reboot:hover,
 #reboot:active {
   background-image: image(url("./icons/restart-hover.png"));
@@ -67,6 +71,7 @@ button:active {
 #lock {
     background-image: image(url("./icons/lock.png"));
 }
+#lock:focus,
 #lock:hover,
 #lock:active {
   background-image: image(url("./icons/lock-hover.png"));
@@ -75,6 +80,7 @@ button:active {
 #hibernate {
     background-image: image(url("./icons/hibernate.png"));
 }
+#hibernate:focus,
 #hibernate:hover,
 #hibernate:active {
   background-image: image(url("./icons/hibernate-hover.png"));
@@ -83,6 +89,7 @@ button:active {
 #suspend {
   background-image: image(url("./icons/sleep.png"));
 }
+#suspend:focus,
 #suspend:hover,
 #suspend:active {
 background-image: image(url("./icons/sleep-hover.png"));
