@@ -100,10 +100,10 @@ sudo pacman --needed --noconfirm -S unzip
 #-----------------#
 # Hyprland Plugin #
 #-----------------#
-# sudo pacman --needed --noconfirm -S meson
-# sudo pacman --needed --noconfirm -S cmake
-# sudo pacman --needed --noconfirm -S cpio
-# sudo pacman --needed --noconfirm -S hyprwayland-scanner
+sudo pacman --needed --noconfirm -S meson
+sudo pacman --needed --noconfirm -S cmake
+sudo pacman --needed --noconfirm -S cpio
+sudo pacman --needed --noconfirm -S hyprwayland-scanner
 
 #------#
 # Apps #
