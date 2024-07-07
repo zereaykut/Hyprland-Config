@@ -43,6 +43,9 @@ alias jp='jupyter lab'                # run jupyter lab
 if status is-interactive
     # Commands to run in interactive sessions can go here
     
+    # pyenv 
+    pyenv init - | source
+
     # Search terminal history (Ctrl + R)
     atuin init fish | source
     
@@ -50,7 +53,7 @@ if status is-interactive
     zoxide init fish | source
 
     # Startup termşnal with a gif
-	  kitty +kitten icat $HOME/.config/kitty/gifs/pochita.gif
+	kitty +kitten icat $HOME/.config/kitty/gifs/pochita.gif
     
     # Starship
     starship init fish | source
