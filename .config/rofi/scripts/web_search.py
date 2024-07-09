@@ -8,9 +8,11 @@ search_urls = {
     "ww": "https://en.wikipedia.org/w/index.php?search=",
     "pp": "https://docs.python.org/3/search.html?q=",
     "gg": "https://www.google.com/search?q=",
+    "yu": "https://www.youtube.com/results?search_query=",
+    "yt": "https://yts.mx/browse-movies/"
 }
 
-# Send created string to rof and get selected rofi output
+# Send created string to rofi and get selected rofi output
 rofi_search_input = sp.run(
     """rofi -dmenu""", shell=True, capture_output=True, text=True, check=False
 )
