@@ -1,26 +1,37 @@
 #!/usr/bin/python
 import subprocess as sp
 
-power_profiles_info = {
-    "Performance": "performance",
-    "Balanced": "balanced",
-    "Power-Saver": "power-saver"
-    }
 
-# Power profile options for powerprofilesctl
-power_profiles = "\n".join(list(power_profiles_info.keys()))
+class PowerProfileManager:
+    def __init__(self):
+        self.power_profiles_info = {
+            "Performance": "performance",
+            "Balanced": "balanced",
+            "Power-Saver": "power-saver"
+        }
+        self.power_profiles = "\n".join(list(self.power_profiles_info.keys()))
 
-# Send created string to rofi and get selected rofi output
-rofi_select = sp.run(
-    f"""echo "{power_profiles}" | rofi -dmenu -matching normal -i""",
-    shell=True,
-    capture_output=True,
-    text=True,
-)
+    def get_rofi_selection(self):
+        rofi_select = sp.run(
+            f"""echo "{self.power_profiles}" | rofi -dmenu -matching normal -i""",
+            shell=True,
+            capture_output=True,
+            text=True,
+        )
+        return rofi_select.stdout.strip()
 
-rofi_selected = rofi_select.stdout.strip()
+    def set_power_profile(self, profile_name):
+        power_profile = self.power_profiles_info.get(profile_name)
+        if power_profile:
+            sp.run(f"""powerprofilesctl set {power_profile}""", shell=True)
+        else:
+            print(f"Invalid profile selected: {profile_name}")
 
-power_profile = power_profiles_info[rofi_selected]
+    def run(self):
+        selected_profile = self.get_rofi_selection()
+        self.set_power_profile(selected_profile)
 
-# Address hyprland client focus to that adderess(address of the rofi selected window)
-sp.run(f"""powerprofilesctl set {power_profile}""", shell=True)
+
+if __name__ == "__main__":
+    manager = PowerProfileManager()
+    manager.run()

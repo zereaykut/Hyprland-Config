@@ -2,46 +2,59 @@
 import json
 import subprocess as sp
 
-# Get hyprland client infos as text and load as json(dictionary)
-windows = sp.run("hyprctl clients -j", shell=True, capture_output=True, text=True)
-windows = json.loads(windows.stdout)
 
-# Create a string, that has windows infos, to send rofi
+class HyprlandClient:
+    def __init__(self):
+        self.windows = self.get_windows_info()
+        self.rofi_list = self.preprocess_data()
 
-# Data Preprocess
-rofi_list = []
-for window in windows:
-    # Add if class name is not empty
-    if window["class"] != "":
-        ws_ = window["workspace"]["name"]
-        class_ = window["class"]
-        # fix class (example: org.kde.dolphin)
-        if class_[:3] == "org":
-            class_ = class_.split(".")[-1]
+    def get_windows_info(self):
+        windows = sp.run("hyprctl clients -j", shell=True, capture_output=True, text=True)
+        return json.loads(windows.stdout)
 
-        title_ = window["title"]
-        address_ = window["address"]
-        rofi_list.append(
-            {"ws": ws_, "class": class_, "title": title_, "address": address_}
+    def preprocess_data(self):
+        rofi_list = []
+        for window in self.windows:
+            if window["class"]:
+                ws_ = window["workspace"]["name"]
+                class_ = window["class"]
+                if class_.startswith("org"):
+                    class_ = class_.split(".")[-1]
+                title_ = window["title"]
+                address_ = window["address"]
+                rofi_list.append(
+                    {"ws": ws_, "class": class_, "title": title_, "address": address_}
+                )
+        return sorted(rofi_list, key=lambda x: x["ws"])
+
+    def create_rofi_output(self):
+        rofi_output = ""
+        for window in self.rofi_list:
+            entry = f"ws {window.get('ws')} | {window.get('class')} <> {window.get('title')}   || {window.get('address')}"
+            if not rofi_output:
+                rofi_output = entry
+            else:
+                rofi_output = f"{rofi_output}\n{entry}"
+        return rofi_output
+
+    def get_rofi_selection(self, rofi_output):
+        rofi_select = sp.run(
+            f"""echo "{rofi_output}" | rofi -dmenu -matching normal -i""",
+            shell=True,
+            capture_output=True,
+            text=True,
         )
-# sort outputs according to workspace
-rofi_list = sorted(rofi_list, key=lambda x: x["ws"])
+        return rofi_select.stdout.split("||")[-1].strip()
 
-rofi_output = ""
-for window in rofi_list:
-    if rofi_output == "":
-        rofi_output = f"""ws {window.get("ws")} | {window.get("class")} <> {window.get("title")}   || {window.get("address")}"""
-    else:
-        rofi_output = f"""{rofi_output}\nws {window.get("ws")} | {window.get("class")} <> {window.get("title")}   || {window.get("address")}"""
+    def focus_window(self, address):
+        sp.run(f"""hyprctl dispatch focuswindow address:{address}""", shell=True)
 
-# Send created string to rofi and get selected rofi output
-rofi_select = sp.run(
-    f"""echo "{rofi_output}" | rofi -dmenu -matching normal -i""",
-    shell=True,
-    capture_output=True,
-    text=True,
-)
-rofi_select_address = rofi_select.stdout.split("||")[-1].strip()
+    def run(self):
+        rofi_output = self.create_rofi_output()
+        selected_address = self.get_rofi_selection(rofi_output)
+        self.focus_window(selected_address)
 
-# Address hyprland client focus to that adderess(address of the rofi selected window)
-sp.run(f"""hyprctl dispatch focuswindow address:{rofi_select_address}""", shell=True)
+
+if __name__ == "__main__":
+    client = HyprlandClient()
+    client.run()
