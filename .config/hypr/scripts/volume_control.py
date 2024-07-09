@@ -1,3 +1,4 @@
+#!/usr/bin/python
 import argparse
 import subprocess as sp
 import sys
