@@ -7,7 +7,7 @@ tar -xzvf .themes/Gtk_CatppuccinLatte.tar.gz -C ~/.themes
 tar -xzvf .themes/Gtk_CatppuccinMocha.tar.gz -C ~/.themes
 tar -xzvf .themes/Gtk_CyberpunkEdge.tar.gz -C ~/.themes
 tar -xzvf .themes/Gtk_DecayGreen.tar.gz -C ~/.themes
-tar -xzvf .themes/Gtk_Dracula.tar.gz -C ~/.themes
+tar -xzvf .themes/Gtk_Dracula.tar.xz -C ~/.themes
 tar -xzvf .themes/Gtk_FrostedGlass.tar.gz -C ~/.themes
 tar -xzvf .themes/Gtk_GraphiteMono.tar.gz -C ~/.themes
 tar -xzvf .themes/Gtk_GruvboxRetro.tar.gz -C ~/.themes
@@ -21,7 +21,7 @@ sudo tar -xzvf .themes/Gtk_CatppuccinLatte.tar.gz -C /usr/share/themes
 sudo tar -xzvf .themes/Gtk_CatppuccinMocha.tar.gz -C /usr/share/themes
 sudo tar -xzvf .themes/Gtk_CyberpunkEdge.tar.gz -C /usr/share/themes
 sudo tar -xzvf .themes/Gtk_DecayGreen.tar.gz -C /usr/share/themes
-sudo tar -xzvf .themes/Gtk_Dracula.tar.gz -C /usr/share/themes
+sudo tar -xzvf .themes/Gtk_Dracula.tar.xz -C /usr/share/themes
 sudo tar -xzvf .themes/Gtk_FrostedGlass.tar.gz -C /usr/share/themes
 sudo tar -xzvf .themes/Gtk_GraphiteMono.tar.gz -C /usr/share/themes
 sudo tar -xzvf .themes/Gtk_GruvboxRetro.tar.gz -C /usr/share/themes
