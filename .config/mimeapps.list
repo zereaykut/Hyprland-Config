@@ -1,6 +1,7 @@
 [Added Associations]
 application/json=codium-wayland.desktop;
-application/toml=vscodium.desktop;
+application/pdf=org.kde.okular.desktop;
+application/toml=codium-wayland.desktop;vscodium.desktop;
 application/x-extension-htm=firefox.desktop;
 application/x-extension-html=firefox.desktop;
 application/x-extension-shtml=firefox.desktop;
@@ -24,7 +25,8 @@ x-scheme-handler/https=firefox.desktop;
 
 [Default Applications]
 application/json=codium-wayland.desktop;
-application/toml=vscodium.desktop;
+application/pdf=org.kde.okular.desktop;
+application/toml=codium-wayland.desktop;
 application/x-extension-htm=firefox.desktop
 application/x-extension-html=firefox.desktop
 application/x-extension-shtml=firefox.desktop

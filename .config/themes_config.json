@@ -44,6 +44,11 @@
         "color-scheme": "prefer-dark",
         "cursor-theme": "Gruvbox-Retro"
     },
+    "Material-Red": {
+        "icon-theme": "Tela-red",
+        "color-scheme": "prefer-dark",
+        "cursor-theme": "Bibata-Modern-Classic"
+    },
     "Material-Sakura": {
         "icon-theme": "Tela-circle-grey",
         "color-scheme": "prefer-light",
