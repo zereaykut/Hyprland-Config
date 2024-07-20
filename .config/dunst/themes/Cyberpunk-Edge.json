@@ -1,0 +1,10 @@
+{
+    "main-bg": "#000000",
+    "main-fg": "#FFA6C2",
+
+    "wb-act-bg": "#FFA6C2",
+    "wb-act-fg": "#000000",
+
+    "wb-hvr-bg": "#FADA16",
+    "wb-hvr-fg": "#9e9872"
+}
