@@ -1,23 +1,26 @@
 #!/usr/bin/python
 import subprocess as sp
 import sys
+import json
 
 class SearchEngineLauncher:
     def __init__(self):
-        self.search_urls = {
-            "dd": "https://duckduckgo.com/?q=",
-            "bb": "https://search.brave.com/search?q=",
-            "rr": "https://www.reddit.com/search/?q=",
-            "ww": "https://en.wikipedia.org/w/index.php?search=",
-            "pp": "https://docs.python.org/3/search.html?q=",
-            "gg": "https://www.google.com/search?q=",
-            "yu": "https://www.youtube.com/results?search_query=",
-            "yt": "https://yts.mx/browse-movies/"
-        }
+        self.user = sp.run("whoami", shell=True, capture_output=True, text=True).stdout.strip()
+        with open(f"/home/{self.user}/.config/rofi/scripts/web_search.json", "r") as f:
+            self.search_urls = json.load(f)
+
+    def get_available_searches(self):
+        available_searches = ""
+        for key, val in self.search_urls.items():
+            available_searches = f"""{available_searches}{key}: {val["name"]}\n"""
+        available_searches = f"""echo "{available_searches}" """
+        return available_searches
 
     def get_rofi_input(self):
+        available_searches = self.get_available_searches()
+        print(f"""{available_searches} | rofi -dmenu normal""")
         rofi_search_input = sp.run(
-            """rofi -dmenu""", shell=True, capture_output=True, text=True, check=False
+            f"""{available_searches} | rofi -dmenu normal""", shell=True, capture_output=True, text=True, check=False
         )
         return rofi_search_input.stdout
 
@@ -25,7 +28,7 @@ class SearchEngineLauncher:
         search_url_key = search_input[:2]
         search_query = search_input[2:].strip().replace(" ", "+")
         if search_url_key in self.search_urls:
-            sp.run(f"""xdg-open {self.search_urls[search_url_key]}{search_query}""", shell=True, check=False)
+            sp.run(f"""xdg-open {self.search_urls[search_url_key]["url"]}{search_query}""", shell=True, check=False)
         else:
             sys.exit()
 
