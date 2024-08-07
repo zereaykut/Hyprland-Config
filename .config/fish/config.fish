@@ -36,8 +36,8 @@ alias vc='code --disable-gpu'     # gui code editor
 alias pik='pikaur'
 
 # Python
-alias pyev='python -m venv env'       # create python environment named env
-alias pyac='. env/bin/activate.fish'  # activate python environment in fish shell
+alias pyev='python -m venv venv'      # create python environment named env
+alias pyac='. venv/bin/activate.fish'  # activate python environment in fish shell
 alias jp='jupyter lab'                # run jupyter lab
 
 if status is-interactive
