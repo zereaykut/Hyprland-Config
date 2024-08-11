@@ -8,7 +8,7 @@
   border: none;
 }
 
-@import "themes/theme.css";
+@import "theme.css";
 
 window#waybar {
   background-color: transparent;
