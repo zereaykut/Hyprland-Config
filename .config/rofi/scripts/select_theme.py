@@ -109,7 +109,7 @@ class ThemeManager:
             file.writelines(data)
 
     def update_rofi(self, color_config):
-        with open(f"/home/{self.user}/.config/rofi/themes/theme.rasi", "w", encoding="UTF-8") as file:
+        with open(f"/home/{self.user}/.config/rofi/theme.rasi", "w", encoding="UTF-8") as file:
             file.writelines(["""* {\n""",
                             f"""main-bg:            {color_config["main-bg"]};\n""",
                             f"""main-fg:            {color_config["main-fg"]};\n""",
