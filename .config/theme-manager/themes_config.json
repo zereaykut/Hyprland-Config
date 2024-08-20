@@ -1,0 +1,82 @@
+{
+    "Catppuccin-Latte": {
+        "icon-theme": "Tela-Circle-Grey",
+        "color-scheme": "prefer-light",
+        "cursor-theme": "Bibata-Modern-Classic"
+    },
+    "Catppuccin-Mocha": {
+        "icon-theme": "Tela-Circle-Dracula",
+        "color-scheme": "prefer-dark",
+        "cursor-theme": "Bibata-Modern-Classic"
+    },
+    "Cyberpunk-Edge": {
+        "icon-theme": "Tela-Circle-Yellow",
+        "color-scheme": "prefer-dark",
+        "cursor-theme": "Bibata-Modern-Classic"
+    },
+    "Decay-Green": {
+        "icon-theme": "Tela-Circle-Green",
+        "color-scheme": "prefer-dark",
+        "cursor-theme": "Bibata-Modern-Classic"
+    },
+    "Dracula": {
+        "icon-theme": "Tela-Circle-Dracula",
+        "color-scheme": "prefer-dark",
+        "cursor-theme": "Dracula-cursors"
+    },
+    "Frosted-Glass": {
+        "icon-theme": "Tela-Circle-Blue",
+        "color-scheme": "prefer-light",
+        "cursor-theme": "Bibata-Modern-Classic"
+    },
+    "Graphite-Mono": {
+        "icon-theme": "Tela-Circle-Grey",
+        "color-scheme": "prefer-dark",
+        "cursor-theme": "Bibata-Modern-Classic"
+    },
+    "Gruvbox": {
+        "icon-theme": "Gruvbox-Blue",
+        "color-scheme": "prefer-dark",
+        "cursor-theme": "Gruvbox-Cursors"
+    },
+    "Gruvbox-Retro": {
+        "icon-theme": "Gruvbox-Blue",
+        "color-scheme": "prefer-dark",
+        "cursor-theme": "Gruvbox-Cursors"
+    },
+    "Material-Red": {
+        "icon-theme": "Tela-Red",
+        "color-scheme": "prefer-dark",
+        "cursor-theme": "Bibata-Modern-Classic"
+    },
+    "Material-Sakura": {
+        "icon-theme": "Tela-Circle-Grey",
+        "color-scheme": "prefer-light",
+        "cursor-theme": "Bibata-Modern-Classic"
+    },
+    "Nordic-Blue": {
+        "icon-theme": "Nordzy",
+        "color-scheme": "prefer-dark",
+        "cursor-theme": "Bibata-Modern-Classic"
+    },
+    "Rose-Pine": {
+        "icon-theme": "Tela-Circle-Pink",
+        "color-scheme": "prefer-dark",
+        "cursor-theme": "Bibata-Modern-Classic"
+    },
+    "Sweet-Mars": {
+        "icon-theme": "Candy-Icons",
+        "color-scheme": "prefer-dark",
+        "cursor-theme": "Sweet-Cursors"
+    },
+    "Synth-Wave": {
+        "icon-theme": "Beauty-Line",
+        "color-scheme": "prefer-dark",
+        "cursor-theme": "Bibata-Modern-Classic"
+    },
+    "Tokyo-Night": {
+        "icon-theme": "Tela-Circle-Purple",
+        "color-scheme": "prefer-dark",
+        "cursor-theme": "Bibata-Modern-Classic"
+    }
+}
