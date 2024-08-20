@@ -15,7 +15,7 @@ from src.rofi import rofi
 from src.swww import swww
 from src.waybar import waybar
 from src.wlogout import wlogout
-from src.notification_icons import mic_unmuted, mic_muted, speaker_unmuted, speaker_muted, lock_unlocked, lock_locked, wifi_enabled, wifi_disabled, vol_icons
+from src.notification_icons import mic_unmuted, mic_muted, speaker_unmuted, speaker_muted, lock_unlocked, lock_locked, wifi_enabled, wifi_disabled, palette, vol_icons
 
 class ThemeManager:
     def __init__(self):
@@ -66,6 +66,7 @@ class ThemeManager:
         lock_locked(color_config, self.user)
         wifi_enabled(color_config, self.user)
         wifi_disabled(color_config, self.user)
+        palette(color_config, self.user)
         vol_icons(color_config, self.user)
         dunstrc(color_config, self.user)
 
