@@ -28,6 +28,11 @@ sudo pacman --needed --noconfirm -S qt5-wayland
 sudo pacman --needed --noconfirm -S qt6-wayland
 sudo pacman --needed --noconfirm -S archlinux-xdg-menu           # for mimeapps.list to show on dolphin
 
+#------------#
+# Screenlock #
+#------------#
+sudo pacman --needed --noconfirm -S hyprlock
+
 #----------------------#
 # Authentication Agent #
 #----------------------#
