@@ -7,6 +7,7 @@ from src.btop import btop
 from src.dunstrc import dunstrc
 from src.gtk import gtk2, gtk3, gsettings, default_icons
 from src.hyprland import hyprland
+from src.hyprlock import hyprlock
 from src.kitty import kitty
 from src.kvantum import kvantum
 from src.nwg_icons import nwg_icons
@@ -47,6 +48,7 @@ class ThemeManager:
         wallpaper, color_config = self.rofi_select_wallpaper(theme)
         swww(wallpaper, self.user)
         hyprland(config_theme, color_config, theme, self.user)
+        hyprlock(theme, self.user)
         kvantum(theme, self.user)
         qt5ct(config_theme, theme, self.user)
         qt6ct(config_theme, theme, self.user)
