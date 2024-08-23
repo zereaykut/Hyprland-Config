@@ -202,6 +202,11 @@ sudo pacman --needed --noconfirm -S fisher
 #------------------#
 sudo pacman --needed --noconfirm -S docker
 
+#-----------------#
+# Install Flatpak #
+#-----------------#
+sudo pacman --needed --noconfirm -S flatpak
+
 #--------#
 # Gaming #
 #--------#
