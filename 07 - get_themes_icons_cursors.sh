@@ -19,6 +19,7 @@ tar -xzvf .theme/Rose-Pine.tar.gz -C ~/.themes
 tar -xzvf .theme/Sweet-Mars.tar.gz -C ~/.themes
 tar -xzvf .theme/Synth-Wave.tar.gz -C ~/.themes
 tar -xzvf .theme/Tokyo-Night.tar.gz -C ~/.themes
+tar -xzvf .theme/Windows-11.tar.gz -C ~/.themes
 
 
 sudo tar -xzvf .theme/Catppuccin-Latte.tar.gz -C /usr/share/themes
@@ -37,6 +38,7 @@ sudo tar -xzvf .theme/Rose-Pine.tar.gz -C /usr/share/themes
 sudo tar -xzvf .theme/Sweet-Mars.tar.gz -C /usr/share/themes
 sudo tar -xzvf .theme/Synth-Wave.tar.gz -C /usr/share/themes
 sudo tar -xzvf .theme/Tokyo-Night.tar.gz -C /usr/share/themes
+sudo tar -xzvf .theme/Windows-11.tar.gz -C /usr/share/themes
 
 #----------------------#
 # Icon & Cursor Themes #
@@ -59,6 +61,7 @@ tar -xzvf .icons/Tela-Circle-Pink.tar.gz -C ~/.icons
 tar -xzvf .icons/Tela-Circle-Purple.tar.gz -C ~/.icons
 tar -xzvf .icons/Tela-Circle-Yellow.tar.gz -C ~/.icons
 tar -xzvf .icons/Tela-Red.tar.gz -C ~/.icons
+tar -xzvf .icons/Windows-11.tar.gz -C ~/.icons
 
 sudo tar -xzvf .icons/Beauty-Line.tar.gz -C /usr/share/icons
 sudo tar -xzvf .icons/Bibata-Modern-Classic.tar.gz -C /usr/share/icons
@@ -78,3 +81,4 @@ sudo tar -xzvf .icons/Tela-Circle-Pink.tar.gz -C /usr/share/icons
 sudo tar -xzvf .icons/Tela-Circle-Purple.tar.gz -C /usr/share/icons
 sudo tar -xzvf .icons/Tela-Circle-Yellow.tar.gz -C /usr/share/icons
 sudo tar -xzvf .icons/Tela-Red.tar.gz -C /usr/share/icons
+sudo tar -xzvf .icons/Windows-11.tar.gz -C /usr/share/icons
