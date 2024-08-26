@@ -28,8 +28,10 @@ class ThemeManager:
             return json.load(f)
 
     def rofi_select_theme(self):
-        rofi_output = "\n".join(self.config.keys())
-        rofi_select = sp.run(f"""echo "{rofi_output}" | rofi -dmenu -matching normal -i""", shell=True, capture_output=True, text=True)
+        themes = os.listdir(f"""/home/{self.user}/.config/wallpapers/Lock-Screen""")
+        rofi_output = [f"""{wall.split(".")[0]}\\0icon\\x1f/home/{self.user}/.config/wallpapers/Lock-Screen/{wall}""" for wall in themes]
+        rofi_output = "\n".join(rofi_output)
+        rofi_select = sp.run(f"""echo -en "{rofi_output}" | rofi -dmenu -matching normal -i -theme ~/.config/rofi/theme_select.rasi""", shell=True, capture_output=True, text=True)
         rofi_selected = rofi_select.stdout.strip()
         return self.config[rofi_selected], rofi_selected
 
