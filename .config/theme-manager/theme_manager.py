@@ -35,8 +35,9 @@ class ThemeManager:
 
     def rofi_select_wallpaper(self, theme):
         wallpapers = os.listdir(f"""/home/{self.user}/.config/wallpapers/{theme}""")
-        rofi_output = "\n".join(wallpapers)
-        rofi_select = sp.run(f"""echo "{rofi_output}" | rofi -dmenu -matching normal -i""", shell=True, capture_output=True, text=True)
+        rofi_output = [f"""{wall}\\0icon\\x1f/home/{self.user}/.config/wallpapers/{theme}/{wall}""" for wall in wallpapers]
+        rofi_output = "\n".join(rofi_output)
+        rofi_select = sp.run(f"""echo -en "{rofi_output}" | rofi -dmenu -matching normal -i -theme ~/.config/rofi/wallpaper_select.rasi""", shell=True, capture_output=True, text=True)
         wallpaper = rofi_select.stdout.strip()
         color_scheme = wallpaper.replace(".png", "").replace(".jpg", "")
         with open(f"/home/{self.user}/.cache/color_schemes/{theme}/{color_scheme}.json", "r") as f:
