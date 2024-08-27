@@ -14,7 +14,7 @@ def hyprland(config, color_config, theme, user):
         f"exec-once = gsettings set org.gnome.desktop.interface gtk-theme '{theme}'",
         "exec-once = gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'",
         f"source = ~/.config/hypr/themes/{theme}.conf",
-        "        general {",
+        "general {",
         f"""    col.active_border = rgba({color_config["wb-hvr-bg"].replace("#", "")}ff) rgba({color_config["main-fg"].replace("#", "")}ff) 45deg""",
         f"""    col.inactive_border = rgba({color_config["main-bg"].replace("#", "")}ff) rgba({color_config["wb-hvr-fg"].replace("#", "")}ff) 45deg""",
         "}",
