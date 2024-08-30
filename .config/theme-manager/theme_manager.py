@@ -11,7 +11,8 @@ from src.hyprlock import hyprlock
 from src.kitty import kitty
 from src.kvantum import kvantum
 from src.nwg_icons import nwg_icons
-from src.qt import qt5ct, qt6ct, kdeglobals
+from src.qt import qt5ct, qt6ct
+from src.kdeglobals import kdeglobals
 from src.rofi import rofi
 from src.swww import swww
 from src.waybar import waybar
