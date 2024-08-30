@@ -100,8 +100,8 @@ sudo pacman --needed --noconfirm -S fzf       # Fuzzy finder
 # Helix #
 # ------#
 sudo pacman --needed --noconfirm -S helix
-# sudo pacman --needed --noconfirm -S npm
-# sudo pacman --needed --noconfirm -S unzip
+sudo pacman --needed --noconfirm -S npm
+sudo pacman --needed --noconfirm -S unzip
 
 #-----------------#
 # Hyprland Plugin #
