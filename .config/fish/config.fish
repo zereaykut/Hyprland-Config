@@ -2,6 +2,7 @@ set fish_greeting ""
 
 # 
 alias cc='clear'
+alias hl='helix'
 alias nv='nvim'
 
 # Eza
