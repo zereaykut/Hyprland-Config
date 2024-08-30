@@ -11,7 +11,7 @@ from src.hyprlock import hyprlock
 from src.kitty import kitty
 from src.kvantum import kvantum
 from src.nwg_icons import nwg_icons
-from src.qt import qt5ct, qt6ct
+from src.qt import qt5ct, qt6ct, kdeglobals
 from src.rofi import rofi
 from src.swww import swww
 from src.waybar import waybar
@@ -57,6 +57,7 @@ class ThemeManager:
         kvantum(theme, self.user)
         qt5ct(config_theme, theme, self.user)
         qt6ct(config_theme, theme, self.user)
+        kdeglobals(config_theme, self.user)
         gsettings(config_theme, theme, self.user)
         gtk2(config_theme, theme, self.user)
         gtk3(config_theme, theme, self.user)
