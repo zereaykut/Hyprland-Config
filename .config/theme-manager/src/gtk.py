@@ -20,6 +20,7 @@ def gtk2(config, theme, user):
         """gtk-xft-hintstyle="hintslight" """,
         """gtk-xft-rgba="rgb" """,
     ]
+    
     with open(f"/home/{user}/.gtkrc-2.0", "w", encoding="UTF-8") as file:
         file.writelines("\n".join(gtk2_config))
 
@@ -43,6 +44,7 @@ def gtk3(config, theme, user):
         "gtk-xft-rgba=rgb",
         "gtk-application-prefer-dark-theme=1"
     ]
+
     with open(f"/home/{user}/.config/gtk-3.0/settings.ini", "w", encoding="UTF-8") as file:
         file.writelines("\n".join(gtk3_config))
 
@@ -68,6 +70,7 @@ def default_icons(config, user):
         """Comment=Default Cursor Theme""",
         f"""Inherits={config["cursor-theme"]}"""
     ]
+
     with open(f"/home/{user}/.icons/default/index.theme", "w", encoding="UTF-8") as file:
         file.writelines("\n".join(def_icons_config))
 
