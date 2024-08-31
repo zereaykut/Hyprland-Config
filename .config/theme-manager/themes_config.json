@@ -78,5 +78,10 @@
         "icon-theme": "Tela-Circle-Purple",
         "color-scheme": "prefer-dark",
         "cursor-theme": "Bibata-Modern-Classic"
+    },
+    "Windows-11": {
+        "icon-theme": "Windows-11",
+        "color-scheme": "prefer-dark",
+        "cursor-theme": "Sweet-Cursors"
     }
 }
