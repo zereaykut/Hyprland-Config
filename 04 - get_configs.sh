@@ -14,8 +14,8 @@ sudo mv move/pacman/pacman.conf /etc/.
 # Login #
 #-------#
 sudo mv move/sddm/sddm.conf /etc/.
-sudo mv move/sddm/Ghost.png /usr/share/sddm/themes/sugar-candy/Backgrounds/.
-sudo mv move/sddm/theme.conf /usr/share/sddm/themes/sugar-candy/.
+sudo mkdir /usr/share/sddm/themes/Simple-SDDM
+sudo cp -rf move/sddm/Simple-SDDM/* /usr/share/sddm/themes/Simple-SDDM/
 
 #------#
 # Grub #
