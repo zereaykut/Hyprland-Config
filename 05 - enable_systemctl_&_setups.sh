@@ -20,6 +20,13 @@ systemctl enable --user pipewire-pulse.service
 #----------#
 sudo systemctl enable firewalld.service
 
+
+#---------#
+# Flatpak #
+#---------#
+sudo flatpak override --filesystem=$HOME/.themes
+sudo flatpak override --filesystem=$HOME/.icons
+
 #----------------#
 # Create Folders #
 #----------------#
