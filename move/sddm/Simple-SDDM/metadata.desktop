@@ -1,0 +1,15 @@
+[SddmGreeterTheme]
+Name=Simple-SDDM
+Description=Simple-SDDM
+Author=keyitdev
+License=GPL-3.0-or-later
+Type=sddm-theme
+Version=1.0
+Website=https://github.com/Keyitdev/sddm-astronaut-theme
+Screenshot=Previews/preview.png
+MainScript=Main.qml
+ConfigFile=theme.conf
+TranslationsDirectory=translations
+Theme-Id=Simple-SDDM
+Theme-API=2.0
+QtVersion=6
