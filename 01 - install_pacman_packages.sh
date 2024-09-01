@@ -140,7 +140,6 @@ sudo pacman --needed --noconfirm -S kde-cli-tools
 sudo pacman --needed --noconfirm -S kdegraphics-thumbnailers
 sudo pacman --needed --noconfirm -S ffmpegthumbs
 sudo pacman --needed --noconfirm -S archlinux-xdg-menu           # for mimeapps.list to show on dolphin
-sudo pacman --needed --noconfirm -S udiskie
 
 #----------#
 # Clipoard #
