@@ -1,6 +1,5 @@
 #!/usr/bin/python
 import os
-import subprocess as sp
 import json
 
 from src.sddm import sddm
@@ -11,11 +10,11 @@ class ThemeManagerSDDM(ThemeManager):
         super().__init__()
     
     def apply_theme(self):
+        cursor_size = 24
         config_theme, theme = self.rofi_select_theme()
         with open(f"/home/{self.user}/.cache/color_schemes/Lock-Screen/{theme}.json", "r") as f:
             color_config = json.load(f)
-        sddm(config_theme, color_config, theme, self.user, screen_width=1920, screen_height=1080)
-        sp.run(f"bash /home/{self.user}/.config/theme-manager/run/sddm.sh", shell=True)
+        sddm(config_theme, color_config, theme, cursor_size, self.user, screen_width=1920, screen_height=1080)
 
 
 if __name__ == "__main__":
