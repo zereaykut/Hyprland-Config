@@ -1,19 +1,15 @@
 #!/usr/bin/python
 
 def rofi(color_config, user):
-    rofi_theme = [
-        """* {""",
-        f"""    main-bg:            {color_config["main-bg"]};""",
-        f"""    main-fg:            {color_config["main-fg"]};""",
-        f"""    main-br:            {color_config["wb-hvr-bg"]};""",
-        f"""    main-ex:            {color_config["wb-act-bg"]};""",
-        f"""    select-bg:          {color_config["wb-act-bg"]};""",
-        f"""    select-fg:          {color_config["wb-hvr-fg"]};""",
-         """    separatorcolor:     transparent;""",
-         """    border-color:       transparent;""",
-        "}"
-        ]
+    with open(f"/home/{user}/.config/theme-manager/conf/rofi.rasi", "r", encoding="UTF-8") as f:
+        rofi_theme = f.read()
+    
+    rofi_theme = rofi_theme.replace("""{{main-bg}}""", color_config["main-bg"])
+    rofi_theme = rofi_theme.replace("""{{main-fg}}""", color_config["main-fg"])
+    rofi_theme = rofi_theme.replace("""{{wb-hvr-bg}}""", color_config["wb-hvr-bg"])
+    rofi_theme = rofi_theme.replace("""{{wb-act-bg}}""", color_config["wb-act-bg"])
+    rofi_theme = rofi_theme.replace("""{{wb-hvr-fg}}""", color_config["wb-hvr-fg"])
 
     with open(f"/home/{user}/.config/rofi/theme.rasi", "w", encoding="UTF-8") as file:
-        file.writelines("\n".join(rofi_theme))
+        file.write(rofi_theme)
 

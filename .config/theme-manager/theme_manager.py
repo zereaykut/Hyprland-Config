@@ -10,14 +10,13 @@ from src.hyprland import hyprland
 from src.hyprlock import hyprlock
 from src.kitty import kitty
 from src.kvantum import kvantum
-from src.nwg_icons import nwg_icons
 from src.qt import qt5ct, qt6ct
 from src.kdeglobals import kdeglobals
 from src.rofi import rofi
 from src.swww import swww
 from src.waybar import waybar
 from src.wlogout import wlogout
-from src.notification_icons import mic_unmuted, mic_muted, speaker_unmuted, speaker_muted, lock_unlocked, lock_locked, wifi_enabled, wifi_disabled, palette, vol_icons
+from src.notification_icons import status_icons, vol_icons
 
 class ThemeManager:
     def __init__(self):
@@ -50,32 +49,25 @@ class ThemeManager:
         return f"/home/{self.user}/.config/wallpapers/{theme}/{wallpaper}", color_config
 
     def apply_theme(self):
+        cursor_size= 24
         config_theme, theme = self.rofi_select_theme()
         wallpaper, color_config = self.rofi_select_wallpaper(theme)
         swww(wallpaper, self.user)
-        hyprland(config_theme, color_config, theme, self.user)
+        hyprland(config_theme, color_config, theme, cursor_size, self.user)
         hyprlock(theme, self.user)
         kvantum(theme, self.user)
         qt5ct(config_theme, theme, self.user)
         qt6ct(config_theme, theme, self.user)
         kdeglobals(config_theme, self.user)
         gsettings(config_theme, theme, self.user)
-        gtk2(config_theme, theme, self.user)
-        gtk3(config_theme, theme, self.user)
+        gtk2(config_theme, theme, cursor_size, self.user)
+        gtk3(config_theme, theme, cursor_size, self.user)
         rofi(color_config, self.user)
         kitty(theme, self.user)
         waybar(color_config, self.user)
         wlogout(color_config, self.user)
         btop(theme, self.user)
-        mic_unmuted(color_config, self.user)
-        mic_muted(color_config, self.user)
-        speaker_unmuted(color_config, self.user)
-        speaker_muted(color_config, self.user)
-        lock_unlocked(color_config, self.user)
-        lock_locked(color_config, self.user)
-        wifi_enabled(color_config, self.user)
-        wifi_disabled(color_config, self.user)
-        palette(color_config, self.user)
+        status_icons(color_config, ["mic-unmuted", "mic-muted", "speaker-unmuted", "speaker-muted", "lock-unlocked", "lock-locked", "wifi-disabled", "wifi-enabled", "palette"], self.user)
         vol_icons(color_config, self.user)
         dunstrc(color_config, self.user)
 

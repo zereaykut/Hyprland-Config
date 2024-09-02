@@ -1,0 +1,10 @@
+* {
+    main-bg:            {{main-bg}};
+    main-fg:            {{main-fg}};
+    main-br:            {{wb-hvr-bg}};
+    main-ex:            {{wb-act-bg}};
+    select-bg:          {{wb-act-bg}};
+    select-fg:          {{wb-hvr-fg}};
+    separatorcolor:     transparent;
+    border-color:       transparent;
+}

@@ -2,57 +2,10 @@
 import subprocess as sp
 
 def hyprlock(theme, user):
-    hyprlock_config = [
-        """background {""",
-        """    monitor =""",
-        f"""    path = $HOME/.config/wallpapers/Lock-Screen/{theme}.png   # only png supported for now""",
-        """    color = rgba(25, 20, 20, 1.0)""",
-        """    blur_size = 2""",
-        """    blur_passes = 2""",
-        """}""",
-        """\n""",
-        """input-field {""",
-        """    monitor =""",
-        """    size = 200, 50""",
-        """    outline_thickness = 3""",
-        """    dots_size = 0.33 # Scale of input-field height, 0.2 - 0.8""",
-        """    dots_spacing = 0.15 # Scale of dots' absolute size, 0.0 - 1.0""",
-        """    dots_center = true""",
-        """    outer_color = rgb(151515)""",
-        """    inner_color = rgb(200, 200, 200)""",
-        """    font_color = rgb(10, 10, 10)""",
-        """    fade_on_empty = true""",
-        """    placeholder_text = <i>Input Password...</i> # Text rendered in the input box when it's empty.""",
-        """    hide_input = false""",
-        """    position = 0, -40""",
-        """    halign = center""",
-        """    valign = center""",
-        """}""",
-        """\n""",
-        """# User label""",
-        """label {""",
-        """    monitor =""",
-        """    text = Hello There <span text_transform="capitalize" size="larger">$USER</span>""",
-        """    color = rgba(200, 200, 200, 1.0)""",
-        """    font_size = 30""",
-        """    font_family = JetBrains Mono Nerd Font 10""",
-        """    position = 0, 80""",
-        """    halign = center""",
-        """    valign = center""",
-        """}""",
-        """\n""",
-        """# Current time""",
-        """label {""",
-        """    monitor =""",
-        r"""    text = cmd[update:1000] echo "<b><big> $(date +"%Y-%m-%d  %H:%M:%S") </big></b>""",
-        """    color = rgba(200, 200, 200, 1.0)""",
-        """    font_size = 15""",
-        """    font_family = JetBrains Mono Nerd Font 10""",
-        """    position = 0, 20""",
-        """    halign = center""",
-        """    valign = center""",
-        """}"""
-    ]
+    with open(f"/home/{user}/.config/theme-manager/conf/hyprlock.conf", "r", encoding="UTF-8") as f:
+        hyprlock_config = f.read()
+
+    hyprlock_config = hyprlock_config.replace("""{{theme}}""", theme)
 
     with open(f"/home/{user}/.config/hypr/hyprlock.conf", "w", encoding="UTF-8") as file:
-        file.writelines("\n".join(hyprlock_config))
+        file.write(hyprlock_config)
