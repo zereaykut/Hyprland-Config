@@ -2,7 +2,7 @@
 import subprocess as sp
 
 def sddm(config, color_config, theme, cursor_size, user, screen_width=1920, screen_height=1080):
-    with open(f"/home/{user}/.config/theme-manager/conf/sddm_theme.conf", "r", encoding="UTF-8") as f:
+    with open(f"/home/{user}/.config/theme-manager/conf/sddm_theme_base.conf", "r", encoding="UTF-8") as f:
         sddm_theme = f.read()
     
     sddm_theme = sddm_theme.replace("""{{theme}}""", theme)
@@ -16,7 +16,7 @@ def sddm(config, color_config, theme, cursor_size, user, screen_width=1920, scre
         file.write(sddm_theme)
 
 
-    with open(f"/home/{user}/.config/theme-manager/conf/sddm.conf", "r", encoding="UTF-8") as f:
+    with open(f"/home/{user}/.config/theme-manager/conf/sddm_base.conf", "r", encoding="UTF-8") as f:
         sddm_config = f.read()
 
     sddm_config = sddm_config.replace("""{{cursor-theme}}""", config["cursor-theme"])
