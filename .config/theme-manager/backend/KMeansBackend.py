@@ -12,8 +12,8 @@ class KMeansBackend:
         self.theme = theme
         self.output_name = output_name
         self.image = self.load_image()
-        self.colour_palette = self.extract_colors()
-        self.colour_palette_hex = self.convert_palette_to_hex()
+        self.color_palette = self.extract_colors()
+        self.color_palette_hex = self.convert_palette_to_hex()
 
     def load_image(self):
         image = mpimg.imread(self.image_path)
@@ -27,24 +27,24 @@ class KMeansBackend:
         w, h, d = tuple(self.image.shape)
         pixel = np.reshape(self.image, (w * h, d))
         model = KMeans(n_clusters=6, random_state=42).fit(pixel)
-        colour_palette = np.uint8(model.cluster_centers_)
-        sorted_indices = np.argsort(colour_palette.sum(axis=1))
-        return colour_palette[sorted_indices]
+        color_palette = np.uint8(model.cluster_centers_)
+        sorted_indices = np.argsort(color_palette.sum(axis=1))
+        return color_palette[sorted_indices]
 
     def convert_palette_to_hex(self):
         def rgb_to_hex(rgb):
             return '#{:02x}{:02x}{:02x}'.format(rgb[0], rgb[1], rgb[2])
         
-        return [rgb_to_hex(color)[:7] for color in self.colour_palette]
+        return [rgb_to_hex(color)[:7] for color in self.color_palette]
 
     def save_as_json(self):
         dictionary = {
-            "main-bg": self.colour_palette_hex[0],
-            "main-fg": self.colour_palette_hex[5],
-            "wb-act-bg": self.colour_palette_hex[1],
-            "wb-act-fg": self.colour_palette_hex[4],
-            "wb-hvr-bg": self.colour_palette_hex[2],
-            "wb-hvr-fg": self.colour_palette_hex[3]
+            "main-bg": self.color_palette_hex[0],
+            "main-fg": self.color_palette_hex[5],
+            "wb-act-bg": self.color_palette_hex[1],
+            "wb-act-fg": self.color_palette_hex[4],
+            "wb-hvr-bg": self.color_palette_hex[2],
+            "wb-hvr-fg": self.color_palette_hex[3]
         }
         if not os.path.exists(f"/home/{self.user}/.cache/color_schemes"):
             os.mkdir(f"/home/{self.user}/.cache/color_schemes")
