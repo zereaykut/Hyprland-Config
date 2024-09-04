@@ -72,7 +72,7 @@ def get_images(user):
         images = os.listdir(f"/home/{user}/.config/wallpapers/{theme}")
         for image in images:
             image_path = f"/home/{user}/.config/wallpapers/{theme}/{image}"
-            images_info.append([image_path, theme, image.replace(".png", "").replace(".jpg", "")])
+            images_info.append([image_path, theme, image.replace(".png", "").replace(".jpg", "").replace(".gif", "").replace(".jpeg", "")])
     return images_info
 
 if __name__ == "__main__":
