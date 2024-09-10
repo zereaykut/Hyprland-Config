@@ -103,7 +103,6 @@ tooltip {
 
 /*Modules -> Middle*/
 #custom-reboot,
-#custom-yay,
 #memory,
 #temperature,
 #pulseaudio {
@@ -115,7 +114,8 @@ tooltip {
 
 /*Modules -> Right */
 #custom-shutdown,
-#custom-pikaur,
+/* #custom-pikaur, */
+#custom-yay,
 #pulseaudio.microphone,
 #disk {
   padding: 0px 15px 0px 15px;

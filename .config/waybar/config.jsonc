@@ -9,7 +9,7 @@
   
   "modules-left": ["cpu", "memory", "temperature", "disk", "backlight", "pulseaudio", "pulseaudio#microphone"],
   "modules-center": ["hyprland/workspaces", "wlr/taskbar", "clock", "keyboard-state", "mpris"],
-  "modules-right": ["battery", "network", "tray", "custom/pacman", "custom/yay", "custom/pikaur", "power-profiles-daemon", "group/menu"],
+  "modules-right": ["battery", "network", "tray", "custom/pacman", "custom/yay", "power-profiles-daemon", "group/menu"],
 
     "hyprland/workspaces": {
       "format": "{icon}",
