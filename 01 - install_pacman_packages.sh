@@ -120,16 +120,17 @@ sudo pacman --needed --noconfirm -S gwenview
 sudo pacman --needed --noconfirm -S qbittorrent
 sudo pacman --needed --noconfirm -S thunderbird
 sudo pacman --needed --noconfirm -S notepadqq
-sudo pacman --needed --noconfirm -S obs-studio
+# sudo pacman --needed --noconfirm -S obs-studio
 sudo pacman --needed --noconfirm -S okular
 sudo pacman --needed --noconfirm -S ark
-#sudo pacman --needed --noconfirm -S discord
+# sudo pacman --needed --noconfirm -S discord
 sudo pacman --needed --noconfirm -S obsidian
 sudo pacman --needed --noconfirm -S libreoffice-fresh
 sudo pacman --needed --noconfirm -S kdeconnect
 sudo pacman --needed --noconfirm -S solaar
 sudo pacman --needed --noconfirm -S qalculate-gtk
 sudo pacman --needed --noconfirm -S kwalletmanager
+sudo pacman --needed --noconfirm -S timeshift
 
 #--------------#
 # File Manager #
