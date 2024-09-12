@@ -202,29 +202,32 @@
 
     "custom/pacman": {
       "format": "󰮯 {}",
+      "tooltip": true,
       "interval": 3600,                     // every hour
       "exec": "python ~/.config/waybar/scripts/check_updates.py -a pacman",
       "exec-if": "exit 0",                  // always run; consider advanced run conditions
       "on-click": "kitty -e sudo pacman -Syu",
-      "signal": 8
+      "return-type": "json"
   },
 
     "custom/yay": {
       "format": " {}",
+      "tooltip": true,
       "interval": 3600,                     // every hour
       "exec": "python ~/.config/waybar/scripts/check_updates.py -a yay",
       "exec-if": "exit 0",                  // always run; consider advanced run conditions
       "on-click": "kitty -e yay -Syu",
-      "signal": 8
+      "return-type": "json"
   },
 
   "custom/pikaur": {
     "format": " {}",
+    "tooltip": true,
     "interval": 3600,                     // every hour
     "exec": "python ~/.config/waybar/scripts/check_updates.py -a pikaur",
     "exec-if": "exit 0",                  // always run; consider advanced run conditions
     "on-click": "kitty -e pikaur -Syu",
-    "signal": 8
+    "return-type": "json"
   },
 
   "temperature": {
