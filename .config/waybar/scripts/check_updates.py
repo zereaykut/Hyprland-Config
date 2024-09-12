@@ -2,6 +2,7 @@
 import argparse
 import subprocess as sp
 import sys
+import json
 
 # %% Script statement
 """
@@ -10,6 +11,12 @@ import sys
             pacman
             yay
             pikaur
+    
+    output:
+        {
+            "text": number of available updates
+            "tooltip": available updates
+        }
 """
 
 # %% Argument
@@ -31,11 +38,18 @@ else:
 
 #%% Updates
 updates = updates.split("\n")
-# print(updates.split("\n"))
-output = f"{len(updates)}"
+
+text = f"{len(updates)}"
+tooltip = ""
 for i in updates:
     if ".." in i:
         pass
     else:
-        output = f"{output}\n{i}"
-print(output)
+        tooltip = f"{tooltip}\n{i}"
+
+output = {
+    "text": text,
+    "tooltip": tooltip.strip()
+}
+
+print(json.dumps(output))
