@@ -3,12 +3,12 @@
 #--------#
 # Apps   #
 #--------#
-flatpak install flathub com.github.tchx84.Flatseal
-flatpak install flathub io.github.flattool.Warehouse  # Manage Flatpak Apps
-flatpak install flathub it.mijorus.collector
-flatpak install flathub de.philippun1.turtle         # GUI client for GitHub named turtle
-# flatpak install flathub io.github.shiftey.Desktop    # Github Desktop
-flatpak install flathub com.brave.Browser            # Brave Browser
-flatpak install flathub com.obsproject.Studio
-# flatpak install flathub net.pcsx2.PCSX2
-# flatpak install flathub org.ppsspp.PPSSPP
+flatpak install -y --noninteractive flathub com.github.tchx84.Flatseal
+flatpak install -y --noninteractive flathub io.github.flattool.Warehouse  # Manage Flatpak Apps
+flatpak install -y --noninteractive flathub it.mijorus.collector
+flatpak install -y --noninteractive flathub de.philippun1.turtle         # GUI client for GitHub named turtle
+# flatpak install -y --noninteractive flathub io.github.shiftey.Desktop    # Github Desktop
+flatpak install -y --noninteractive flathub com.brave.Browser            # Brave Browser
+flatpak install -y --noninteractive flathub com.obsproject.Studio
+# flatpak install -y --noninteractive flathub net.pcsx2.PCSX2
+# flatpak install -y --noninteractive flathub org.ppsspp.PPSSPP
