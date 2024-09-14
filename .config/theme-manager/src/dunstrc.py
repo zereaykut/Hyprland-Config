@@ -7,7 +7,7 @@ def dunstrc(color_config, user):
 
     dunsrc_config = dunsrc_config.replace("""{{main-bg}}""", color_config["main-bg"])
     dunsrc_config = dunsrc_config.replace("""{{main-fg}}""", color_config["main-fg"])
-    dunsrc_config = dunsrc_config.replace("""{{main-hvr-bg}}""", color_config["main-hvr-bg"])
+    dunsrc_config = dunsrc_config.replace("""{{wb-hvr-bg}}""", color_config["wb-hvr-bg"])
 
     with open(f"/home/{user}/.config/dunst/dunstrc", "w", encoding="UTF-8") as file:
             file.write(dunsrc_config)
