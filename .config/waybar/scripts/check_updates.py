@@ -43,7 +43,7 @@ else:
     sys.exit()
 
 #%% Updates
-updates = updates.split("\n")
+updates = updates.strip().split("\n")
 
 text = f"{len(updates)}"
 tooltip = ""
