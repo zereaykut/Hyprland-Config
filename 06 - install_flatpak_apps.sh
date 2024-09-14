@@ -6,7 +6,6 @@
 flatpak install -y --noninteractive flathub com.github.tchx84.Flatseal
 flatpak install -y --noninteractive flathub io.github.flattool.Warehouse  # Manage Flatpak Apps
 flatpak install -y --noninteractive flathub it.mijorus.collector
-flatpak install -y --noninteractive flathub de.philippun1.turtle         # GUI client for GitHub named turtle
 # flatpak install -y --noninteractive flathub io.github.shiftey.Desktop    # Github Desktop
 flatpak install -y --noninteractive flathub com.brave.Browser            # Brave Browser
 flatpak install -y --noninteractive flathub com.obsproject.Studio
