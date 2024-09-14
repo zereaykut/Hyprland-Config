@@ -1,5 +1,6 @@
 #!/usr/bin/python
 import subprocess as sp
+import json
 
 
 class RofiScripts:
