@@ -8,9 +8,11 @@ import json
 """
     python brightness_control.py --action <parameter>
         << --action >>
-            pacman
-            yay
-            pikaur
+            pacman  -> official arch updates
+            yay     -> AUR updates
+            pikaur  -> AUR updates
+            trizen  -> AUR updates
+            flatpak -> flatpak updates
     
     output:
         {
@@ -33,6 +35,10 @@ elif action == "yay":
     updates = sp.run("yay -Qum", shell=True, capture_output=True, text=True,).stdout
 elif action == "pikaur":
     updates = sp.run("pikaur -Qum", shell=True, capture_output=True, text=True,).stdout
+elif action == "trizen":
+    updates = sp.run("trizen -Qua", shell=True, capture_output=True, text=True,).stdout
+elif action == "flatpak":
+    updates = sp.run("flatpak remote-ls --updates", shell=True, capture_output=True, text=True,).stdout
 else:
     sys.exit()
 
