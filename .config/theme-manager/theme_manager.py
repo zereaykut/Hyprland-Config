@@ -16,6 +16,7 @@ from src.rofi import rofi
 from src.swww import swww
 from src.waybar import waybar
 from src.wlogout import wlogout
+from src.flatpak import flatpak
 from src.notification_icons import status_icons, vol_icons
 
 class ThemeManager:
@@ -67,6 +68,7 @@ class ThemeManager:
         waybar(color_config, self.user)
         wlogout(color_config, self.user)
         btop(theme, self.user)
+        flatpak(config_theme, theme, self.user)
         status_icons(color_config, ["mic-unmuted", "mic-muted", "speaker-unmuted", "speaker-muted", "lock-unlocked", "lock-locked", "wifi-disabled", "wifi-enabled", "palette"], self.user)
         vol_icons(color_config, self.user)
         dunstrc(color_config, self.user)
