@@ -1,6 +1,6 @@
-@define-color main-bg #312938;
-@define-color main-fg #fbf2e3;
-@define-color wb-act-bg #3c7783;
-@define-color wb-act-fg #c2cfd5;
-@define-color wb-hvr-bg #cf3b50;
-@define-color wb-hvr-fg #ef7879;
+@define-color main-bg {{main-bg}};
+@define-color main-fg {{main-fg}};
+@define-color wb-act-bg {{wb-act-bg}};
+@define-color wb-act-fg {{wb-act-fg}};
+@define-color wb-hvr-bg {{wb-hvr-bg}};
+@define-color wb-hvr-fg {{wb-hvr-fg}};
