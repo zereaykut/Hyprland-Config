@@ -48,10 +48,13 @@ updates = updates.strip().split("\n")
 text = f"{len(updates)}"
 tooltip = ""
 for i in updates:
+    if action == "flatpak":
+        i = i.replace("\t", " ")
+    
     if ".." in i:
-        pass
-    else:
-        tooltip = f"{tooltip}\n{i}"
+        continue
+
+    tooltip = f"{tooltip}\n{i}"
 
 output = {
     "text": text,
