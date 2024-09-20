@@ -4,5 +4,5 @@
     "Power-Profile": "python ~/.config/rofi/scripts/select_power_profile.py",
     "Web-Search": "python ~/.config/rofi/scripts/web_search.py",
     "Hyprland-Window-Switcher": "python ~/.config/rofi/scripts/hyprland_window_switcher.py",
-    "Theme-Manager-Backend": "kitty -e python ~/.config/theme-manager/backend/imagemagick.py"
+    "Color-Scheme-Generator": "kitty -e python ~/.config/theme-manager/services/color_schemes.py"
 }
