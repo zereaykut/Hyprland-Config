@@ -19,7 +19,7 @@ class WallpaperCacheGenerator:
 
         flags = ["-strip", "-thumbnail", f"{width}x{height}^", "-gravity", "center", "-extent", f"{width}x{height}", f"{cache_dir}/{img_cache}"]
         img += "[0]"
-        sp.run(["magick", img, *flags], shell=True)
+        sp.check_output(["magick", img, *flags])
 
     def get_images(self):
         """
