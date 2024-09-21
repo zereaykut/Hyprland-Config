@@ -50,7 +50,7 @@ class ThemeManager:
         rofi_output = "\n".join(rofi_output)
         rofi_select = sp.run(f"""echo -en "{rofi_output}" | rofi -dmenu -matching normal -i -theme ~/.config/rofi/wallpaper_select.rasi""", shell=True, capture_output=True, text=True)
         wallpaper = rofi_select.stdout.strip()
-        color_scheme = wallpaper.replace(".png", "").replace(".jpg", "")
+        color_scheme = wallpaper.rsplit(".", 1)[0]
         with open(f"/home/{self.user}/.cache/theme-manager/color-schemes/{theme}/{color_scheme}.json", "r") as f:
             color_config = json.load(f)
         return f"/home/{self.user}/.config/wallpapers/{theme}/{wallpaper}", color_config
