@@ -13,6 +13,7 @@ class SearchEngineLauncher:
         available_searches = ""
         for key, val in self.search_urls.items():
             available_searches = f"""{available_searches}{key}: {val["name"]}\n"""
+        available_searches = available_searches.strip()
         available_searches = f"""echo "{available_searches}" """
         return available_searches
 
