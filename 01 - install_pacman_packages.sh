@@ -132,9 +132,14 @@ sudo pacman --needed --noconfirm -S qalculate-gtk
 sudo pacman --needed --noconfirm -S kwalletmanager
 sudo pacman --needed --noconfirm -S timeshift
 
-#--------------#
-# File Manager #
-#--------------#
+#----------#
+# QT / KDE #
+#----------#
+sudo pacman --needed --noconfirm -S qt5ct
+sudo pacman --needed --noconfirm -S qt6ct
+sudo pacman --needed --noconfirm -S kvantum
+sudo pacman --needed --noconfirm -S kvantum-qt5
+
 sudo pacman --needed --noconfirm -S dolphin
 sudo pacman --needed --noconfirm -S kservice5
 sudo pacman --needed --noconfirm -S kde-cli-tools
@@ -172,14 +177,6 @@ sudo pacman --needed --noconfirm -S firewalld
 # Notification #
 #--------------#
 sudo pacman --needed --noconfirm -S dunst
-
-#---------------#
-# Theme / Icons #
-#---------------#
-sudo pacman --needed --noconfirm -S qt5ct
-sudo pacman --needed --noconfirm -S qt6ct
-sudo pacman --needed --noconfirm -S kvantum
-sudo pacman --needed --noconfirm -S kvantum-qt5
 
 #-------#
 # Fonts #
