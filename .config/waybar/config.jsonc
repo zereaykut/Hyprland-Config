@@ -9,7 +9,7 @@
   
   "modules-left": ["cpu", "memory", "temperature", "disk", "backlight", "pulseaudio", "pulseaudio#microphone"],
   "modules-center": ["hyprland/workspaces", "wlr/taskbar", "clock", "keyboard-state", "mpris"],
-  "modules-right": ["battery", "network", "tray", "custom/pacman", "custom/yay", "power-profiles-daemon", "group/menu"],
+  "modules-right": ["battery", "network", "tray", "custom/pacman", "custom/yay", "custom/flatpak", "power-profiles-daemon", "group/menu"],
 
     "hyprland/workspaces": {
       "format": "{icon}",
@@ -228,6 +228,16 @@
     "exec-if": "exit 0",                  // always run; consider advanced run conditions
     "on-click": "kitty -e pikaur -Syu",
     "return-type": "json"
+  },
+
+  "custom/flatpak": {
+      "format": " {}",
+      "tooltip": true,
+      "interval": 3600,                     // every hour
+      "exec": "python ~/.config/waybar/scripts/check_updates.py -a flatpak",
+      "exec-if": "exit 0",                  // always run; consider advanced run conditions
+      "on-click": "kitty -e flatpak update",
+      "return-type": "json"
   },
 
   "temperature": {
