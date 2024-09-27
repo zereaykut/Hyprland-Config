@@ -38,7 +38,7 @@ class WallpaperCacheGenerator:
 
     def process_images(self):
         """
-        Process each image and generate a color scheme.
+        Process each image and generate wallpaper caches.
         """
         images_info = self.get_images()
 

@@ -217,7 +217,7 @@ class ColorSchemeGenerator:
 
     def process_images(self):
         """
-        Process each image and generate a color scheme.
+        Process each image and generate color schemes.
         """
         images_info = self.get_images()
 
