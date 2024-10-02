@@ -95,10 +95,10 @@ sudo pacman --needed --noconfirm -S bat       # Smarter cat with syntax highligh
 sudo pacman --needed --noconfirm -S zoxide    # zoxide is a smarter cd command, inspired by z and autojump.
 sudo pacman --needed --noconfirm -S fzf       # Fuzzy finder
 
-#-------#
-# Helix #
-# ------#
-sudo pacman --needed --noconfirm -S helix
+#-------------#
+# Text Editor #
+# ------------#
+sudo pacman --needed --noconfirm -S neovim
 sudo pacman --needed --noconfirm -S npm
 sudo pacman --needed --noconfirm -S unzip
 
