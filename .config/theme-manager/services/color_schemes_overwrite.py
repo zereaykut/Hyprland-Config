@@ -1,5 +1,7 @@
 import subprocess as sp
+
 from color_schemes import ColorSchemeGenerator
+
 
 class ColorSchemeGeneratorOW(ColorSchemeGenerator):
     def process_images(self):
@@ -11,7 +13,7 @@ class ColorSchemeGeneratorOW(ColorSchemeGenerator):
 
         for image_info in images_info:
             print(image_info[0])
-            
+
             try:
                 self.get_color_scheme(image_info[0], image_info[1], image_info[2])
             except Exception as e:
@@ -28,3 +30,4 @@ if __name__ == "__main__":
     user = sp.run("whoami", shell=True, capture_output=True, text=True).stdout.strip()
     generator = ColorSchemeGeneratorOW(user)
     generator.process_images()
+

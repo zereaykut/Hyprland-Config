@@ -1,8 +1,8 @@
-import sys
+import json
 import os
 import re
 import subprocess as sp
-import json
+
 
 class ColorSchemeGenerator:
     ONE_THIRD = 1.0 / 3.0
@@ -19,7 +19,20 @@ class ColorSchemeGenerator:
         Call Imagemagick to generate a color scheme.
         """
         # flags = ["-resize", "25%", "-colors", str(color_count), "-unique-colors", "txt:-"]
-        flags = ["-depth", "8", "-fuzz", "70%", "+dither", "-kmeans", str(color_count), "-depth", "8", "-format", '"%c"', "histogram:info:"]
+        flags = [
+            "-depth",
+            "8",
+            "-fuzz",
+            "70%",
+            "+dither",
+            "-kmeans",
+            str(color_count),
+            "-depth",
+            "8",
+            "-format",
+            '"%c"',
+            "histogram:info:",
+        ]
         img += "[0]"
 
         return sp.check_output(["magick", img, *flags]).splitlines()
@@ -37,10 +50,14 @@ class ColorSchemeGenerator:
             if i == 16:
                 print("Imagemagick couldn't generate a suitable palette.")
 
-            print(f"Imagemagick couldn't generate a palette. Trying a larger palette size {6 + i}")
+            print(
+                f"Imagemagick couldn't generate a palette. Trying a larger palette size {6 + i}"
+            )
 
         # return [re.search("#.{6}", str(col)).group(0) for col in raw_colors[1:]]
-        raw_colors = [match.group(0) for i in raw_colors if (match := re.search(r"#.{6}", str(i)))]
+        raw_colors = [
+            match.group(0) for i in raw_colors if (match := re.search(r"#.{6}", str(i)))
+        ]
         return raw_colors
 
     @staticmethod
@@ -90,8 +107,8 @@ class ColorSchemeGenerator:
         """
         maxc = max(r, g, b)
         minc = min(r, g, b)
-        sumc = (maxc + minc)
-        rangec = (maxc - minc)
+        sumc = maxc + minc
+        rangec = maxc - minc
         l = sumc / 2.0
 
         if minc == maxc:
@@ -183,7 +200,7 @@ class ColorSchemeGenerator:
             "wb-act-bg": raw_colors[1],
             "wb-act-fg": raw_colors[-2],
             "wb-hvr-bg": raw_colors[2],
-            "wb-hvr-fg": raw_colors[-3]
+            "wb-hvr-fg": raw_colors[-3],
         }
 
         theme_dir = f"{self.base_dir}/{theme}"
@@ -213,7 +230,7 @@ class ColorSchemeGenerator:
                 img_path = f"{self.wallpaper_dir}/{theme}/{image}"
                 images_info.append([img_path, theme, image.rsplit(".", 1)[0]])
 
-        return images_info        
+        return images_info
 
     def process_images(self):
         """
@@ -231,7 +248,9 @@ class ColorSchemeGenerator:
                 try:
                     self.get_color_scheme(image_info[0], image_info[1], image_info[2])
                 except Exception as e:
-                    error_path = f"{self.base_dir}/{image_info[1]}/{image_info[2]}.error"
+                    error_path = (
+                        f"{self.base_dir}/{image_info[1]}/{image_info[2]}.error"
+                    )
                     with open(error_path, "w") as f:
                         f.writelines("Error:\n")
                         f.writelines(f"{e}:\n")

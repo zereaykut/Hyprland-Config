@@ -1,8 +1,6 @@
-import sys
 import os
-import re
 import subprocess as sp
-import json
+
 
 class WallpaperCacheGenerator:
     def __init__(self, user):
@@ -17,7 +15,16 @@ class WallpaperCacheGenerator:
         cache_dir = f"{self.base_dir}/{theme}"
         os.makedirs(cache_dir, exist_ok=True)
 
-        flags = ["-strip", "-thumbnail", f"{width}x{height}^", "-gravity", "center", "-extent", f"{width}x{height}", f"{cache_dir}/{img_cache}"]
+        flags = [
+            "-strip",
+            "-thumbnail",
+            f"{width}x{height}^",
+            "-gravity",
+            "center",
+            "-extent",
+            f"{width}x{height}",
+            f"{cache_dir}/{img_cache}",
+        ]
         img += "[0]"
         sp.check_output(["magick", img, *flags])
 
@@ -34,7 +41,7 @@ class WallpaperCacheGenerator:
                 img_path = f"{self.wallpaper_dir}/{theme}/{image}"
                 images_info.append([img_path, theme, image])
 
-        return images_info        
+        return images_info
 
     def process_images(self):
         """
@@ -50,9 +57,13 @@ class WallpaperCacheGenerator:
                 print(f"Exists: {output_path}")
             else:
                 try:
-                    self.imagemagick(image_info[0], image_info[1], image_info[2], 640, 360)
+                    self.imagemagick(
+                        image_info[0], image_info[1], image_info[2], 640, 360
+                    )
                 except Exception as e:
-                    error_path = f"{self.base_dir}/{image_info[1]}/{image_info[2]}.error"
+                    error_path = (
+                        f"{self.base_dir}/{image_info[1]}/{image_info[2]}.error"
+                    )
                     with open(error_path, "w") as f:
                         f.writelines("Error:\n")
                         f.writelines(f"{e}:\n")

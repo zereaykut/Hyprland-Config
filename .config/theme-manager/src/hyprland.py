@@ -1,31 +1,56 @@
 #!/usr/bin/python
 import subprocess as sp
 
-def hyprland(config, color_config, theme, cursor_size, user):
-    with open(f"/home/{user}/.config/theme-manager/conf/hyprland_theme.conf", "r", encoding="UTF-8") as f:
+
+def hyprland(
+    config: dict, color_config: dict, theme: str, cursor_size: int, user: str
+) -> None:
+    with open(
+        f"/home/{user}/.config/theme-manager/conf/hyprland_theme.conf",
+        "r",
+        encoding="UTF-8",
+    ) as f:
         hyprland_theme_config = f.read()
 
     hyprland_theme_config = hyprland_theme_config.replace("""{{theme}}""", theme)
-    hyprland_theme_config = hyprland_theme_config.replace("""{{icon-theme}}""", config["icon-theme"])
-    hyprland_theme_config = hyprland_theme_config.replace("""{{cursor-theme}}""", config["cursor-theme"])
-    hyprland_theme_config = hyprland_theme_config.replace("""{{cursor-size}}""", str(cursor_size))
+    hyprland_theme_config = hyprland_theme_config.replace(
+        """{{icon-theme}}""", config["icon-theme"]
+    )
+    hyprland_theme_config = hyprland_theme_config.replace(
+        """{{cursor-theme}}""", config["cursor-theme"]
+    )
+    hyprland_theme_config = hyprland_theme_config.replace(
+        """{{cursor-size}}""", str(cursor_size)
+    )
 
-    hyprland_theme_config = hyprland_theme_config.replace("""{{wb-hvr-bg}}""", f"""{color_config["wb-hvr-bg"].replace("#", "")}ff""")
-    hyprland_theme_config = hyprland_theme_config.replace("""{{main-fg}}""", f"""{color_config["main-fg"].replace("#", "")}ff""")
+    hyprland_theme_config = hyprland_theme_config.replace(
+        """{{wb-hvr-bg}}""", f"""{color_config["wb-hvr-bg"].replace("#", "")}ff"""
+    )
+    hyprland_theme_config = hyprland_theme_config.replace(
+        """{{main-fg}}""", f"""{color_config["main-fg"].replace("#", "")}ff"""
+    )
 
-    hyprland_theme_config = hyprland_theme_config.replace("""{{main-bg}}""", f"""{color_config["main-bg"].replace("#", "")}ff""")
-    hyprland_theme_config = hyprland_theme_config.replace("""{{wb-hvr-fg}}""", f"""{color_config["wb-hvr-fg"].replace("#", "")}ff""")
+    hyprland_theme_config = hyprland_theme_config.replace(
+        """{{main-bg}}""", f"""{color_config["main-bg"].replace("#", "")}ff"""
+    )
+    hyprland_theme_config = hyprland_theme_config.replace(
+        """{{wb-hvr-fg}}""", f"""{color_config["wb-hvr-fg"].replace("#", "")}ff"""
+    )
 
     hyprland_sh = [
         "#!/usr/bin/bash",
         f"""hyprctl setcursor {config["cursor-theme"]} {cursor_size}""",
-        "hyprctl reload"
+        "hyprctl reload",
     ]
 
-    with open(f"/home/{user}/.config/hypr/confs/theme.conf", "w", encoding="UTF-8") as file:
+    with open(
+        f"/home/{user}/.config/hypr/confs/theme.conf", "w", encoding="UTF-8"
+    ) as file:
         file.write(hyprland_theme_config)
 
-    with open(f"/home/{user}/.config/theme-manager/run/hyprland.sh", "w", encoding="UTF-8") as file:
+    with open(
+        f"/home/{user}/.config/theme-manager/run/hyprland.sh", "w", encoding="UTF-8"
+    ) as file:
         file.writelines("\n".join(hyprland_sh))
 
     sp.run(f"bash /home/{user}/.config/theme-manager/run/hyprland.sh", shell=True)

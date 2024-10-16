@@ -1,8 +1,11 @@
 #!/usr/bin/python
 import subprocess as sp
 
-def waybar(color_config, user):
-    with open(f"/home/{user}/.config/theme-manager/conf/waybar.css", "r", encoding="UTF-8") as f:
+
+def waybar(color_config: dict, user: str) -> None:
+    with open(
+        f"/home/{user}/.config/theme-manager/conf/waybar.css", "r", encoding="UTF-8"
+    ) as f:
         waybar_theme = f.read()
 
     waybar_theme = waybar_theme.replace("""{{main-bg}}""", color_config["main-bg"])
@@ -14,6 +17,5 @@ def waybar(color_config, user):
 
     with open(f"/home/{user}/.config/waybar/theme.css", "w", encoding="UTF-8") as file:
         file.write(waybar_theme)
-    
-    sp.run(f"bash /home/{user}/.config/theme-manager/run/waybar.sh", shell=True)
 
+    sp.run(f"bash /home/{user}/.config/theme-manager/run/waybar.sh", shell=True)

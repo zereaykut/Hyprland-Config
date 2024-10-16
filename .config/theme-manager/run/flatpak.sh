@@ -1,3 +1,3 @@
 #!/usr/bin/bash
-flatpak --user override --env=GTK_THEME="Catppuccin-Latte"
-flatpak --user override --env=ICON_THEME="Tela-Circle-Grey"
+flatpak --user override --env=GTK_THEME="Rose-Pine" 
+flatpak --user override --env=ICON_THEME="Tela-Circle-Pink" 

@@ -1,5 +1,7 @@
 import subprocess as sp
+
 from wall_cache import WallpaperCacheGenerator
+
 
 class WallpaperCacheGeneratorOW(WallpaperCacheGenerator):
     def process_images(self):

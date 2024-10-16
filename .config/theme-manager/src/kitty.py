@@ -1,7 +1,10 @@
 #!/usr/bin/python
 
-def kitty(theme, user):
-    with open(f"/home/{user}/.config/theme-manager/conf/kitty.conf", "r", encoding="UTF-8") as f:
+
+def kitty(theme: str, user: str) -> None:
+    with open(
+        f"/home/{user}/.config/theme-manager/conf/kitty.conf", "r", encoding="UTF-8"
+    ) as f:
         kitty_config = f.read()
 
     kitty_config = kitty_config.replace("""{{theme}}""", theme)
