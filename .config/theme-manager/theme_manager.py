@@ -4,7 +4,7 @@ import os
 import subprocess as sp
 
 from src.btop import btop
-from src.dunstrc import dunstrc, send_notification
+from src.dunstrc import dunstrc
 from src.flatpak import flatpak
 from src.gtk import gsettings, gtk2, gtk3
 from src.hyprland import hyprland
@@ -13,6 +13,7 @@ from src.kdeglobals import kdeglobals
 from src.kitty import kitty
 from src.kvantum import kvantum
 from src.notification_icons import status_icons, vol_icons
+from src.notify import send_notification
 from src.qt import qt5ct, qt6ct
 from src.rofi import rofi
 from src.swww import swww
