@@ -18,10 +18,3 @@ def dunstrc(color_config: dict, user: str) -> None:
         file.write(dunsrc_config)
 
     sp.run(f"bash /home/{user}/.config/theme-manager/run/dunst.sh", shell=True)
-
-
-def send_notification(message: str, icon: str, timeout: int = 800) -> None:
-    sp.run(
-        f"""dunstify "{message}" -i {icon} -r 92999 -t {timeout} -u normal""",
-        shell=True,
-    )
