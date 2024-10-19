@@ -75,9 +75,9 @@
         "interval": 5,
         "format": " {}%",
         "max-length": 10,
-	"on-click": "kitty -e btop",
-	"tooltip": true,
-        "tooltip-format": "{used:0.1f}G used / {}%",
+        "on-click": "kitty -e btop",
+        "tooltip": true,
+        "tooltip-format": "{used:0.1f} G / {total:0.1f} G",
     },
 
     "backlight": {
