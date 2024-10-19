@@ -20,20 +20,11 @@ systemctl enable --user pipewire-pulse.service
 #----------#
 sudo systemctl enable firewalld.service
 
-
 #---------#
 # Flatpak #
 #---------#
 sudo flatpak override --filesystem=$HOME/.themes
 sudo flatpak override --filesystem=$HOME/.icons
-
-#----------------#
-# Create Folders #
-#----------------#
-mkdir -p ~/.themes ~/.icons ~/Projects ~/Documents ~/Downloads ~/Videos
-mkdir -p ~/Pictures/Screenshots
-mkdir -p ~/Torrent/{torrents,torrent_files,finished_torrents/{Movie,TV,Music,TT},finished_torrent_files,watched_torrent_files}
-sudo mkdir -p /usr/share/themes /usr/share/icons
 
 #---------------------#
 # Add User to a Group #
