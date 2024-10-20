@@ -24,9 +24,9 @@ def get_battery_info() -> dict:
     }
 
 
-def send_notification(message: str, icon: str, timeout: int = 800) -> None:
+def send_notification(message: str, icon: str, timeout: int = 800, urgency:str = "normal") -> None:
     sp.run(
-        f"""dunstify "{message}" -i {icon} -r 92999 -t {timeout} -u normal""",
+        f"""dunstify "{message}" -i {icon} -r 92999 -t {timeout} -u {urgency}""",
         shell=True,
     )
 
@@ -41,6 +41,7 @@ if __name__ == "__main__":
                 f"""Percentage: {battery_info["percent"]}%\nPlugged:{battery_info["power_plugged"]}""",
                 f"/home/{user}/.config/dunst/icons/status/battery-status.png",
                 10000,
+                "normal"
             )
             time.sleep(10)
         elif (battery_info["percent"] <= BATTERY_CRITICAL) & (not plugged):
@@ -48,6 +49,7 @@ if __name__ == "__main__":
                 f"""Percentage: {battery_info["percent"]}%\nPlugged:{battery_info["power_plugged"]}""",
                 f"/home/{user}/.config/dunst/icons/status/battery-status.png",
                 10000,
+                "critical"
             )
             time.sleep(10)
         else:
