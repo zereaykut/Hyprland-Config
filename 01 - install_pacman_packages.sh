@@ -15,6 +15,7 @@ sudo pacman --needed --noconfirm -S python-pip
 sudo pacman --needed --noconfirm -S python-psutil
 # sudo pacman --needed --noconfirm -S python-rich
 # sudo pacman --needed --noconfirm -S python-click
+# sudo pacman --needed --noconfirm -S python-requests
 # sudo pacman --needed --noconfirm -S python-pyquery
 sudo pacman --needed --noconfirm -S pyenv
 
