@@ -163,6 +163,11 @@ sudo pacman --needed --noconfirm -S pacman-contrib
 #-------#
 sudo pacman --needed --noconfirm -S upower
 
+#----------#
+# Launcher #
+#----------#
+sudo pacman --needed --noconfirm -S rofi-wayland
+
 #-----#
 # VPN #
 #-----#
