@@ -34,7 +34,12 @@ yay --needed --noconfirm -S nwg-drawer-bin
 #------#
 # Rofi #
 #------#
-yay --needed --noconfirm -S rofi-lbonn-wayland-git
+# yay --needed --noconfirm -S rofi-lbonn-wayland-git
+
+#-----------------#
+# Color Generator #
+#-----------------#
+yay --needed --noconfirm -S wallust
 
 #-------#
 # Power #
