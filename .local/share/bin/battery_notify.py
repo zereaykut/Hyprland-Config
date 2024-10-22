@@ -7,7 +7,9 @@ import psutil
 
 BATTERY_CRITICAL = 20
 BATTERY_URGENT = 30
+BATTERY_NOTIFY_ID = 92999
 
+CHARGE_PLUG_NOTIFY_ID = 92998
 
 def secs2hours(secs: int) -> str:
     mm, ss = divmod(secs, 60)
@@ -24,15 +26,19 @@ def get_battery_info() -> dict:
     }
 
 
-def send_notification(message: str, icon: str, timeout: int = 800, urgency:str = "normal") -> None:
+def send_notification(message: str, icon: str, notify_id: int, timeout: int = 800, urgency:str = "normal") -> None:
     sp.run(
-        f"""dunstify "{message}" -i {icon} -r 92999 -t {timeout} -u {urgency}""",
+        f"""dunstify "{message}" -i {icon} -r {notify_id} -t {timeout} -u {urgency}""",
         shell=True,
     )
 
 
 if __name__ == "__main__":
     user = sp.run("whoami", shell=True, capture_output=True, text=True).stdout.strip()
+    
+    battery_info = get_battery_info()
+    plugged_ = battery_info["power_plugged"]
+
     while True:
         battery_info = get_battery_info()
         plugged = battery_info["power_plugged"]
@@ -40,17 +46,38 @@ if __name__ == "__main__":
             send_notification(
                 f"""Percentage: {battery_info["percent"]}%\nPlugged:{battery_info["power_plugged"]}""",
                 f"/home/{user}/.config/dunst/icons/status/battery-status.png",
+                BATTERY_NOTIFY_ID,
                 10000,
                 "normal"
             )
-            time.sleep(10)
         elif (battery_info["percent"] <= BATTERY_CRITICAL) & (not plugged):
             send_notification(
                 f"""Percentage: {battery_info["percent"]}%\nPlugged:{battery_info["power_plugged"]}""",
                 f"/home/{user}/.config/dunst/icons/status/battery-status.png",
+                BATTERY_NOTIFY_ID,
                 10000,
                 "critical"
             )
-            time.sleep(10)
-        else:
-            time.sleep(60)
+        
+        if plugged_ != plugged:
+            if plugged:
+                send_notification(
+                    f"""Charge Plugged""",
+                    f"/home/{user}/.config/dunst/icons/status/battery-status.png",
+                    CHARGE_PLUG_NOTIFY_ID,
+                    5000,
+                    "normal"
+                )
+            else:
+                send_notification(
+                    f"""Charge Unplugged""",
+                    f"/home/{user}/.config/dunst/icons/status/battery-status.png",
+                    CHARGE_PLUG_NOTIFY_ID,
+                    5000,
+                    "normal"
+                )
+            plugged_ = plugged
+        
+        time.sleep(1)
+
+
