@@ -147,7 +147,7 @@
           "warning": 35,
           "critical": 20
       },
-     // "on-click": "sh ~/.config/waybar/scripts/power-profiles", 
+     // "on-click": "sh ~/.local/share/bin/power-profiles", 
       "max-length": 25,
       "format": "{icon} {capacity}%",
       "format-warning": "{icon} {capacity}%",
@@ -205,7 +205,7 @@
       "format": "󰮯 {}",
       "tooltip": true,
       "interval": 3600,                     // every hour
-      "exec": "python ~/.config/waybar/scripts/check_updates.py -a pacman",
+      "exec": "python ~/.local/share/bin/check_updates.py -a pacman",
       "exec-if": "exit 0",                  // always run; consider advanced run conditions
       "on-click": "kitty -e sudo pacman -Syu",
       "return-type": "json"
@@ -215,7 +215,7 @@
       "format": " {}",
       "tooltip": true,
       "interval": 3600,                     // every hour
-      "exec": "python ~/.config/waybar/scripts/check_updates.py -a yay",
+      "exec": "python ~/.local/share/bin/check_updates.py -a yay",
       "exec-if": "exit 0",                  // always run; consider advanced run conditions
       "on-click": "kitty -e yay -Syu",
       "return-type": "json"
@@ -225,7 +225,7 @@
     "format": " {}",
     "tooltip": true,
     "interval": 3600,                     // every hour
-    "exec": "python ~/.config/waybar/scripts/check_updates.py -a pikaur",
+    "exec": "python ~/.local/share/bin/check_updates.py -a pikaur",
     "exec-if": "exit 0",                  // always run; consider advanced run conditions
     "on-click": "kitty -e pikaur -Syu",
     "return-type": "json"
@@ -235,7 +235,7 @@
       "format": " {}",
       "tooltip": true,
       "interval": 3600,                     // every hour
-      "exec": "python ~/.config/waybar/scripts/check_updates.py -a flatpak",
+      "exec": "python ~/.local/share/bin/check_updates.py -a flatpak",
       "exec-if": "exit 0",                  // always run; consider advanced run conditions
       "on-click": "kitty -e flatpak update",
       "return-type": "json"
