@@ -28,7 +28,7 @@ def get_battery_info() -> dict:
 
 def send_notification(message: str, icon: str, notify_id: int, timeout: int = 800, urgency:str = "normal") -> None:
     sp.run(
-        f"""dunstify "{message}" -i {icon} -r {notify_id} -t {timeout} -u {urgency}""",
+        f"""notify-send "{message}" -i {icon} -r {notify_id} -t {timeout} -u {urgency}""",
         shell=True,
     )
 
