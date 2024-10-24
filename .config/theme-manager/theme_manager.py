@@ -125,6 +125,8 @@ class ThemeManager:
                 "wifi-disabled",
                 "wifi-enabled",
                 "palette",
+                "charger-plugged",
+                "charger-not-plugged"
             ],
             self.user,
         )
