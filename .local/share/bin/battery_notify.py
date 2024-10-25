@@ -63,7 +63,7 @@ if __name__ == "__main__":
             if plugged:
                 send_notification(
                     f"""Charge Plugged""",
-                    f"/home/{user}/.config/dunst/icons/status/battery-status.png",
+                    f"/home/{user}/.config/dunst/icons/status/charger-plugged.svg",
                     CHARGE_PLUG_NOTIFY_ID,
                     5000,
                     "normal"
@@ -71,7 +71,7 @@ if __name__ == "__main__":
             else:
                 send_notification(
                     f"""Charge Unplugged""",
-                    f"/home/{user}/.config/dunst/icons/status/battery-status.png",
+                    f"/home/{user}/.config/dunst/icons/status/charger-not-plugged.svg",
                     CHARGE_PLUG_NOTIFY_ID,
                     5000,
                     "normal"
