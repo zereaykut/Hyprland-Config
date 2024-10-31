@@ -83,8 +83,8 @@ tooltip {
 
 /* Modules -> Single */
 #custom-menu,
+#custom-power-profiles-daemon,
 #group-menu,
-#power-profiles-daemon,
 #network,
 #battery,
 #clock,
@@ -105,6 +105,8 @@ tooltip {
 #custom-reboot,
 #memory,
 #temperature,
+#custom-yay,
+/* #custom-pikaur, */
 #pulseaudio {
   padding: 0px 15px 0px 15px;
   color: @main-fg;
@@ -114,8 +116,7 @@ tooltip {
 
 /*Modules -> Right */
 #custom-shutdown,
-/* #custom-pikaur, */
-#custom-yay,
+#custom-flatpak,
 #pulseaudio.microphone,
 #disk {
   padding: 0px 15px 0px 15px;

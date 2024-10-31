@@ -9,7 +9,7 @@
   
   "modules-left": ["cpu", "memory", "temperature", "disk", "backlight", "pulseaudio", "pulseaudio#microphone"],
   "modules-center": ["hyprland/workspaces", "wlr/taskbar", "clock", "keyboard-state", "mpris"],
-  "modules-right": ["battery", "network", "tray", "custom/pacman", "custom/yay", "custom/flatpak", "power-profiles-daemon", "group/menu"],
+  "modules-right": ["battery", "network", "tray", "custom/pacman", "custom/yay", "custom/flatpak", "custom/power-profiles-daemon", "group/menu"],
 
     "hyprland/workspaces": {
       "format": "{icon}",
@@ -265,18 +265,6 @@
     "on-right-click": "next track"
   },
 
-  "power-profiles-daemon": {
-    "format": "{icon}",
-    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
-    "tooltip": true,
-    "format-icons": {
-      "default": "",
-      "performance": "",
-      "balanced": "",
-      "power-saver": ""
-    }
-  },
-
   "group/menu": {
     "format": "",
 		"orientation": "inherit",
@@ -314,5 +302,21 @@
     "on-click": "loginctl terminate-user $USER",
     "tooltip": false,
   },
+
+  "custom/power-profiles-daemon": {
+	"format" : "{}",
+  "exec": "python ~/.local/share/bin/power_profiles.py",
+  "interval": 1,
+	"tooltip": true,
+  "exec-if": "exit 0",
+  "return-type": "json",
+  "menu": "on-click",
+  "menu-file": "~/.local/share/waybar/power_profiles.xml",
+  "menu-actions": {
+    "performance": "powerprofilesctl set performance",
+    "balanced": "powerprofilesctl set balanced",
+    "power-saver": "powerprofilesctl set power-saver"
+		},
+},
 
 }
