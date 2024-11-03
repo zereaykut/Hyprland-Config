@@ -1,5 +1,4 @@
 #!/usr/bin/python
-import argparse
 import sys
 import subprocess as sp
 
@@ -35,6 +34,8 @@ class ClipManager:
             stdout = stdout.split("\t", 1)[1].strip()
             sp.run(f'wl-copy "{stdout}"', shell=True)
             self.notify(stdout, f"/home/{self.user}/.config/dunst/icons/status/clip.svg", 1000)
+        else:
+            sys.exit()
 
             
 
