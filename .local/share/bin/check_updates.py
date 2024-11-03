@@ -43,9 +43,13 @@ else:
     sys.exit()
 
 #%% Updates
-updates = updates.strip().split("\n")
+updates = updates.strip()
+if updates == "":
+    text = "0"
+else:
+    updates = updates.split("\n")
+    text = f"{len(updates)}"
 
-text = f"{len(updates)}"
 tooltip = ""
 for i in updates:
     if action == "flatpak":

@@ -19,7 +19,6 @@ class SearchEngineLauncher:
 
     def get_rofi_input(self):
         available_searches = self.get_available_searches()
-        print(f"""{available_searches} | rofi -dmenu normal""")
         rofi_search_input = sp.run(
             f"""{available_searches} | rofi -dmenu normal""", shell=True, capture_output=True, text=True, check=False
         )
