@@ -13,7 +13,7 @@ class ThemeManagerSDDM(ThemeManager):
         cursor_size = 24
         config_theme, theme = self.rofi_select_theme()
         with open(
-            f"/home/{self.user}/.cache/color_schemes/Lock-Screen/{theme}.json",
+            f"/home/{self.user}/.cache/theme-manager/color-schemes/Lock-Screen/{theme}.json",
             "r",
             encoding="UTF-8",
         ) as f:
