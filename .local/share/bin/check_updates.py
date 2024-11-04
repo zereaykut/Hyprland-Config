@@ -4,7 +4,7 @@ import subprocess as sp
 import sys
 import json
 
-# %% Script statement
+# Usage
 """
     python brightness_control.py --action <parameter>
         << --action >>
@@ -21,48 +21,55 @@ import json
         }
 """
 
-# %% Argument
-parser = argparse.ArgumentParser()
-parser.add_argument("-a", "--action", help="input to increase or decrease brightness by 5%")
+class BrightnessControl:
+    def __init__(self, action):
+        self.action = action
+        self.updates = ""
+        self.text = ""
+        self.tooltip = ""
 
-args = parser.parse_args()
-action = args.action
+    def check_updates(self):
+        """Run the update check based on the specified action."""
+        commands = {
+            "pacman": ["checkupdates"],
+            "yay": ["yay", "-Qum"],
+            "pikaur": ["pikaur", "-Qum"],
+            "trizen": ["trizen", "-Qua"],
+            "flatpak": ["flatpak", "remote-ls", "--updates"]
+        }
+        
+        if self.action in commands:
+            self.updates = sp.run(commands[self.action], capture_output=True, text=True).stdout.strip()
+        else:
+            sys.exit("Invalid action specified")
 
-#%% Set Brightness
-if action == "pacman":
-    updates = sp.run("checkupdates", shell=True, capture_output=True, text=True,).stdout
-elif action == "yay":
-    updates = sp.run("yay -Qum", shell=True, capture_output=True, text=True,).stdout
-elif action == "pikaur":
-    updates = sp.run("pikaur -Qum", shell=True, capture_output=True, text=True,).stdout
-elif action == "trizen":
-    updates = sp.run("trizen -Qua", shell=True, capture_output=True, text=True,).stdout
-elif action == "flatpak":
-    updates = sp.run("flatpak remote-ls --updates", shell=True, capture_output=True, text=True,).stdout
-else:
-    sys.exit()
+    def parse_updates(self):
+        """Parse the output of the update command to prepare text and tooltip."""
+        if not self.updates:
+            self.text = "0"
+            self.tooltip = "No updates available"
+        else:
+            updates_list = self.updates.split("\n")
+            self.text = str(len(updates_list))
+            tooltip_lines = [line.replace("\t", " ") for line in updates_list if ".." not in line]
+            self.tooltip = "\n".join(tooltip_lines)
 
-#%% Updates
-updates = updates.strip()
-if updates == "":
-    text = "0"
-else:
-    updates = updates.split("\n")
-    text = f"{len(updates)}"
+    def get_output(self):
+        """Return the result in JSON format."""
+        return json.dumps({
+            "text": self.text,
+            "tooltip": self.tooltip
+        })
 
-tooltip = ""
-for i in updates:
-    if action == "flatpak":
-        i = i.replace("\t", " ")
-    
-    if ".." in i:
-        continue
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-a", "--action", help="Specify the update action (pacman, yay, pikaur, trizen, flatpak)", required=True)
+    args = parser.parse_args()
 
-    tooltip = f"{tooltip}\n{i}"
+    control = BrightnessControl(args.action)
+    control.check_updates()
+    control.parse_updates()
+    print(control.get_output())
 
-output = {
-    "text": text,
-    "tooltip": tooltip.strip()
-}
-
-print(json.dumps(output))
+if __name__ == "__main__":
+    main()
