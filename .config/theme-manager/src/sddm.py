@@ -45,4 +45,5 @@ def sddm(
     ) as file:
         file.write(sddm_config)
 
-    sp.run(f"bash /home/{user}/.config/theme-manager/run/sddm.sh", shell=True)
+    sp.run(["pkexec", "cp", f"/home/{user}/.config/theme-manager/conf/sddm_theme.conf", "/usr/share/sddm/themes/Simple-SDDM/theme.conf"])
+    sp.run(["pkexec", "cp", f"/home/{user}/.config/theme-manager/conf/sddm.conf", "/etc/sddm.conf"])

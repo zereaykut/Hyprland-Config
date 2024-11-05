@@ -37,20 +37,10 @@ def hyprland(
         """{{wb-hvr-fg}}""", f"""{color_config["wb-hvr-fg"].replace("#", "")}ff"""
     )
 
-    hyprland_sh = [
-        "#!/usr/bin/bash",
-        f"""hyprctl setcursor {config["cursor-theme"]} {cursor_size}""",
-        "hyprctl reload",
-    ]
-
     with open(
         f"/home/{user}/.config/hypr/confs/theme.conf", "w", encoding="UTF-8"
     ) as file:
         file.write(hyprland_theme_config)
 
-    with open(
-        f"/home/{user}/.config/theme-manager/run/hyprland.sh", "w", encoding="UTF-8"
-    ) as file:
-        file.writelines("\n".join(hyprland_sh))
-
-    sp.run(f"bash /home/{user}/.config/theme-manager/run/hyprland.sh", shell=True)
+    sp.run(["hyprctl", "setcursor", config["cursor-theme"], str(cursor_size)])
+    sp.run(["hyprctl", "reload"])

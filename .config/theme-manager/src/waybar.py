@@ -1,6 +1,6 @@
 #!/usr/bin/python
 import subprocess as sp
-
+import time
 
 def waybar(color_config: dict, user: str) -> None:
     with open(
@@ -18,4 +18,7 @@ def waybar(color_config: dict, user: str) -> None:
     with open(f"/home/{user}/.config/waybar/theme.css", "w", encoding="UTF-8") as file:
         file.write(waybar_theme)
 
-    sp.run(f"bash /home/{user}/.config/theme-manager/run/waybar.sh", shell=True)
+    sp.run(["killall", "waybar"])
+    time.sleep(0.5)
+    sp.run("waybar &", shell=True)
+    

@@ -35,22 +35,12 @@ def gtk3(config: dict, theme: str, cursor_size: int, user: str) -> None:
         file.write(gtk3_config)
 
 
-def gsettings(config: dict, theme: str, user: str) -> None:
-    gsettings_sh = [
-        "#!/usr/bin/bash",
-        f"""gsettings set org.gnome.desktop.interface cursor-theme '{config["cursor-theme"]}'""",
-        """gsettings set org.gnome.desktop.interface cursor-size 24""",
-        f"""gsettings set org.gnome.desktop.interface icon-theme '{config["icon-theme"]}'""",
-        f"""gsettings set org.gnome.desktop.interface gtk-theme '{theme}'""",
-        f"""gsettings set org.gnome.desktop.interface color-scheme '{config["color-scheme"]}'""",
-    ]
-
-    with open(
-        f"/home/{user}/.config/theme-manager/run/gsettings.sh", "w", encoding="UTF-8"
-    ) as file:
-        file.writelines("\n".join(gsettings_sh))
-
-    sp.run(f"bash /home/{user}/.config/theme-manager/run/gsettings.sh", shell=True)
+def gsettings(config: dict, theme: str, user: str, cursor_size: int) -> None:
+    sp.run(["gsettings", "set", "org.gnome.desktop.interface", "cursor-theme", f"'{config["cursor-theme"]}'"])
+    sp.run(["gsettings", "set", "org.gnome.desktop.interface", "cursor-size", str(cursor_size)])
+    sp.run(["gsettings", "set", "org.gnome.desktop.interface", "icon-theme", f"'{config["icon-theme"]}'"])
+    sp.run(["gsettings", "set", "org.gnome.desktop.interface", "gtk-theme", f"'{theme}'"])
+    sp.run(["gsettings", "set", "org.gnome.desktop.interface", "color-scheme", f"'{config["color-scheme"]}'"])
 
 
 def default_icons(config: dict, user: str) -> None:

@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 
-def rofi(color_config: dict, user: str) -> None:
+def rofi(config, color_config: dict, user: str) -> None:
     with open(
         f"/home/{user}/.config/theme-manager/conf/rofi.rasi", "r", encoding="UTF-8"
     ) as f:
@@ -12,6 +12,7 @@ def rofi(color_config: dict, user: str) -> None:
     rofi_theme = rofi_theme.replace("""{{wb-hvr-bg}}""", color_config["wb-hvr-bg"])
     rofi_theme = rofi_theme.replace("""{{wb-act-bg}}""", color_config["wb-act-bg"])
     rofi_theme = rofi_theme.replace("""{{wb-hvr-fg}}""", color_config["wb-hvr-fg"])
+    rofi_theme = rofi_theme.replace("""{{icon-theme}}""", config["icon-theme"])
 
     with open(f"/home/{user}/.config/rofi/theme.rasi", "w", encoding="UTF-8") as file:
         file.write(rofi_theme)
