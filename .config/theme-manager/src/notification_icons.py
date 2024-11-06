@@ -1,4 +1,5 @@
 #!/usr/bin/python
+import os
 
 
 def status_icons(color_config: dict, status_icons_list: list[str], home: str, notify_daemon: str) -> None:
@@ -7,6 +8,7 @@ def status_icons(color_config: dict, status_icons_list: list[str], home: str, no
             data = f.read()
         data = data.replace("""{{wb-hvr-bg}}""", color_config["wb-hvr-bg"])
 
+        os.makedirs(f"{home}/.config/{notify_daemon}/icons/status/", exist_ok=True)
         with open(f"{home}/.config/{notify_daemon}/icons/status/{icon}.svg", "w", encoding="UTF-8") as file:
             file.write(data)
 
@@ -19,6 +21,7 @@ def vol_icons(color_config: dict, home: str, notify_daemon: str) -> None:
         data = data.replace("""{{wb-hvr-fg}}""", color_config["wb-hvr-fg"])
         data = data.replace("""{{wb-hvr-bg}}""", color_config["wb-hvr-bg"])
 
+        os.makedirs(f"{home}/.config/{notify_daemon}/icons/vol/", exist_ok=True)
         with open(f"{home}/.config/{notify_daemon}/icons/vol/vol-{vol}.svg", "w", encoding="UTF-8") as file:
             file.write(data)
 
