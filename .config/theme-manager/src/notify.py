@@ -2,8 +2,5 @@
 import subprocess as sp
 
 
-def send_notification(message: str, icon: str, timeout: int = 800) -> None:
-    sp.run(
-        f"""notify-send "{message}" -i {icon} -r 92999 -t {timeout} -u normal""",
-        shell=True,
-    )
+def send_notification(message: str, icon: str, timeout: int = 800, notify_id: int = 92999) -> None:
+    sp.run(["notify-send", f'"{message}"', "-i", icon, "-r", str(notify_id), "-t", str(timeout), "-u", "normal"])

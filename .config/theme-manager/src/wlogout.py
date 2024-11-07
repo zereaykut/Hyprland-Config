@@ -1,10 +1,8 @@
 #!/usr/bin/python
 
 
-def wlogout(color_config: dict, user: str) -> None:
-    with open(
-        f"/home/{user}/.config/theme-manager/conf/wlogout.css", "r", encoding="UTF-8"
-    ) as f:
+def wlogout(color_config: dict, home: str) -> None:
+    with open(f"{home}/.config/theme-manager/conf/wlogout.css", "r", encoding="UTF-8") as f:
         wlogout_theme = f.read()
 
     wlogout_theme = wlogout_theme.replace("""{{main-bg}}""", color_config["main-bg"])
@@ -22,5 +20,5 @@ def wlogout(color_config: dict, user: str) -> None:
         """{{wb-hvr-fg}}""", color_config["wb-hvr-fg"]
     )
 
-    with open(f"/home/{user}/.config/wlogout/theme.css", "w", encoding="UTF-8") as file:
+    with open(f"{home}/.config/wlogout/theme.css", "w", encoding="UTF-8") as file:
         file.write(wlogout_theme)
