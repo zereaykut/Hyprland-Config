@@ -6,9 +6,7 @@ import sys
 
 class VolumeControl:
     def __init__(self, action, device):
-        self.user = sp.run(
-            "whoami", shell=True, capture_output=True, text=True
-        ).stdout.strip()
+        self.user = sp.run(["whoami"], capture_output=True, text=True).stdout.strip()
         self.action = action
         self.device = device
         self.src = self.get_device_source()
@@ -23,11 +21,11 @@ class VolumeControl:
 
     def set_volume(self):
         if self.action == "i":
-            sp.run(f"pamixer {self.src} -i 5", shell=True)
+            sp.run(["pamixer", self.src, "-i", "5"])
         elif self.action == "d":
-            sp.run(f"pamixer {self.src} -d 5", shell=True)
+            sp.run(["pamixer", self.src, "-d", "5"])
         elif self.action == "m":
-            sp.run(f"pamixer {self.src} -t", shell=True)
+            sp.run(["pamixer", self.src, "-t"])
         else:
             sys.exit("Invalid action parameter")
 
@@ -38,9 +36,7 @@ class VolumeControl:
             self.notify_volume_change()
 
     def notify_mute_status(self):
-        mute_state = sp.run(
-            f"pamixer {self.src} --get-mute", shell=True, capture_output=True, text=True
-        ).stdout.strip()
+        mute_state = sp.run(["pamixer", self.src, "--get-mute"], capture_output=True, text=True).stdout.strip()
         if mute_state == "true":
             if self.device == "o":
                 icon = f"/home/{self.user}/.config/dunst/icons/status/speaker-muted.svg"
@@ -52,9 +48,7 @@ class VolumeControl:
                 sys.exit("Invalid device parameter")
         else:
             if self.device == "o":
-                icon = (
-                    f"/home/{self.user}/.config/dunst/icons/status/speaker-unmuted.svg"
-                )
+                icon = f"/home/{self.user}/.config/dunst/icons/status/speaker-unmuted.svg"
                 message = "Speaker is unmuted"
             elif self.device == "i":
                 icon = f"/home/{self.user}/.config/dunst/icons/status/mic-unmuted.svg"
@@ -62,26 +56,15 @@ class VolumeControl:
             else:
                 sys.exit("Invalid device parameter")
 
-        sp.run(
-            f"""notify-send "{message}" -i {icon} -r 91190 -t 800 -u normal""",
-            shell=True,
-        )
+        sp.run(["notify-send", f'"{message}"', "-i", icon, "-r", "91190", "-t", "800", "-u", "normal"])
 
     def notify_volume_change(self):
         volume_percent = int(
-            sp.run(
-                f"pamixer {self.src} --get-volume",
-                shell=True,
-                capture_output=True,
-                text=True,
-            ).stdout.strip()
+            sp.run(["pamixer", self.src, "--get-volume"], capture_output=True, text=True).stdout.strip()
         )
         volume_vol = volume_percent // 5 * 5
         icon = f"/home/{self.user}/.config/dunst/icons/vol/vol-{volume_vol}.svg"
-        sp.run(
-            f"""notify-send "Volume {volume_percent}%" -i {icon} -r 91190 -t 800 -u normal""",
-            shell=True,
-        )
+        sp.run(["notify-send", f"Volume {volume_percent}%", "-i", icon, "-r", "91190", "-t", "800", "-u", "normal"])
 
 
 def main():

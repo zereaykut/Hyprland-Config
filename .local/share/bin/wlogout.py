@@ -21,8 +21,8 @@ class WLogout:
     def execute_wlogout(self):
         try:
             self.calculate_margin()
-            sp.run(f"killall wlogout", shell=True)
-            sp.run(f"wlogout -b 6 -T {self.margin} -B {self.margin}", shell=True)
+            sp.run(["killall", "wlogout"])
+            sp.run(["wlogout", "-b", "6", "-T", str(self.margin), "-B", str(self.margin)])
         except Exception as e:
             print(f"An error occurred: {e}")
             sys.exit(1)

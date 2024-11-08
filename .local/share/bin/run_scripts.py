@@ -5,18 +5,13 @@ import json
 
 class RofiScripts:
     def __init__(self):
-        self.user = sp.run("whoami", shell=True, capture_output=True, text=True).stdout.strip()
+        self.user = sp.run(["whoami"], capture_output=True, text=True).stdout.strip()
         with open(f"/home/{self.user}/.local/share/bin/run_scripts.json", "r") as f:
             self.rofi_scripts_info = json.load(f)
         self.rofi_scripts = "\n".join(list(self.rofi_scripts_info.keys()))
 
     def get_rofi_selection(self):
-        rofi_select = sp.run(
-            f"""echo "{self.rofi_scripts}" | rofi -dmenu -matching normal -i""",
-            shell=True,
-            capture_output=True,
-            text=True,
-        )
+        rofi_select = sp.run(f"""echo "{self.rofi_scripts}" | rofi -dmenu -matching normal -i""", shell=True, capture_output=True, text=True)
         return rofi_select.stdout.strip()
 
     def run_script(self, script_name):

@@ -5,12 +5,9 @@ import subprocess as sp
 
 def main():
 
-    powerprofile = sp.run(
-        "powerprofilesctl get",
-        shell=True,
-        capture_output=True,
-        text=True,
-    ).stdout.strip()
+    powerprofile = sp.run(["powerprofilesctl", "get"], capture_output=True, text=True).stdout.strip()
+
+    text, tooltip = None, None
 
     if powerprofile == "performance":
         text = ""

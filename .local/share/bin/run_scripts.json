@@ -7,5 +7,7 @@
     "Color-Scheme-Generator": "kitty -e python ~/.config/theme-manager/services/color_schemes.py",
     "Wallpaper-Cache-Generator": "kitty -e python ~/.config/theme-manager/services/wall_cache.py",
     "Color-Scheme-Generator-Overwrite": "kitty -e python ~/.config/theme-manager/services/color_schemes_overwrite.py",
-    "Wallpaper-Cache-Generator-Overwrite": "kitty -e python ~/.config/theme-manager/services/wall_cache_overwrite.py"
+    "Wallpaper-Cache-Generator-Overwrite": "kitty -e python ~/.config/theme-manager/services/wall_cache_overwrite.py",
+    "Clipboard-Manager": "bash ~/.local/share/bin/clip_manager.sh",
+    "Color-Picker": "bash ~/.local/share/bin/color_picker.sh"
 }

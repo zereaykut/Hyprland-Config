@@ -5,7 +5,7 @@
 # ALT Del to wipe clipboard contents
 
 while true; do
-    result=$(rofi -i -dmenu -kb-custom-1 "Control-Delete" -kb-custom-2 "Alt-Delete" < <(cliphist list))
+    result=$(rofi -i -dmenu -kb-custom-1 "Control-Delete" -kb-custom-2 "Alt-Delete" -config ~/.config/rofi/rofi_selector.rasi< <(cliphist list))
 
     case "$?" in
         1)

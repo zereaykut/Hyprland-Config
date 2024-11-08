@@ -5,7 +5,7 @@ import json
 
 class SearchEngineLauncher:
     def __init__(self):
-        self.user = sp.run("whoami", shell=True, capture_output=True, text=True).stdout.strip()
+        self.user = sp.run(["whoami"], capture_output=True, text=True).stdout.strip()
         with open(f"/home/{self.user}/.local/share/bin/web_search.json", "r") as f:
             self.search_urls = json.load(f)
 
@@ -19,16 +19,14 @@ class SearchEngineLauncher:
 
     def get_rofi_input(self):
         available_searches = self.get_available_searches()
-        rofi_search_input = sp.run(
-            f"""{available_searches} | rofi -dmenu normal""", shell=True, capture_output=True, text=True, check=False
-        )
+        rofi_search_input = sp.run(f"""{available_searches} | rofi -dmenu normal""", shell=True, capture_output=True, text=True)
         return rofi_search_input.stdout
 
     def open_search_url(self, search_input):
         search_url_key = search_input[:2]
         search_query = search_input[2:].strip().replace(" ", "+")
         if search_url_key in self.search_urls:
-            sp.run(f"""xdg-open {self.search_urls[search_url_key]["url"]}{search_query}""", shell=True, check=False)
+            sp.run(["xdg-open", f"""{self.search_urls[search_url_key]["url"]}{search_query}"""])
         else:
             sys.exit()
 
