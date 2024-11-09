@@ -8,3 +8,7 @@
     separatorcolor:     transparent;
     border-color:       transparent;
 }
+
+configuration {
+    icon-theme:         "{{icon-theme}}";
+}
