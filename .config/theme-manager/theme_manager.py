@@ -69,21 +69,29 @@ class ThemeManager:
             ]
         rofi_output = "\n".join(rofi_output)
         rofi_select = sp.run(
-            f"""echo -en "{rofi_output}" | rofi -dmenu -matching normal -i -theme ~/.config/rofi/wallpaper_select.rasi""",
+            f"""echo -en "{rofi_output}" | rofi -dmenu -kb-custom-1 "Control-Delete" -matching normal -i -theme ~/.config/rofi/wallpaper_select.rasi""",
             shell=True,
             capture_output=True,
             text=True,
         )
+        returncode = rofi_select.returncode
+        if returncode == 10:
+            return 10, None, None
         wallpaper = rofi_select.stdout.strip()
         color_scheme = wallpaper.rsplit(".", 1)[0]
         with open(f"{self.home}/.cache/theme-manager/color-schemes/{theme}/{color_scheme}.json", "r", encoding="UTF-8") as f:
             color_config = json.load(f)
-        return f"{self.home}/.config/wallpapers/{theme}/{wallpaper}", color_config
+        return 1, f"{self.home}/.config/wallpapers/{theme}/{wallpaper}", color_config
 
     def apply_theme(self):
         cursor_size = 24
         config_theme, theme = self.rofi_select_theme()
-        wallpaper, color_config = self.rofi_select_wallpaper(theme)
+        while True:
+            returncode, wallpaper, color_config = self.rofi_select_wallpaper(theme)
+            if returncode == 1:
+                break
+            config_theme, theme = self.rofi_select_theme()
+
         swww(wallpaper)
         hyprland(config_theme, color_config, theme, cursor_size, self.home)
         hyprlock(theme, self.home)
