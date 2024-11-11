@@ -2,7 +2,7 @@ import json
 import os
 import re
 import subprocess as sp
-
+from pathlib import Path
 
 class ColorSchemeGenerator:
     ONE_THIRD = 1.0 / 3.0
@@ -10,8 +10,8 @@ class ColorSchemeGenerator:
     TWO_THIRD = 2.0 / 3.0
 
     def __init__(self, user):
-        self.user = user
-        self.base_dir = f"/home/{self.user}/.cache/theme-manager/color-schemes"
+        self.home = str(Path.home())
+        self.base_dir = f"{self.home}/.cache/theme-manager/color-schemes"
         self.wallpaper_dir = f"/home/{self.user}/.config/wallpapers"
 
     def imagemagick(self, color_count, img):
@@ -74,21 +74,24 @@ class ColorSchemeGenerator:
         """
         return "#%02x%02x%02x" % (*color,)
 
-    def darken_color(self, color, amount):
+    @staticmethod
+    def darken_color(color, amount):
         """
         Darken a hex color.
         """
         color = [int(col * (1 - amount)) for col in self.hex_to_rgb(color)]
         return self.rgb_to_hex(color)
 
-    def lighten_color(self, color, amount):
+    @staticmethod
+    def lighten_color(color, amount):
         """
         Lighten a hex color.
         """
         color = [int(col + (255 - col) * amount) for col in self.hex_to_rgb(color)]
         return self.rgb_to_hex(color)
 
-    def blend_color(self, color, color2):
+    @staticmethod
+    def blend_color(color, color2):
         """
         Blend two colors together.
         """
@@ -101,7 +104,8 @@ class ColorSchemeGenerator:
 
         return self.rgb_to_hex((r3, g3, b3))
 
-    def rgb_to_hls(self, r, g, b):
+    @staticmethod
+    def rgb_to_hls(r, g, b):
         """
         Convert RGB to HLS.
         """
@@ -129,7 +133,8 @@ class ColorSchemeGenerator:
         h = (h / 6.0) % 1.0
         return h, l, s
 
-    def hls_to_rgb(self, h, l, s):
+    @staticmethod
+    def hls_to_rgb(h, l, s):
         """
         Convert HLS to RGB.
         """
@@ -157,7 +162,8 @@ class ColorSchemeGenerator:
             return m1 + (m2 - m1) * (2.0 / 3.0 - h) * 6.0
         return m1
 
-    def saturate_color(self, color, amount):
+    @staticmethod
+    def saturate_color(color, amount):
         """
         Saturate a hex color.
         """
@@ -170,6 +176,7 @@ class ColorSchemeGenerator:
 
         return self.rgb_to_hex((int(r), int(g), int(b)))
 
+    @staticmethod
     def adjust(self, raw_colors, light):
         """
         Adjust the generated colors in a list.
@@ -260,6 +267,5 @@ class ColorSchemeGenerator:
 
 
 if __name__ == "__main__":
-    user = sp.run("whoami", shell=True, capture_output=True, text=True).stdout.strip()
-    generator = ColorSchemeGenerator(user)
+    generator = ColorSchemeGenerator()
     generator.process_images()
