@@ -9,10 +9,10 @@ class ColorSchemeGenerator:
     ONE_SIXTH = 1.0 / 6.0
     TWO_THIRD = 2.0 / 3.0
 
-    def __init__(self, user):
+    def __init__(self):
         self.home = str(Path.home())
         self.base_dir = f"{self.home}/.cache/theme-manager/color-schemes"
-        self.wallpaper_dir = f"/home/{self.user}/.config/wallpapers"
+        self.wallpaper_dir = f"{self.home}/.config/wallpapers"
 
     def imagemagick(self, color_count, img):
         """
@@ -42,16 +42,16 @@ class ColorSchemeGenerator:
         Format the output from imagemagick into a list of hex colors.
         """
         for i in range(11):
-            raw_colors = self.imagemagick(6 + i, img)
+            raw_colors = self.imagemagick(10 + i, img)
 
-            if len(raw_colors) > 6:
+            if len(raw_colors) >= 10:
                 break
 
-            if i == 16:
+            if i == 20:
                 print("Imagemagick couldn't generate a suitable palette.")
 
             print(
-                f"Imagemagick couldn't generate a palette. Trying a larger palette size {6 + i}"
+                f"Imagemagick couldn't generate a palette. Trying a larger palette size {10 + i}"
             )
 
         # return [re.search("#.{6}", str(col)).group(0) for col in raw_colors[1:]]
@@ -201,18 +201,9 @@ class ColorSchemeGenerator:
         """
         Save the color scheme as a JSON file.
         """
-        dictionary = {
-            "main-bg": raw_colors[0],
-            "main-fg": raw_colors[-1],
-            "wb-act-bg": raw_colors[1],
-            "wb-act-fg": raw_colors[-2],
-            "wb-hvr-bg": raw_colors[2],
-            "wb-hvr-fg": raw_colors[-3],
-        }
+        dictionary = {f"color{i}" : color for i, color in enumerate(raw_colors)}
 
         theme_dir = f"{self.base_dir}/{theme}"
-        os.makedirs(theme_dir, exist_ok=True)
-
         with open(f"{theme_dir}/{output_name}.json", "w") as f:
             f.write(json.dumps(dictionary, indent=4))
 
@@ -247,6 +238,8 @@ class ColorSchemeGenerator:
 
         for image_info in images_info:
             print(image_info[0])
+
+            os.makedirs(f"{self.base_dir}/{image_info[1]}/", exist_ok=True)
 
             output_path = f"{self.base_dir}/{image_info[1]}/{image_info[2]}.json"
             if os.path.exists(output_path):

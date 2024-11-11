@@ -27,7 +27,6 @@ class ColorSchemeGeneratorOW(ColorSchemeGenerator):
 
 
 if __name__ == "__main__":
-    user = sp.run("whoami", shell=True, capture_output=True, text=True).stdout.strip()
-    generator = ColorSchemeGeneratorOW(user)
+    generator = ColorSchemeGeneratorOW()
     generator.process_images()
 
