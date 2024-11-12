@@ -4,6 +4,7 @@ import re
 import subprocess as sp
 from pathlib import Path
 
+
 class ColorSchemeGenerator:
     ONE_THIRD = 1.0 / 3.0
     ONE_SIXTH = 1.0 / 6.0
@@ -176,7 +177,6 @@ class ColorSchemeGenerator:
 
         return self.rgb_to_hex((int(r), int(g), int(b)))
 
-    @staticmethod
     def adjust(self, raw_colors, light):
         """
         Adjust the generated colors in a list.
@@ -184,16 +184,24 @@ class ColorSchemeGenerator:
 
         if light:
             for i in range(len(raw_colors)):
-                raw_colors[i] = self.saturate_color(raw_colors[i], 0.5)
+                raw_colors[i] = self.saturate_color(raw_colors[i], 0.6)
+                raw_colors[i] = self.darken_color(raw_colors[i], 0.5)
 
             raw_colors[0] = self.lighten_color(colors[0], 0.85)
+            colors[7] = self.darken_color(colors[0], 0.75)
+            colors[8] = self.darken_color(colors[0], 0.25)
+            
             raw_colors[-1] = self.darken_color(colors[-1], 0.4)
         else:
             raw_colors[0] = self.darken_color(raw_colors[0], 0.50)
-            raw_colors[1] = self.darken_color(raw_colors[1], 0.10)
+            raw_colors[1] = self.darken_color(raw_colors[1], 0.30)
+            raw_colors[2] = self.darken_color(raw_colors[1], 0.20)
+            raw_colors[3] = self.darken_color(raw_colors[1], 0.20)
+            
+            raw_colors[-4] = self.darken_color(raw_colors[-4], 0.10)
             raw_colors[-3] = self.blend_color(raw_colors[-3], "#EEEEEE")
-            raw_colors[-2] = self.darken_color(raw_colors[-2], 0.30)
-            raw_colors[-1] = self.blend_color(raw_colors[-1], "#EEEEEE")
+            raw_colors[-2] = self.lighten_color_color(raw_colors[-2], 0.20)
+            raw_colors[-1] = self.lighten_color(raw_colors[-1], 0.50)
 
         return raw_colors
 
@@ -201,7 +209,7 @@ class ColorSchemeGenerator:
         """
         Save the color scheme as a JSON file.
         """
-        dictionary = {f"color{i}" : color for i, color in enumerate(raw_colors)}
+        dictionary = {f"color{i}": color for i, color in enumerate(raw_colors)}
 
         theme_dir = f"{self.base_dir}/{theme}"
         with open(f"{theme_dir}/{output_name}.json", "w") as f:
