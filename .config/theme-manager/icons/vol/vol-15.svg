@@ -49,7 +49,7 @@
      inkscape:label="shadow"
      sodipodi:insensitive="true" /><circle
      style="display:inline;
-fill:{{wb-hvr-fg}};
+fill:[[color6]];
               fill-opacity:1;
             stroke-width:1.584"
      cx="248.8752"
@@ -89,7 +89,7 @@ fill:{{wb-hvr-fg}};
      inkscape:label="shadow"
      sodipodi:insensitive="true" /><path
      style="display:inline;
-fill:{{wb-hvr-bg}};
+fill:[[color4]];
               stroke-width:1.584"
      d="m 152.33264,179.91922 c 6.77451,3.4518 8.98965,10.26932 5.53787,17.04382 v 0 c -3.45178,6.77449 -10.2693,8.98964 -17.0438,5.53787 L 95.663362,179.48903 c -6.774498,-3.45178 -8.989646,-10.2693 -5.537865,-17.0438 v 0 c 3.451781,-6.77451 10.269303,-8.98965 17.043803,-5.53787 z"
      id="path915"
