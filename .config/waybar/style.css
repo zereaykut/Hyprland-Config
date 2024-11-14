@@ -24,8 +24,8 @@ window#waybar.hidden {
 }
 
 tooltip {
-  color: @main-fg;
-  background-color: @main-bg;
+  color: @color9;
+  background-color: @color0;
   text-shadow: none;
 }
 
@@ -36,9 +36,9 @@ tooltip {
 #workspaces,
 #taskbar {
   padding: 0px 15px;
-  color: @main-fg;
+  color: @color9;
   border-radius: 20px;
-  background-color: @main-bg;
+  background-color: @color0;
   margin-right: 3px;
   margin-left: 3px
 }
@@ -53,15 +53,15 @@ tooltip {
   margin-bottom: 3px;
   padding-left: 3px;
   padding-right: 3px;
-  color: @main-fg;
+  color: @color9;
   animation: gradient_f 20s ease-in infinite;
   transition: all 0.5s cubic-bezier(.55,-0.68,.48,1.682);
 }
 
 #workspaces button.active,
 #taskbar button.active {
-  background: @wb-act-bg;
-  color: @wb-act-fg;
+  background: @color2;
+  color: @color8;
   margin-left: 3px;
   padding-left: 12px;
   padding-right: 12px;
@@ -72,8 +72,8 @@ tooltip {
 
 #workspaces button:hover,
 #taskbar button:hover {
-  background: @wb-hvr-bg;
-  color: @wb-hvr-fg;
+  background: @color4;
+  color: @color6;
   padding-left: 3px;
   padding-right: 3px;
   animation: gradient_f 20s ease-in infinite;
@@ -94,9 +94,9 @@ tooltip {
 #custom-hyprPicker,
 #keyboard-state {
   padding: 0px 15px;
-  color: @main-fg;
+  color: @color9;
   border-radius: 20px;
-  background-color: @main-bg;
+  background-color: @color0;
   margin-right: 3px;
   margin-left: 3px;
 }
@@ -109,9 +109,9 @@ tooltip {
 /* #custom-pikaur, */
 #pulseaudio {
   padding: 0px 15px 0px 15px;
-  color: @main-fg;
+  color: @color9;
   border-radius: 0px;
-  background-color: @main-bg;
+  background-color: @color0;
 }
 
 /*Modules -> Right */
@@ -120,9 +120,9 @@ tooltip {
 #pulseaudio.microphone,
 #disk {
   padding: 0px 15px 0px 15px;
-  color: @main-fg;
+  color: @color9;
   border-radius: 0px 20px 20px 0px;
-  background-color: @main-bg;
+  background-color: @color0;
 }
 
 /*Modules -> Left */
@@ -131,9 +131,9 @@ tooltip {
 #custom-pacman,
 #backlight {
   padding: 0px 15px 0px 15px;
-  color: @main-fg;
+  color: @color9;
   border-radius: 20px 0px 0px 20px;
-  background-color: @main-bg;
+  background-color: @color0;
   margin-left: 3px;
 }
 
