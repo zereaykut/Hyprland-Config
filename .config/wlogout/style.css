@@ -8,7 +8,7 @@
 window {
     font-family: Fira Code Medium;
     font-size: 16pt;
-    color:  @main-fg; /* text */
+    color:  @color9; /* text */
     background-color: rgba(24, 27, 32, 0.2);
 
 } 
@@ -35,7 +35,7 @@ button:hover,
 button:active {
     background-size: 50%;
     box-shadow: 0 0 10px 3px rgba(0,0,0,.4);
-    background-color: @wb-hvr-bg;
+    background-color: @color4;
     color: transparent;
     transition: all 0.3s cubic-bezier(.55, 0.0, .28, 1.682), box-shadow 0.5s ease-in;
 }
