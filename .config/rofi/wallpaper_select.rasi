@@ -21,8 +21,8 @@ imagebox {
 
 
 entry {
-  expand: false;
-  placeholder: "🎞️ Choose Wallpaper";
+  expand: true;
+  placeholder: "🎞️ Choose Wallpaper (Alt-BackSpace: Theme Selection)";
 }
 
 /* ---- Listview ---- */

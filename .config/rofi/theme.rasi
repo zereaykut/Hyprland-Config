@@ -1,10 +1,19 @@
 * {
-    main-bg:            #04050f;
-    main-fg:            #dde1e8;
-    main-br:            #431632;
-    main-ex:            #1d365a;
-    select-bg:          #1d365a;
-    select-fg:          #b3becd;
+    color0:            #050412;
+    color1:            #090b2b;
+    color2:            #070822;
+    color3:            #070822;
+    color4:            #1D398C;
+    color5:            #1D57C4;
+    color6:            #246cc6;
+    color7:            #97a6db;
+    color8:            #7d9ded;
+    color9:            #c9d8fc;
+
     separatorcolor:     transparent;
     border-color:       transparent;
+}
+
+configuration {
+    icon-theme:         "Tela-Circle-Purple";
 }
