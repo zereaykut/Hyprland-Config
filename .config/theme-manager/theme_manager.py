@@ -69,7 +69,7 @@ class ThemeManager:
             ]
         rofi_output = "\n".join(rofi_output)
         rofi_select = sp.run(
-            f"""echo -en "{rofi_output}" | rofi -dmenu -kb-custom-1 "Control-Delete" -matching normal -i -theme ~/.config/rofi/wallpaper_select.rasi""",
+            f"""echo -en "{rofi_output}" | rofi -dmenu -kb-custom-1 "Alt-BackSpace" -matching normal -i -theme ~/.config/rofi/wallpaper_select.rasi""",
             shell=True,
             capture_output=True,
             text=True,
@@ -84,6 +84,7 @@ class ThemeManager:
         return 1, f"{self.home}/.config/wallpapers/{theme}/{wallpaper}", color_config
 
     def apply_theme(self):
+        color_count = 10
         cursor_size = 24
         config_theme, theme = self.rofi_select_theme()
         while True:
@@ -93,7 +94,7 @@ class ThemeManager:
             config_theme, theme = self.rofi_select_theme()
 
         swww(wallpaper)
-        hyprland(config_theme, color_config, theme, cursor_size, self.home)
+        hyprland(config_theme, color_config, theme, cursor_size, color_count, self.home)
         hyprlock(theme, self.home)
         kvantum(theme, self.home)
         qt5ct(config_theme, theme, self.home)
@@ -102,10 +103,10 @@ class ThemeManager:
         gsettings(config_theme, theme, self.home, cursor_size)
         gtk2(config_theme, theme, cursor_size, self.home)
         gtk3(config_theme, theme, cursor_size, self.home)
-        rofi(config_theme, color_config, self.home)
+        rofi(config_theme, color_config, color_count, self.home)
         kitty(theme, self.home)
-        waybar(color_config, self.home)
-        wlogout(color_config, self.home)
+        waybar(color_config, color_count, self.home)
+        wlogout(color_config, color_count, self.home)
         btop(theme, self.home)
         flatpak(config_theme, theme)
         status_icons(
@@ -125,11 +126,12 @@ class ThemeManager:
                 "clip",
                 "clip-edit"
             ],
+            color_count,
             self.home,
             "dunst"
         )
-        vol_icons(color_config, self.home, "dunst")
-        dunst(color_config, self.home)
+        vol_icons(color_config, color_count, self.home, "dunst")
+        dunst(color_config, color_count, self.home)
 
         wall_name = wallpaper.split("/")[-1].split(".")[0]
         send_notification(
