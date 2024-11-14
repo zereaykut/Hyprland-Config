@@ -13,6 +13,7 @@ sudo pacman --needed --noconfirm -S base-devel
 sudo pacman --needed --noconfirm -S python
 sudo pacman --needed --noconfirm -S python-pip
 sudo pacman --needed --noconfirm -S python-psutil
+sudo pacman --needed --noconfirm -S python-pillow
 # sudo pacman --needed --noconfirm -S python-rich
 # sudo pacman --needed --noconfirm -S python-click
 # sudo pacman --needed --noconfirm -S python-requests
