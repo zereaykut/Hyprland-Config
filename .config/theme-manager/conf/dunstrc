@@ -72,14 +72,14 @@
     icon = "~/.config/dunst/icons/status/critical.svg" 
     timeout = 8  
 [urgency_low] 
-    background = "{{main-bg}}"
-    foreground = "{{main-fg}}"
-    frame_color = "{{wb-hvr-bg}}"
+    background = "[[color0]]"
+    foreground = "[[color9]]"
+    frame_color = "[[color6]]"
     icon = "~/.config/dunst/icons/status/arch.svg" 
      timeout = 8  
 [urgency_normal] 
-    background = "{{main-bg}}"
-    foreground = "{{main-fg}}"
-    frame_color = "{{wb-hvr-bg}}"
+    background = "[[color0]]"
+    foreground = "[[color9]]"
+    frame_color = "[[color6]]"
     icon = "~/.config/dunst/icons/status/arch.svg" 
     timeout = 8 

@@ -1,14 +1,19 @@
 * {
-    main-bg:            {{main-bg}};
-    main-fg:            {{main-fg}};
-    main-br:            {{wb-hvr-bg}};
-    main-ex:            {{wb-act-bg}};
-    select-bg:          {{wb-act-bg}};
-    select-fg:          {{wb-hvr-fg}};
+    color0:            [[color0]];
+    color1:            [[color1]];
+    color2:            [[color2]];
+    color3:            [[color3]];
+    color4:            [[color4]];
+    color5:            [[color5]];
+    color6:            [[color6]];
+    color7:            [[color7]];
+    color8:            [[color8]];
+    color9:            [[color9]];
+
     separatorcolor:     transparent;
     border-color:       transparent;
 }
 
 configuration {
-    icon-theme:         "{{icon-theme}}";
+    icon-theme:         "[[icon-theme]]";
 }

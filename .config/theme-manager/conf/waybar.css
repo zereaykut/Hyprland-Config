@@ -1,6 +1,10 @@
-@define-color main-bg {{main-bg}};
-@define-color main-fg {{main-fg}};
-@define-color wb-act-bg {{wb-act-bg}};
-@define-color wb-act-fg {{wb-act-fg}};
-@define-color wb-hvr-bg {{wb-hvr-bg}};
-@define-color wb-hvr-fg {{wb-hvr-fg}};
+@define-color color0 [[color0]];
+@define-color color1 [[color1]];
+@define-color color2 [[color2]];
+@define-color color3 [[color3]];
+@define-color color4 [[color4]];
+@define-color color5 [[color5]];
+@define-color color6 [[color6]];
+@define-color color7 [[color7]];
+@define-color color8 [[color8]];
+@define-color color9 [[color9]];

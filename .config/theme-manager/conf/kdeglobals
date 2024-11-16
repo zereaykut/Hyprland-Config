@@ -20,4 +20,4 @@ View Style=DetailTree
 [General]
 TerminalApplication=kitty
 [Icons]
-Theme={{icon-theme}}
+Theme=[[icon-theme]]
