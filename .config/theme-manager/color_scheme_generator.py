@@ -4,6 +4,7 @@ import subprocess as sp
 import sys
 
 from services.imagemagick import ImageMagick
+from services.colorthief import ColorThief
 
 def main():
     """
