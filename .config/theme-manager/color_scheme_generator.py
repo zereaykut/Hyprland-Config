@@ -3,8 +3,9 @@ import argparse
 import subprocess as sp
 import sys
 
-from services.imagemagick import ImageMagick
+from services.imagemagick import ImageMagickColorSchemeGenerator
 from services.colorthief import ColorThief
+from services.utils import ImageProcess
 
 def main():
     """
@@ -33,11 +34,10 @@ def main():
         sys.exit("overwrite should be True or False")
 
     if service == "imagemagick":
-        generator = ImageMagick()
         if overwrite:
-            generator.process_images(overrite=True)
+            ImageProcess.get_color_scheme_caches(ImageMagickColorSchemeGenerator.run, overwrite=True)
         else:
-            generator.process_images()
+            ImageProcess.get_color_scheme_caches(ImageMagickColorSchemeGenerator.run)
         
     elif service == "colorthief":
         sys.exit("Not implemented yet")
