@@ -137,11 +137,11 @@ element {
 }
 element selected.normal {
     background-color:            @color4;
-    text-color:                  @color6;
+    text-color:                  @color7;
 }
 element selected.active {
     background-color:            @color4;
-    text-color:                  @color6;
+    text-color:                  @color7;
 }
 element-icon {
     background-color:            transparent;
