@@ -1,19 +1,19 @@
 * {
-    color0:            #050412;
-    color1:            #090b2b;
-    color2:            #070822;
-    color3:            #070822;
-    color4:            #1D398C;
-    color5:            #1D57C4;
-    color6:            #246cc6;
-    color7:            #97a6db;
-    color8:            #7d9ded;
-    color9:            #c9d8fc;
+    color0:            #07090d;
+    color1:            #121c2a;
+    color2:            #0e1621;
+    color3:            #0e1621;
+    color4:            #4B6382;
+    color5:            #5D7592;
+    color6:            #697d91;
+    color7:            #b6aea8;
+    color8:            #b1b9bb;
+    color9:            #ceeafa;
 
     separatorcolor:     transparent;
     border-color:       transparent;
 }
 
 configuration {
-    icon-theme:         "Tela-Circle-Purple";
+    icon-theme:         "Tela-Circle-Dracula";
 }
