@@ -60,7 +60,7 @@ tooltip {
 
 #workspaces button.active,
 #taskbar button.active {
-  background: @color2;
+  background: @color4;
   color: @color8;
   margin-left: 3px;
   padding-left: 12px;
@@ -73,7 +73,7 @@ tooltip {
 #workspaces button:hover,
 #taskbar button:hover {
   background: @color4;
-  color: @color6;
+  color: @color7;
   padding-left: 3px;
   padding-right: 3px;
   animation: gradient_f 20s ease-in infinite;
