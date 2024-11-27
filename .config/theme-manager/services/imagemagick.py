@@ -1,9 +1,10 @@
 import os
 import re
 import subprocess as sp
+import shutil
+import sys
 from pathlib import Path
 
-# from .utils.ColorSys import darken_color, lighten_color, blend_color, saturate_color
 from .utils import ColorSys
 
 
@@ -13,7 +14,7 @@ class ImageMagickColorSchemeGenerator:
     """
     
     @staticmethod
-    def imagemagick(color_count, img):
+    def imagemagick(color_count, img, magick_command):
         """
         Call Imagemagick to generate a color scheme.
         """
@@ -22,16 +23,24 @@ class ImageMagickColorSchemeGenerator:
         img += "[0]"
 
         # return sp.run(["magick", img, *flags]).splitlines()
-        return sp.check_output(["convert", img, *flags], stderr=sp.STDOUT).splitlines()
+        return sp.check_output([*magick_command, img, *flags], stderr=sp.STDOUT).splitlines()
         # return sp.run(["magick", img, *flags], universal_newlines=True, stdout=sp.PIPE).splitlines()
 
     @staticmethod
-    def gen_colors(img):
-        """
-        Format the output from imagemagick into a list of hex colors.
-        """
+    def has_im():
+        """Check to see if the user has im installed."""
+        if shutil.which("magick"):
+            return ["magick", "convert"]
+
+        if shutil.which("convert"):
+            return ["convert"]
+
+        sys.exit(1)
+
+    @staticmethod
+    def try_gen_in_range(img, magick_command):
         for i in range(20):
-            raw_colors = ImageMagickColorSchemeGenerator.imagemagick(16 + i, img)
+            raw_colors = ImageMagickColorSchemeGenerator.imagemagick(16 + i, img, magick_command)
 
             if len(raw_colors) > 16:
                 break
@@ -39,13 +48,26 @@ class ImageMagickColorSchemeGenerator:
             if i == 19:
                 print("Imagemagick couldn't generate a suitable palette.")
 
-            print(f"Imagemagick couldn't generate a palette. Trying a larger palette size {16 + i}")
-
-        # return [re.search("#.{6}", str(col)).group(0) for col in raw_colors[1:]]
-        raw_colors = [
-            match.group(0) for i in raw_colors if (match := re.search(r"#.{6}", str(i)))
-        ]
         return raw_colors
+
+    @staticmethod
+    def gen_colors(img):
+        """Format the output from imagemagick into a list
+        of hex colors."""
+        magick_command = ImageMagickColorSchemeGenerator.has_im()
+
+        raw_colors = ImageMagickColorSchemeGenerator.try_gen_in_range(img, magick_command)
+
+        try:
+            out = [re.search("#.{6}", str(col)).group(0) for col in raw_colors[1:]]
+        except AttributeError:
+            if magick_command == ["magick", "convert"]:
+                print("magick convert failed, using only magick")
+                magick_command = ["magick"]
+                raw_colors = ImageMagickColorSchemeGenerator.try_gen_in_range(img, magick_command)
+                out = [re.search("#.{6}", str(col)).group(0) for col in raw_colors[1:]]
+
+        return out
 
     @staticmethod
     def adjust(raw_colors, light):
