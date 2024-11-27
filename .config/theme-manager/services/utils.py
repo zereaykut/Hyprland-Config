@@ -1,6 +1,7 @@
 
 import os
 from pathlib import Path
+import json
 
 HOME = str(Path.home())
 
@@ -115,9 +116,9 @@ class ColorSys:
             m2 = l + s - (l * s)
         m1 = 2.0 * l - m2
         return (
-            _v(m1, m2, h + self.ONE_THIRD),
-            _v(m1, m2, h),
-            _v(m1, m2, h - self.ONE_THIRD),
+            ColorSys._v(m1, m2, h + self.ONE_THIRD),
+            ColorSys._v(m1, m2, h),
+            ColorSys._v(m1, m2, h - self.ONE_THIRD),
         )
 
     @staticmethod
@@ -158,7 +159,7 @@ class ImageProcess:
         return images_info
 
     @staticmethod
-    def get_color_scheme_caches(service, overrite=False):
+    def get_color_scheme_caches(service, overwrite=False):
         """
         Process each image and generate color schemes.
         """
@@ -169,11 +170,12 @@ class ImageProcess:
 
             os.makedirs(f"{COLOR_SCHEME_CACHE_DIR}/{image_info[1]}/", exist_ok=True)
 
-            output_path = f"{COLOR_SCHEME_CACHE_DIR}/{image_info[1]}/{image_info[2]}.json"
-            if not overrite:
+            output_path = f"""{COLOR_SCHEME_CACHE_DIR}/{image_info[1]}/{image_info[2].rsplit(".", 1)[0]}.json"""
+            if not overwrite:
                 if os.path.exists(output_path):
                     print(f"Exists: {output_path}")
                     continue
+           
             try:
                 # self.get_color_scheme(image_info[0], image_info[1], image_info[2])
                 colors = service(image_info[0])
@@ -208,11 +210,13 @@ class ImageProcess:
                 if os.path.exists(output_path):
                     print(f"Exists: {output_path}")
                     continue
+           
             try:
                 # self.imagemagick(image_info[0], image_info[1], image_info[2], 640, 360)
                 theme = image_info[1]
                 cached_image_path = f"{WALLPAPERS_CACHE_DIR}/{theme}/{image_info[2]}"
                 service(image_info[0], cached_image_path, 640, 360)
+
             except Exception as e:
                 error_path = (f"{WALLPAPERS_CACHE_DIR}/{image_info[1]}/{image_info[2]}.error")
                 with open(error_path, "w") as f:
