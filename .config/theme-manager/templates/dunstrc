@@ -73,13 +73,13 @@
     timeout = 8  
 [urgency_low] 
     background = "[[color0]]"
-    foreground = "[[color9]]"
+    foreground = "[[color15]]"
     frame_color = "[[color6]]"
     icon = "~/.config/dunst/icons/status/arch.svg" 
      timeout = 8  
 [urgency_normal] 
     background = "[[color0]]"
-    foreground = "[[color9]]"
+    foreground = "[[color15]]"
     frame_color = "[[color6]]"
     icon = "~/.config/dunst/icons/status/arch.svg" 
     timeout = 8 
