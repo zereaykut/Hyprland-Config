@@ -24,7 +24,7 @@ window#waybar.hidden {
 }
 
 tooltip {
-  color: @color9;
+  color: @color15;
   background-color: @color0;
   text-shadow: none;
 }
@@ -36,7 +36,7 @@ tooltip {
 #workspaces,
 #taskbar {
   padding: 0px 15px;
-  color: @color9;
+  color: @color15;
   border-radius: 20px;
   background-color: @color0;
   margin-right: 3px;
@@ -53,15 +53,15 @@ tooltip {
   margin-bottom: 3px;
   padding-left: 3px;
   padding-right: 3px;
-  color: @color9;
+  color: @color15;
   animation: gradient_f 20s ease-in infinite;
   transition: all 0.5s cubic-bezier(.55,-0.68,.48,1.682);
 }
 
 #workspaces button.active,
 #taskbar button.active {
-  background: @color4;
-  color: @color8;
+  background: @color5;
+  color: @color10;
   margin-left: 3px;
   padding-left: 12px;
   padding-right: 12px;
@@ -73,7 +73,7 @@ tooltip {
 #workspaces button:hover,
 #taskbar button:hover {
   background: @color4;
-  color: @color7;
+  color: @color8;
   padding-left: 3px;
   padding-right: 3px;
   animation: gradient_f 20s ease-in infinite;
@@ -94,7 +94,7 @@ tooltip {
 #custom-hyprPicker,
 #keyboard-state {
   padding: 0px 15px;
-  color: @color9;
+  color: @color15;
   border-radius: 20px;
   background-color: @color0;
   margin-right: 3px;
@@ -109,7 +109,7 @@ tooltip {
 /* #custom-pikaur, */
 #pulseaudio {
   padding: 0px 15px 0px 15px;
-  color: @color9;
+  color: @color15;
   border-radius: 0px;
   background-color: @color0;
 }
@@ -120,7 +120,7 @@ tooltip {
 #pulseaudio.microphone,
 #disk {
   padding: 0px 15px 0px 15px;
-  color: @color9;
+  color: @color15;
   border-radius: 0px 20px 20px 0px;
   background-color: @color0;
 }
@@ -131,7 +131,7 @@ tooltip {
 #custom-pacman,
 #backlight {
   padding: 0px 15px 0px 15px;
-  color: @color9;
+  color: @color15;
   border-radius: 20px 0px 0px 20px;
   background-color: @color0;
   margin-left: 3px;

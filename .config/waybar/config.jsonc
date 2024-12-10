@@ -8,7 +8,7 @@
   "margin-right": 10,
   
   "modules-left": ["cpu", "memory", "temperature", "disk", "backlight", "pulseaudio", "pulseaudio#microphone"],
-  "modules-center": ["hyprland/workspaces", "wlr/taskbar", "clock", "keyboard-state", "mpris"],
+  "modules-center": ["hyprland/workspaces", "wlr/taskbar", "clock", "keyboard-state"],
   "modules-right": ["battery", "network", "tray", "custom/pacman", "custom/yay", "custom/flatpak", "custom/power-profiles-daemon", "group/menu"],
 
     "hyprland/workspaces": {

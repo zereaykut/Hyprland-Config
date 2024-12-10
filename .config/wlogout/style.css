@@ -8,7 +8,7 @@
 window {
     font-family: Fira Code Medium;
     font-size: 16pt;
-    color:  @color9; /* text */
+    color:  @color15; /* text */
     background-color: rgba(24, 27, 32, 0.2);
 
 } 
