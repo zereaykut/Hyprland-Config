@@ -4,9 +4,9 @@
    follow = mouse  
    ### Geometry ### 
    width = 300 
-   height = 300 
+   height = 100 
    origin = top-right 
-   offset = 15x49 
+   offset = 20x20
    scale = 0 
    notification_limit = 0  
    ### Progress bar ### 
@@ -42,8 +42,8 @@
    word_wrap = yes  
    ### Icons ### 
    icon_position = left 
-   min_icon_size = 32 
-   max_icon_size = 64 
+   min_icon_size = 32
+   max_icon_size = 64
    icon_path = /usr/share/icons/Paper/16x16/mimetypes/:/usr/share/icons/Paper/48x48/status/:/usr/share/icons/Paper/16x16/devices/:/usr/share/icons/Paper/48x48/notifications/:/usr/share/icons/Paper/48x48/emblems/:/usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/  
    ### History ### 
    sticky_history = yes 
