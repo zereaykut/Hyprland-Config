@@ -84,7 +84,7 @@ class ThemeManager:
         return 1, f"{self.home}/.config/wallpapers/{theme}/{wallpaper}", color_config
 
     def apply_theme(self):
-        color_count = 10
+        color_count = 16
         cursor_size = 24
         config_theme, theme = self.rofi_select_theme()
         while True:
@@ -97,8 +97,8 @@ class ThemeManager:
         hyprland(config_theme, color_config, theme, cursor_size, color_count, self.home)
         hyprlock(theme, self.home)
         kvantum(theme, self.home)
-        qt5ct(config_theme, theme, self.home)
-        qt6ct(config_theme, theme, self.home)
+        qt5ct(config_theme, theme, color_config, color_count, self.home)
+        qt6ct(config_theme, theme, color_config, color_count, self.home)
         kdeglobals(config_theme, self.home)
         gsettings(config_theme, theme, self.home, cursor_size)
         gtk2(config_theme, theme, cursor_size, self.home)
