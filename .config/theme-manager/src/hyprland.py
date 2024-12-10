@@ -2,20 +2,24 @@
 import subprocess as sp
 
 
-def hyprland(config: dict, color_config: dict, theme: str, cursor_size: int, home: str) -> None:
-    with open(f"{home}/.config/theme-manager/conf/hyprland_theme.conf", "r", encoding="UTF-8") as f:
+def hyprland(config: dict, color_config: dict, theme: str, cursor_size: int, color_count: int, home: str) -> None:
+    with open(f"{home}/.config/theme-manager/templates/hyprland_colors.conf", "r", encoding="UTF-8") as f:
+        hyprland_colors = f.read()
+
+    for i in range(color_count):
+        hyprland_colors = hyprland_colors.replace(f"[[color{i}]]", color_config[f"color{i}"].replace("#", "") + "ff")
+
+    with open(f"{home}/.config/hypr/confs/colors.conf", "w", encoding="UTF-8") as file:
+        file.write(hyprland_colors)
+
+
+    with open(f"{home}/.config/theme-manager/templates/hyprland_theme.conf", "r", encoding="UTF-8") as f:
         hyprland_theme_config = f.read()
 
-    hyprland_theme_config = hyprland_theme_config.replace("""{{theme}}""", theme)
-    hyprland_theme_config = hyprland_theme_config.replace("""{{icon-theme}}""", config["icon-theme"])
-    hyprland_theme_config = hyprland_theme_config.replace("""{{cursor-theme}}""", config["cursor-theme"])
-    hyprland_theme_config = hyprland_theme_config.replace("""{{cursor-size}}""", str(cursor_size))
-
-    hyprland_theme_config = hyprland_theme_config.replace("""{{wb-hvr-bg}}""", f"""{color_config["wb-hvr-bg"].replace("#", "")}ff""")
-    hyprland_theme_config = hyprland_theme_config.replace("""{{main-fg}}""", f"""{color_config["main-fg"].replace("#", "")}ff""")
-
-    hyprland_theme_config = hyprland_theme_config.replace("""{{main-bg}}""", f"""{color_config["main-bg"].replace("#", "")}ff""")
-    hyprland_theme_config = hyprland_theme_config.replace("""{{wb-hvr-fg}}""", f"""{color_config["wb-hvr-fg"].replace("#", "")}ff""")
+    hyprland_theme_config = hyprland_theme_config.replace("""[[theme]]""", theme)
+    hyprland_theme_config = hyprland_theme_config.replace("""[[icon-theme]]""", config["icon-theme"])
+    hyprland_theme_config = hyprland_theme_config.replace("""[[cursor-theme]]""", config["cursor-theme"])
+    hyprland_theme_config = hyprland_theme_config.replace("""[[cursor-size]]""", str(cursor_size))
 
     with open(f"{home}/.config/hypr/confs/theme.conf", "w", encoding="UTF-8") as file:
         file.write(hyprland_theme_config)

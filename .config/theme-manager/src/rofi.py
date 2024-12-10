@@ -1,16 +1,14 @@
 #!/usr/bin/python
 
 
-def rofi(config, color_config: dict, home: str) -> None:
-    with open(f"{home}/.config/theme-manager/conf/rofi.rasi", "r", encoding="UTF-8") as f:
+def rofi(config, color_config: dict, color_count: int, home: str) -> None:
+    with open(f"{home}/.config/theme-manager/templates/rofi.rasi", "r", encoding="UTF-8") as f:
         rofi_theme = f.read()
 
-    rofi_theme = rofi_theme.replace("""{{main-bg}}""", color_config["main-bg"])
-    rofi_theme = rofi_theme.replace("""{{main-fg}}""", color_config["main-fg"])
-    rofi_theme = rofi_theme.replace("""{{wb-hvr-bg}}""", color_config["wb-hvr-bg"])
-    rofi_theme = rofi_theme.replace("""{{wb-act-bg}}""", color_config["wb-act-bg"])
-    rofi_theme = rofi_theme.replace("""{{wb-hvr-fg}}""", color_config["wb-hvr-fg"])
-    rofi_theme = rofi_theme.replace("""{{icon-theme}}""", config["icon-theme"])
+    for i in range(color_count):
+        rofi_theme = rofi_theme.replace(f"[[color{i}]]", color_config[f"color{i}"])
+
+    rofi_theme = rofi_theme.replace("""[[icon-theme]]""", config["icon-theme"])
 
     with open(f"{home}/.config/rofi/theme.rasi", "w", encoding="UTF-8") as file:
         file.write(rofi_theme)
