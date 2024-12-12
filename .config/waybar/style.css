@@ -72,8 +72,8 @@ tooltip {
 
 #workspaces button:hover,
 #taskbar button:hover {
-  background: @color4;
-  color: @color8;
+  background: @color5;
+  color: @color10;
   padding-left: 3px;
   padding-right: 3px;
   animation: gradient_f 20s ease-in infinite;
