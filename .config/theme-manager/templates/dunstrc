@@ -4,7 +4,7 @@
    follow = mouse  
    ### Geometry ### 
    width = 300 
-   height = 100 
+   # height = 100 
    origin = top-right 
    offset = 20x20
    scale = 0 
@@ -42,8 +42,8 @@
    word_wrap = yes  
    ### Icons ### 
    icon_position = left 
-   min_icon_size = 32
-   max_icon_size = 64
+   min_icon_size = 64
+   max_icon_size = 128
    icon_path = /usr/share/icons/Paper/16x16/mimetypes/:/usr/share/icons/Paper/48x48/status/:/usr/share/icons/Paper/16x16/devices/:/usr/share/icons/Paper/48x48/notifications/:/usr/share/icons/Paper/48x48/emblems/:/usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/  
    ### History ### 
    sticky_history = yes 
