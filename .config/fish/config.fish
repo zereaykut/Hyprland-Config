@@ -54,7 +54,7 @@ if status is-interactive
     zoxide init fish | source
 
     # Startup termşnal with a gif
-	kitty +kitten icat $HOME/.config/kitty/gifs/pochita.gif
+    kitty +kitten icat $HOME/.config/kitty/gifs/pochita.gif
     
     # Starship
     starship init fish | source
