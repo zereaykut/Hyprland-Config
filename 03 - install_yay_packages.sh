@@ -14,12 +14,12 @@ yay --needed --noconfirm -S pikaur
 #-----------#
 # Wallpaper #
 #-----------#
-yay --needed --noconfirm -S swww
+# yay --needed --noconfirm -S swww
 
 #------------#
 # Screenshot #
 #------------#
-yay --needed --noconfirm -S hyprshot
+# yay --needed --noconfirm -S hyprshot
 
 #-------------#
 # Logout Menu #
@@ -34,7 +34,7 @@ yay --needed --noconfirm -S wlogout
 #-------#
 # Power #
 #-------#
-yay --needed --noconfirm -S power-profiles-daemon
+# yay --needed --noconfirm -S power-profiles-daemon
 
 #--------------#
 # Theme / Icon #
