@@ -29,7 +29,7 @@ yay --needed --noconfirm -S wlogout
 #------------------#
 # Application Menu #
 #------------------#
-yay --needed --noconfirm -S nwg-drawer-bin
+# yay --needed --noconfirm -S nwg-drawer-bin
 
 #-------#
 # Power #
@@ -39,7 +39,7 @@ yay --needed --noconfirm -S power-profiles-daemon
 #--------------#
 # Theme / Icon #
 #--------------#
-yay --needed --noconfirm -S nwg-look
+# yay --needed --noconfirm -S nwg-look
 
 #--------------#
 # Emoji Picker #
