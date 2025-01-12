@@ -28,6 +28,7 @@ sudo pacman --needed --noconfirm -S xdg-desktop-portal-gtk
 sudo pacman --needed --noconfirm -S hypridle                       # idle
 sudo pacman --needed --noconfirm -S hyprlock                       # Screenlock
 sudo pacman --needed --noconfirm -S hyprpicker                     # color picker
+
 # ========================================================== >> Authentication Agent
 sudo pacman --needed --noconfirm -S polkit-gnome
 
@@ -64,16 +65,16 @@ sudo pacman --needed --noconfirm -S waybar
 
 # ========================================================== >> Terminal
 sudo pacman --needed --noconfirm -S kitty       # terminal
-sudo pacman --needed --noconfirm -S btop        # Resource monitor that shows usage and stats for processor, memory, disks, network and processes.
-sudo pacman --needed --noconfirm -S eza         # A modern, maintained replacement for ls.
-sudo pacman --needed --noconfirm -S fastfetch   # System info
-sudo pacman --needed --noconfirm -S lazygit     # Cli git ui
+sudo pacman --needed --noconfirm -S btop        # system monitor
+sudo pacman --needed --noconfirm -S eza         # a modern, maintained replacement for ls.
+sudo pacman --needed --noconfirm -S fastfetch   # system info
+sudo pacman --needed --noconfirm -S lazygit     # cli git ui
 sudo pacman --needed --noconfirm -S dust        # du + rust = dust. Like du but more intuitive.
-sudo pacman --needed --noconfirm -S atuin       # Search shell history better
-sudo pacman --needed --noconfirm -S fd          # Faster, colorized alternative to find
+sudo pacman --needed --noconfirm -S atuin       # search shell history better
+sudo pacman --needed --noconfirm -S fd          # faster, colorized alternative to find
 sudo pacman --needed --noconfirm -S bat         # Smarter cat with syntax highlighting
 sudo pacman --needed --noconfirm -S zoxide      # zoxide is a smarter cd command, inspired by z and autojump.
-sudo pacman --needed --noconfirm -S fzf         # Fuzzy finder
+sudo pacman --needed --noconfirm -S fzf         # fuzzy finder
 sudo pacman --needed --noconfirm -S neovim      # terminal text editor
 sudo pacman --needed --noconfirm -S npm         # javascript package manager
 sudo pacman --needed --noconfirm -S unzip       # extract .zip files
@@ -81,7 +82,7 @@ sudo pacman --needed --noconfirm -S fish        # interactive terminal
 sudo pacman --needed --noconfirm -S fisher      # fish plugin manager
 sudo pacman --needed --noconfirm -S starship    # customizable shell prompt
 sudo pacman --needed --noconfirm -S swww        # wallpaper daemon
-sudo pacman --needed --noconfirm -S udiski      # wallpaper daemon
+sudo pacman --needed --noconfirm -S udiski      # disk manager
 
 # ========================================================== >> Hyprland Plugin
 sudo pacman --needed --noconfirm -S meson
@@ -134,11 +135,12 @@ sudo pacman --needed --noconfirm -S cliphist
 sudo pacman --needed --noconfirm -S pacman-contrib
 
 # ========================================================== >> Power
-sudo pacman --needed --noconfirm -S upower
+sudo pacman --needed --noconfirm -S upower                    # power management
+sudo pacman --needed --noconfirm -S power-profiles-daemon     # power profile daemon
 
 # ========================================================== >> Launcher
-sudo pacman --needed --noconfirm -S rofi-wayland
-sudo pacman --needed --noconfirm -S nwg-drawer
+sudo pacman --needed --noconfirm -S rofi-wayland          # dmenu and application launcher
+sudo pacman --needed --noconfirm -S nwg-drawer            # application launcher
 
 # ========================================================== >> Internet
 sudo pacman --needed --noconfirm -S openvpn               # VPN
@@ -146,6 +148,11 @@ sudo pacman --needed --noconfirm -S firewalld             # firewall manager
 
 # ========================================================== >> Notification
 sudo pacman --needed --noconfirm -S dunst                 # notification daemon
+
+# ========================================================== >> Screenshot
+sudo pacman --needed --noconfirm -S grim                  # screenshot tool
+sudo pacman --needed --noconfirm -S slurp                 # region select for screenshot/screenshare
+sudo pacman --needed --noconfirm -S swappy                # screenshot editor
 
 # ========================================================== >> Fonts
 sudo pacman --needed --noconfirm -S ttf-font-awesome
