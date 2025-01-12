@@ -63,23 +63,25 @@ sudo pacman --needed --noconfirm -S partitionmanager
 sudo pacman --needed --noconfirm -S waybar
 
 # ========================================================== >> Terminal
-sudo pacman --needed --noconfirm -S kitty     # terminal
-sudo pacman --needed --noconfirm -S btop      # Resource monitor that shows usage and stats for processor, memory, disks, network and processes.
-sudo pacman --needed --noconfirm -S eza       # A modern, maintained replacement for ls.
-sudo pacman --needed --noconfirm -S fastfetch # System info
-sudo pacman --needed --noconfirm -S lazygit   # Cli git ui
-sudo pacman --needed --noconfirm -S dust      # du + rust = dust. Like du but more intuitive.
-sudo pacman --needed --noconfirm -S atuin     # Search shell history better
-sudo pacman --needed --noconfirm -S fd        # Faster, colorized alternative to find
-sudo pacman --needed --noconfirm -S bat       # Smarter cat with syntax highlighting
-sudo pacman --needed --noconfirm -S zoxide    # zoxide is a smarter cd command, inspired by z and autojump.
-sudo pacman --needed --noconfirm -S fzf       # Fuzzy finder
-sudo pacman --needed --noconfirm -S neovim    # terminal text editor
-sudo pacman --needed --noconfirm -S npm       # javascript package manager
-sudo pacman --needed --noconfirm -S unzip     # extract .zip files
-sudo pacman --needed --noconfirm -S fish      # interactive terminal
-sudo pacman --needed --noconfirm -S fisher    # fish plugin manager
-sudo pacman --needed --noconfirm -S starship  # customizable shell prompt
+sudo pacman --needed --noconfirm -S kitty       # terminal
+sudo pacman --needed --noconfirm -S btop        # Resource monitor that shows usage and stats for processor, memory, disks, network and processes.
+sudo pacman --needed --noconfirm -S eza         # A modern, maintained replacement for ls.
+sudo pacman --needed --noconfirm -S fastfetch   # System info
+sudo pacman --needed --noconfirm -S lazygit     # Cli git ui
+sudo pacman --needed --noconfirm -S dust        # du + rust = dust. Like du but more intuitive.
+sudo pacman --needed --noconfirm -S atuin       # Search shell history better
+sudo pacman --needed --noconfirm -S fd          # Faster, colorized alternative to find
+sudo pacman --needed --noconfirm -S bat         # Smarter cat with syntax highlighting
+sudo pacman --needed --noconfirm -S zoxide      # zoxide is a smarter cd command, inspired by z and autojump.
+sudo pacman --needed --noconfirm -S fzf         # Fuzzy finder
+sudo pacman --needed --noconfirm -S neovim      # terminal text editor
+sudo pacman --needed --noconfirm -S npm         # javascript package manager
+sudo pacman --needed --noconfirm -S unzip       # extract .zip files
+sudo pacman --needed --noconfirm -S fish        # interactive terminal
+sudo pacman --needed --noconfirm -S fisher      # fish plugin manager
+sudo pacman --needed --noconfirm -S starship    # customizable shell prompt
+sudo pacman --needed --noconfirm -S swww        # wallpaper daemon
+sudo pacman --needed --noconfirm -S udiski      # wallpaper daemon
 
 # ========================================================== >> Hyprland Plugin
 sudo pacman --needed --noconfirm -S meson
