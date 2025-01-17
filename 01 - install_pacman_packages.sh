@@ -82,7 +82,7 @@ sudo pacman --needed --noconfirm -S fish        # interactive terminal
 sudo pacman --needed --noconfirm -S fisher      # fish plugin manager
 sudo pacman --needed --noconfirm -S starship    # customizable shell prompt
 sudo pacman --needed --noconfirm -S swww        # wallpaper daemon
-sudo pacman --needed --noconfirm -S udiski      # disk manager
+sudo pacman --needed --noconfirm -S udiskie     # disk manager
 
 # ========================================================== >> Hyprland Plugin
 sudo pacman --needed --noconfirm -S meson
