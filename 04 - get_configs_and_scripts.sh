@@ -7,7 +7,7 @@ mkdir -p ~/.config
 mkdir -p ~/.local/share/{bin,waybar}
 mkdir -p ~/.themes ~/.icons ~/Projects ~/Documents ~/Downloads ~/Videos
 mkdir -p ~/Pictures/Screenshots
-mkdir -p ~/Torrent/{torrents,torrent_files,finished_torrents/{Movie,TV,Music,TT},finished_torrent_files,watched_torrent_files}
+mkdir -p ~/Torrent/{torrents,torrent_files,finished_torrents/{Movie,TV,Music,Other},finished_torrent_files,watched_torrent_files}
 sudo mkdir -p /usr/share/themes /usr/share/icons
 
 #------------#
