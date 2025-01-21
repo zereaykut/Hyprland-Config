@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # ========================================================== >> Pacman
-sudo mv move/pacman/pacman.conf /etc/.
+sudo mv ../move/pacman/pacman.conf /etc/.
 
 # ========================================================== >> Chaotic - Aur
 # Rtrieve the primary key to enable the installation of chaotic aur keyring and mirror list. 

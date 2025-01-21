@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+mkdir -p ~/.themes ~/.icons
+sudo mkdir -p /usr/share/themes /usr/share/icons
+
 srcGtk="../Source/Gtk"
 for file in $srcGtk/*.tar.gz; do
   tar -xvzf "$file" -C ~/.themes/

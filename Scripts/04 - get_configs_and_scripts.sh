@@ -3,10 +3,9 @@
 # ========================================================== >> Create Folders
 mkdir -p ~/.config
 mkdir -p ~/.local/share/{bin,waybar,themes}
-mkdir -p ~/.themes ~/.icons ~/Projects ~/Documents ~/Downloads ~/Videos
+mkdir -p ~/Projects ~/Documents ~/Downloads ~/Videos
 mkdir -p ~/Pictures/Screenshots
 mkdir -p ~/Torrent/{torrents,torrent_files,finished_torrents/{Movie,TV,Music,Comic,Animation,Other},finished_torrent_files,watched_torrent_files}
-sudo mkdir -p /usr/share/themes /usr/share/icons
 
 # ========================================================== >> Configs
 cp -rf .config/* ~/.config/

@@ -11,6 +11,7 @@
 @import "theme.css";
 
 window#waybar {
+  background: @bar-bg;
   background-color: transparent;
   transition-property: background-color;
   transition-duration: 0.5s;
@@ -24,8 +25,8 @@ window#waybar.hidden {
 }
 
 tooltip {
-  color: @color15;
-  background-color: @color0;
+  background: @main-bg;
+  color: @main-fg;
   text-shadow: none;
 }
 
@@ -36,9 +37,9 @@ tooltip {
 #workspaces,
 #taskbar {
   padding: 0px 15px;
-  color: @color15;
+  color: @main-fg;
   border-radius: 20px;
-  background-color: @color0;
+  background-color: @main-bg;
   margin-right: 3px;
   margin-left: 3px
 }
@@ -53,15 +54,15 @@ tooltip {
   margin-bottom: 3px;
   padding-left: 3px;
   padding-right: 3px;
-  color: @color15;
+  color: @main-fg;;
   animation: gradient_f 20s ease-in infinite;
   transition: all 0.5s cubic-bezier(.55,-0.68,.48,1.682);
 }
 
 #workspaces button.active,
 #taskbar button.active {
-  background: @color5;
-  color: @color10;
+  background: @wb-act-bg;
+  color: @wb-act-fg;
   margin-left: 3px;
   padding-left: 12px;
   padding-right: 12px;
@@ -72,8 +73,8 @@ tooltip {
 
 #workspaces button:hover,
 #taskbar button:hover {
-  background: @color5;
-  color: @color10;
+  background: @wb-hvr-bg;
+  color: @wb-hvr-fg;
   padding-left: 3px;
   padding-right: 3px;
   animation: gradient_f 20s ease-in infinite;
@@ -91,12 +92,12 @@ tooltip {
 #tray,
 #mpris,
 #bluetooth,
-#custom-hyprPicker,
-#keyboard-state {
+#custom-notification,
+#custom-hyprPicker {
   padding: 0px 15px;
-  color: @color15;
+  color: @main-fg;;
   border-radius: 20px;
-  background-color: @color0;
+  background-color: @main-bg;
   margin-right: 3px;
   margin-left: 3px;
 }
@@ -109,31 +110,33 @@ tooltip {
 /* #custom-pikaur, */
 #pulseaudio {
   padding: 0px 15px 0px 15px;
-  color: @color15;
+  color: @main-fg;;
   border-radius: 0px;
-  background-color: @color0;
+  background-color: @main-bg;
 }
 
 /*Modules -> Right */
 #custom-shutdown,
 #custom-flatpak,
 #pulseaudio.microphone,
+#keyboard-state,
 #disk {
   padding: 0px 15px 0px 15px;
-  color: @color15;
+  color: @main-fg;;
   border-radius: 0px 20px 20px 0px;
-  background-color: @color0;
+  background-color: @main-bg;
 }
 
 /*Modules -> Left */
 #custom-logout,
 #cpu,
 #custom-pacman,
+#idle_inhibitor,
 #backlight {
   padding: 0px 15px 0px 15px;
-  color: @color15;
+  color: @main-fg;;
   border-radius: 20px 0px 0px 20px;
-  background-color: @color0;
+  background-color: @main-bg;
   margin-left: 3px;
 }
 

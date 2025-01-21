@@ -108,7 +108,7 @@ sudo pacman --needed --noconfirm -S kdeconnect
 sudo pacman --needed --noconfirm -S solaar
 sudo pacman --needed --noconfirm -S qalculate-gtk
 sudo pacman --needed --noconfirm -S kwalletmanager
-sudo pacman --needed --noconfirm -S timeshift
+# sudo pacman --needed --noconfirm -S timeshift
 
 # ========================================================== >> Theming
 sudo pacman --needed --noconfirm -S nwg-look                     # gtk configuration tool
@@ -132,7 +132,7 @@ sudo pacman --needed --noconfirm -S wl-clipboard
 sudo pacman --needed --noconfirm -S cliphist
 
 # ========================================================== >> Checkupdates
-sudo pacman --needed --noconfirm -S pacman-contrib
+sudo pacman --needed --noconfirm -S pacman-contrib            # check pacman updates
 
 # ========================================================== >> Power
 sudo pacman --needed --noconfirm -S upower                    # power management
@@ -147,7 +147,8 @@ sudo pacman --needed --noconfirm -S openvpn               # VPN
 sudo pacman --needed --noconfirm -S firewalld             # firewall manager
 
 # ========================================================== >> Notification
-sudo pacman --needed --noconfirm -S dunst                 # notification daemon
+# sudo pacman --needed --noconfirm -S dunst                 # notification daemon
+sudo pacman --needed --noconfirm -S swaync                 # notification daemon
 
 # ========================================================== >> Screenshot
 sudo pacman --needed --noconfirm -S grim                  # screenshot tool
