@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 
 # ========================================================== >> Base Packages
 sudo pacman --needed --noconfirm -S git
