@@ -8,7 +8,7 @@
   "margin-right": 10,
   
   "modules-left": ["cpu", "memory", "temperature", "disk", "backlight", "pulseaudio", "pulseaudio#microphone"],
-  "modules-center": ["hyprland/workspaces", "wlr/taskbar", "clock", "keyboard-state"],
+  "modules-center": ["hyprland/workspaces", "wlr/taskbar", "clock", "idle_inhibitor", "keyboard-state"],
   "modules-right": ["battery", "network", "tray", "custom/pacman", "custom/yay", "custom/flatpak", "custom/power-profiles-daemon", "group/menu"],
 
     "hyprland/workspaces": {
@@ -147,7 +147,7 @@
           "warning": 35,
           "critical": 20
       },
-     // "on-click": "sh ~/.local/share/bin/power-profiles", 
+     "on-click": "power_profiles.sh", 
       "max-length": 25,
       "format": "{icon} {capacity}%",
       "format-warning": "{icon} {capacity}%",
@@ -183,6 +183,16 @@
       "app_ids-mapping": {
         "firefoxdeveloperedition": "firefox-developer-edition"
       }
+    },
+
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "󰅶 ",
+            "deactivated": "󰛊 "
+        },
+        "tooltip-format-activated":"Caffeine Mode Active",
+        "tooltip-format-deactivated":"Caffeine Mode Inactive"
     },
 
     "keyboard-state": {
@@ -305,7 +315,7 @@
 
   "custom/power-profiles-daemon": {
 	"format" : "{}",
-  "exec": "python ~/.local/share/bin/power_profiles.py",
+  "exec": "~/.local/share/bin/power_profiles.sh",
   "interval": 1,
 	"tooltip": true,
   "exec-if": "exit 0",
