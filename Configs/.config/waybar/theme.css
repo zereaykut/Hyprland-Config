@@ -1,16 +1,10 @@
-@define-color color0 #030209;
-@define-color color1 #050b1e;
-@define-color color2 #040818;
-@define-color color3 #040818;
-@define-color color4 #1D3159;
-@define-color color5 #562846;
-@define-color color6 #2A4971;
-@define-color color7 #BB2B58;
-@define-color color8 #365B85;
-@define-color color9 #546D92;
-@define-color color9 #BF6491;
-@define-color color9 #718EAF;
-@define-color color9 #8f8ba4;
-@define-color color9 #c6d0dd;
-@define-color color9 #c4d2e1;
-@define-color color9 #edf0f5;
+@define-color bar-bg rgba(0, 0, 0, 0);
+
+@define-color main-bg #11111b;
+@define-color main-fg #cdd6f4;
+
+@define-color wb-act-bg #a6adc8;
+@define-color wb-act-fg #313244;
+
+@define-color wb-hvr-bg #f5c2e7;
+@define-color wb-hvr-fg #313244;

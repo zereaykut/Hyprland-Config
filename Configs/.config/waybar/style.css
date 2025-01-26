@@ -92,6 +92,7 @@ tooltip {
 #tray,
 #mpris,
 #bluetooth,
+#custom-system-updates,
 #custom-notification,
 #custom-hyprPicker {
   padding: 0px 15px;
@@ -117,7 +118,6 @@ tooltip {
 
 /*Modules -> Right */
 #custom-shutdown,
-#custom-flatpak,
 #pulseaudio.microphone,
 #keyboard-state,
 #disk {
@@ -130,7 +130,6 @@ tooltip {
 /*Modules -> Left */
 #custom-logout,
 #cpu,
-#custom-pacman,
 #idle_inhibitor,
 #backlight {
   padding: 0px 15px 0px 15px;

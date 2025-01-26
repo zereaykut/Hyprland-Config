@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/env bash
 # source = https://github.com/JaKooLit/Hyprland-Dots/blob/main/config/hypr/scripts/ClipManager.sh
 
 # CTRL Del to delete an entry

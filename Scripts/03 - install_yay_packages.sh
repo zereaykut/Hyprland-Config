@@ -2,6 +2,7 @@
 
 # ========================================================== >> AUR
 yay --needed --noconfirm -S swayosd-git        # OSD server
+yay --needed --noconfirm -S hyprshot           # screenshot
 yay --needed --noconfirm -S vscodium-bin       # code editor
 # yay --needed --noconfirm -S brave-bin          # browser
 yay --needed --noconfirm -S pikaur             # aur helper

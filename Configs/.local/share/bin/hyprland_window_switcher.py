@@ -49,7 +49,7 @@ class HyprlandClient:
 
     def get_rofi_selection(self, rofi_output):
         rofi_select = sp.run(
-            f"""echo "{rofi_output}" | rofi -dmenu -matching normal -i -config /home/{self.user}/.config/rofi/rofi_selector.rasi""",
+            f"""echo "{rofi_output}" | rofi -dmenu -matching normal -i -config /home/{self.user}/.config/rofi/selector.rasi""",
             shell=True,
             capture_output=True,
             text=True,
