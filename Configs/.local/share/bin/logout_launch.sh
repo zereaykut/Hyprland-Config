@@ -6,8 +6,8 @@ print_error() {
     cat <<EOF
     "${cmd}" <action> [step]
     ...valid actions are...
-        1 -- use style_1.css and layout_1
-        2 -- use style_2.css and layout_2
+        1 dark -- use style_1.css and layout_1 dark button colors
+        2 light -- use style_2.css and layout_2 light button colors (default is dark)
 
     Example:
         "${cmd}" 1      # use style_1.css and layout_1
@@ -67,11 +67,7 @@ esac
 
 export fntSize=$((y_mon * 2 / 100))
 
-#// detect wallpaper brightness
-
-cacheDir="${HYDE_CACHE_HOME}"
-dcol_mode="${dcol_mode:-dark}"
-[ -f "${cacheDir}/wall.dcol" ] && source "${cacheDir}/wall.dcol"
+dcol_mode="${2:-dark}"
 
 #  Theme mode: detects the color-scheme set in hypr.theme and falls back if nothing is parsed.
 
@@ -79,7 +75,7 @@ dcol_mode="${dcol_mode:-dark}"
 
 #// eval hypr border radius
 
-hypr_border="${hypr_border:-10}"
+hypr_border="${3:-10}"
 export active_rad=$((hypr_border * 5))
 export button_rad=$((hypr_border * 8))
 
