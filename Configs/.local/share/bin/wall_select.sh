@@ -55,6 +55,7 @@ main() {
     if [ -n "$choice" ]; then
         # Change wallpaper using sww
         wall_switcher.sh "${PICS[$pic_index]}"
+        theme_lock_cache.sh "${PICS[$pic_index]}"
     else
         echo "No wallpaper selected."
         exit 1

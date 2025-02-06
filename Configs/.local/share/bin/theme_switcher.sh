@@ -60,8 +60,15 @@ cp -f $themeDir/wlogout.theme $HOME/.config/wlogout/theme.css
 
 # swaync
 cp -f $themeDir/swaync.theme $HOME/.config/swaync/theme.css
-
 killall swaync && swaync &
+
+# swayosd
+cp -f $themeDir/swayosd.theme $HOME/.config/swayosd/theme.css
+killall swayosd-server && swayosd-server &
+
+# hyprlock
+# cp -f $wallSelect $HOME/.cache/themes/lock_screen.png
+theme_lock_cache.sh "$wallSelect"
 
 # cache variables
 mkdir -p $HOME/.cache/themes
