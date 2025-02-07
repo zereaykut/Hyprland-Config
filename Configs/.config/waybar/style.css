@@ -11,7 +11,6 @@
 @import "theme.css";
 
 window#waybar {
-  background: @bar-bg;
   background-color: transparent;
   transition-property: background-color;
   transition-duration: 0.5s;
@@ -25,8 +24,8 @@ window#waybar.hidden {
 }
 
 tooltip {
-  background: @main-bg;
-  color: @main-fg;
+  background: @background;
+  color: @text;
   text-shadow: none;
 }
 
@@ -37,9 +36,9 @@ tooltip {
 #workspaces,
 #taskbar {
   padding: 0px 15px;
-  color: @main-fg;
+  color: @text;
   border-radius: 20px;
-  background-color: @main-bg;
+  background-color: @background;
   margin-right: 3px;
   margin-left: 3px
 }
@@ -54,15 +53,15 @@ tooltip {
   margin-bottom: 3px;
   padding-left: 3px;
   padding-right: 3px;
-  color: @main-fg;;
+  color: @text;;
   animation: gradient_f 20s ease-in infinite;
   transition: all 0.5s cubic-bezier(.55,-0.68,.48,1.682);
 }
 
 #workspaces button.active,
 #taskbar button.active {
-  background: @wb-act-bg;
-  color: @wb-act-fg;
+  background: @active-background;
+  color: @active-foreground;
   margin-left: 3px;
   padding-left: 12px;
   padding-right: 12px;
@@ -73,8 +72,8 @@ tooltip {
 
 #workspaces button:hover,
 #taskbar button:hover {
-  background: @wb-hvr-bg;
-  color: @wb-hvr-fg;
+  background: @hover-background;
+  color: @hover-foreground;
   padding-left: 3px;
   padding-right: 3px;
   animation: gradient_f 20s ease-in infinite;
@@ -96,9 +95,9 @@ tooltip {
 #custom-notification,
 #custom-hyprPicker {
   padding: 0px 15px;
-  color: @main-fg;;
+  color: @text;;
   border-radius: 20px;
-  background-color: @main-bg;
+  background-color: @background;
   margin-right: 3px;
   margin-left: 3px;
 }
@@ -111,9 +110,9 @@ tooltip {
 /* #custom-pikaur, */
 #pulseaudio {
   padding: 0px 15px 0px 15px;
-  color: @main-fg;;
+  color: @text;;
   border-radius: 0px;
-  background-color: @main-bg;
+  background-color: @background;
 }
 
 /*Modules -> Right */
@@ -122,9 +121,9 @@ tooltip {
 #keyboard-state,
 #disk {
   padding: 0px 15px 0px 15px;
-  color: @main-fg;;
+  color: @text;;
   border-radius: 0px 20px 20px 0px;
-  background-color: @main-bg;
+  background-color: @background;
 }
 
 /*Modules -> Left */
@@ -133,9 +132,9 @@ tooltip {
 #idle_inhibitor,
 #backlight {
   padding: 0px 15px 0px 15px;
-  color: @main-fg;;
+  color: @text;;
   border-radius: 20px 0px 0px 20px;
-  background-color: @main-bg;
+  background-color: @background;
   margin-left: 3px;
 }
 
@@ -150,6 +149,33 @@ tooltip {
   margin-right: 0;
 }
 
+/* Update colors of some modules */
+#cpu,
+#backlight {
+  color: @yellow;
+}
+
+#custom-power-profiles-daemon {
+  color: @orange;
+}
+
+#battery {
+  color: @green;
+}
+
+#temperature {
+  color: @red;
+}
+
+#custom-notification {
+  color: @pink;
+}
+
+#pulseaudio,
+#pulseaudio.microphone {
+  color: @blue;
+}
+
 /*Critical Warning*/
 #workspaces button.urgent,
 #keyboard-state > label.locked,
@@ -159,7 +185,7 @@ tooltip {
 #bluetooth.disconnected,
 #battery.warning,
 #battery.critical {
-  color: #f32525;
+  color: @red;
   animation-name: blink;
   animation-duration: 0.5s;
   animation-timing-function: linear;

@@ -1,10 +1,18 @@
-@define-color bar-bg rgba(0, 0, 0, 0);
+@define-color background #191724;
+@define-color text #e0def4;
+@define-color subtext #908caa;
+@define-color overlay #26233a;
 
-@define-color main-bg #26233a;
-@define-color main-fg #ebbcba;
+@define-color active-background #31748f;
+@define-color active-foreground #9ccfd8;
 
-@define-color wb-act-bg #31748f;
-@define-color wb-act-fg #9ccfd8;
+@define-color hover-background #eb6f92;
+@define-color hover-foreground #f6c177;
 
-@define-color wb-hvr-bg #eb6f92;
-@define-color wb-hvr-fg #f6c177;
+@define-color pink #eb6f92;
+@define-color purple #c4a7e7;
+@define-color red #b4637a;
+@define-color orange #ea9d34;
+@define-color yellow #f6c177;
+@define-color green #56949f;
+@define-color blue #3e8fb0;

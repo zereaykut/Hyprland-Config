@@ -26,7 +26,7 @@ window {
     enabled:                     true;
     border-radius:               40px;
     cursor:                      "default";
-    background-color:            @main-bg;
+    background-color:            @background;
 }
 
 /*****----- Main Box -----*****/
@@ -56,7 +56,7 @@ inputbar {
     padding:                     20px 60px;
     background-color:            transparent;
 /*    background-image:            url("~/.config/wallpapers/desktop_background.png", width); */
-    text-color:                  @main-fg;
+    text-color:                  @text;
     orientation:                 horizontal;
     children:                    [ "textbox-prompt-colon", "entry", "dummy", "mode-switcher" ];
 }
@@ -66,7 +66,7 @@ textbox-prompt-colon {
     str:                         "";
     padding:                     12px 15px;
     border-radius:               100%;
-    background-color:            @main-bg;
+    background-color:            @background;
     text-color:                  inherit;
 }
 entry {
@@ -75,7 +75,7 @@ entry {
     width:                       400px;
     padding:                     12px 16px;
     border-radius:               100%;
-    background-color:            @main-bg;
+    background-color:            @background;
     text-color:                  inherit;
     cursor:                      text;
     placeholder:                 "Search";
@@ -91,19 +91,19 @@ mode-switcher{
     enabled:                     true;
     spacing:                     10px;
     background-color:            transparent;
-    text-color:                  @main-fg;
+    text-color:                  @text;
 }
 button {
     width:                       45px;
     padding:                     12px;
     border-radius:               100%;
-    background-color:            @main-bg;
-    text-color:                  @main-fg;
+    background-color:            @background;
+    text-color:                  @text;
     cursor:                      pointer;
 }
 button selected {
-    background-color:            @main-fg;
-    text-color:                  @main-bg;
+    background-color:            @text;
+    text-color:                  @background;
 }
 
 /*****----- Listview -----*****/
@@ -121,7 +121,7 @@ listview {
     
     spacing:                     10px;
     background-color:            transparent;
-    text-color:                  @main-fg;
+    text-color:                  @text;
     cursor:                      "default";
 }
 
@@ -132,12 +132,12 @@ element {
     padding:                     4px;
     border-radius:               100%;
     background-color:            transparent;
-    text-color:                  @main-fg;
+    text-color:                  @text;
     cursor:                      pointer;
 }
 element selected.normal {
-    background-color:            @select-bg;
-    text-color:                  @select-fg;
+    background-color:            @select-background;
+    text-color:                  @select-foreground;
 }
 
 element-icon {
@@ -161,14 +161,14 @@ message {
 textbox {
     padding:                     12px;
     border-radius:               100%;
-    background-color:            @main-bg;
-    text-color:                  @main-fg;
+    background-color:            @background;
+    text-color:                  @text;
     vertical-align:              0.5;
     horizontal-align:            0.0;
 }
 error-message {
     padding:                     12px;
     border-radius:               20px;
-    background-color:            @main-bg;
-    text-color:                  @main-fg;
+    background-color:            @background;
+    text-color:                  @text;
 }

@@ -114,10 +114,10 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "python ~/.config/hypr/scripts/volume_control.py -a m -d o",
+        "on-click": "swayosd-client --output-volume mute-toggle ",
         "on-click-right": "pavucontrol -t 3",
-        "on-scroll-up": "python ~/.config/hypr/scripts/volume_control.py -a i -d o",
-        "on-scroll-down": "python ~/.config/hypr/scripts/volume_control.py -a d -d o",
+        "on-scroll-up": "swayosd-client --output-volume 5",
+        "on-scroll-down": "swayosd-client --output-volume -5",
         "tooltip-format": "{icon} {desc} // {volume}%",
         //"scroll-step": 5
     },
@@ -127,9 +127,9 @@
       "format-source": "",
       "format-source-muted": "",
       "on-click-right": "pavucontrol -t 4",
-      "on-click": "python ~/.config/hypr/scripts/volume_control.py -a m -d i",
-      "on-scroll-up": "python ~/.config/hypr/scripts/volume_control.py -a i -d i",
-      "on-scroll-down": "python ~/.config/hypr/scripts/volume_control.py -a d -d i",
+      "on-click": "swayosd-client --input-volume mute-toggle",
+      "on-scroll-up": "swayosd-client --input-volume 5",
+      "on-scroll-down": "swayosd-client --input-volume -5",
       "tooltip-format": "{format_source} {source_desc} // {source_volume}%",
       //"scroll-step": 5
     },
@@ -269,19 +269,22 @@
   "custom/shutdown": {
     "format": "",
     "on-click": "systemctl poweroff",
-    "tooltip": false,
+    "tooltip": true,
+    "tooltip-format": " Shutdown"
   },
 
   "custom/reboot": {
     "format": "",
     "on-click": "systemctl reboot",
-    "tooltip": false,
+    "tooltip": true,
+    "tooltip-format": " Reboot"
   },
 
   "custom/logout": {
     "format": "󰍃",
     "on-click": "loginctl terminate-user $USER",
-    "tooltip": false,
+    "tooltip": true,
+    "tooltip-format": "󰍃 Logout"
   },
 
   "custom/power-profiles-daemon": {
