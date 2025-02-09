@@ -107,7 +107,7 @@ tooltip {
 #memory,
 #temperature,
 #custom-yay,
-/* #custom-pikaur, */
+#custom-pikaur,
 #pulseaudio {
   padding: 0px 15px 0px 15px;
   color: @text;;
@@ -150,6 +150,7 @@ tooltip {
 }
 
 /* Update colors of some modules */
+#custom-system-updates,
 #cpu,
 #backlight {
   color: @yellow;
@@ -159,14 +160,21 @@ tooltip {
   color: @orange;
 }
 
+#disk,
 #battery {
   color: @green;
 }
 
+#custom-menu,
+#group-menu,
+#custom-reboot,
+#custom-shutdown,
+#custom-logout,
 #temperature {
   color: @red;
 }
 
+#network,
 #custom-notification {
   color: @pink;
 }
@@ -174,6 +182,10 @@ tooltip {
 #pulseaudio,
 #pulseaudio.microphone {
   color: @blue;
+}
+
+#memory {
+  color: @purple;
 }
 
 /*Critical Warning*/

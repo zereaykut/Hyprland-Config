@@ -70,6 +70,9 @@ killall swayosd-server && swayosd-server &
 # cp -f $wallSelect $HOME/.cache/themes/lock_screen.png
 theme_lock_cache.sh "$wallSelect"
 
+# btop
+cp -f $themeDir/btop.theme $HOME/.config/btop/themes/btop.theme
+
 # cache variables
 mkdir -p $HOME/.cache/themes
 cat << EOF > $HOME/.cache/themes/variables.sh
