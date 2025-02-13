@@ -1,11 +1,12 @@
 #!/bin/env bash
 
-themesDir="$HOME/.local/share/themes/"
+themesDir="$HOME/.config/hyprdots/themes/"
+rofiConf="$HOME/.config/rofi/theme_select.rasi"
 
 mapfile -d '' PICS < <(find "$themesDir" -maxdepth 2 -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.gif" \) -print0)
 
 # Rofi command
-rofi_command="rofi -i -show -dmenu -config ~/.config/rofi/theme_select.rasi"
+rofi_command="rofi -i -show -dmenu -config $rofiConf"
 
 # Sorting Wallpapers
 menu() {

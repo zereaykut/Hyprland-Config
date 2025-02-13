@@ -1,14 +1,15 @@
 #!/bin/env bash
 
 # Define your wallpapers directory
-source $HOME/.cache/themes/variables.sh
-wallDir="$HOME/.local/share/themes/$GTK_THEME/wallpapers/"
+source $HOME/.cache/hyprdots/variables.sh
+wallDir="$HOME/.config/hyprdots/themes/$GTK_THEME/wallpapers/"
+rofiConf="$HOME/.config/rofi/wallpaper_select.rasi"
 
 # Retrieve image files using null delimiter to handle spaces in filenames
 mapfile -d '' PICS < <(find "$wallDir" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.gif" \) -print0)
 
 # Rofi command
-rofi_command="rofi -i -show -dmenu -config ~/.config/rofi/wallpaper_select.rasi"
+rofi_command="rofi -i -show -dmenu -config $rofiConf"
 
 # Sorting Wallpapers
 menu() {

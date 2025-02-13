@@ -2,10 +2,11 @@
 
 # theme="${'Catppuccin Mocha':-$1}"
 theme="${1}"
-themeDir="$HOME/.local/share/themes/$theme/"
+themeDir="$HOME/.config/hyprdots/themes/$theme/"
 # wallSelect="${"$themeDir/Catppuccin Mocha.png":-$2}"
 wallSelect="${2}"
-configsDir="$HOME/.local/share/configs/"
+configsDir="$HOME/.config/hyprdots/configs/"
+cacheDir="$HOME/.cache/hyprdots"
 
 source $themeDir/variables.sh
 
@@ -74,8 +75,8 @@ theme_lock_cache.sh "$wallSelect"
 cp -f $themeDir/btop.theme $HOME/.config/btop/themes/btop.theme
 
 # cache variables
-mkdir -p $HOME/.cache/themes
-cat << EOF > $HOME/.cache/themes/variables.sh
+mkdir -p $cacheDir
+cat << EOF > $cacheDir/variables.sh
 #!/bin/env bash
 export GTK_THEME="$GTK_THEME"
 export ICON_THEME="$ICON_THEME"

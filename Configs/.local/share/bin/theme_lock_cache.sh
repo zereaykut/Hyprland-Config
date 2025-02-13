@@ -2,7 +2,7 @@
 
 # Input file (could be any image file path)
 wallDir="$1"
-cacheDir="$HOME/.cache/themes"
+cacheDir="$HOME/.cache/hyprdots/hyprlock"
 
 mkdir -p $cacheDir
 
