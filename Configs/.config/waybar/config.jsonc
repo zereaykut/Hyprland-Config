@@ -8,7 +8,7 @@
   "margin-right": 10, 
   
   "modules-left": ["cpu", "memory", "temperature", "disk", "backlight", "pulseaudio", "pulseaudio#microphone"],
-  "modules-center": ["hyprland/workspaces", "wlr/taskbar", "clock", "idle_inhibitor", "keyboard-state"],
+  "modules-center": ["hyprland/workspaces", "wlr/taskbar", "clock", "idle_inhibitor", "privacy", "keyboard-state"],
   "modules-right": ["battery", "network", "tray", "custom/system-updates", "custom/power-profiles-daemon", "custom/notification", "group/menu"],
 
     "hyprland/workspaces": {
@@ -65,19 +65,29 @@
     },
 
     "cpu": {
-      "interval": 5,
-      "format": " {usage}%",
-      "max-length": 100,
-      "on-click": "kitty -e btop",
+        "interval": 10,
+        "format": "󰍛 {usage}%",
+        "on-click-right": "kitty -e btop",
+        "format-alt": "{icon0}{icon1}{icon2}{icon3}",
+        "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"]
     },
-    
+
     "memory": {
-        "interval": 5,
-        "format": " {}%",
+        "states": {
+            "c": 90, // critical
+            "h": 60, // high
+            "m": 30, // medium
+        },
+        "interval": 30,
+        "format": "󰾆 {used}GB",
+        "format-m": "󰾅 {used}GB",
+        "format-h": "󰓅 {used}GB",
+        "format-c": " {used}GB",
+        "format-alt": "󰾆 {percentage}%",
         "max-length": 10,
-        "on-click": "kitty -e btop",
+        "on-click-right": "kitty -e btop",
         "tooltip": true,
-        "tooltip-format": "{used:0.1f} G / {total:0.1f} G",
+        "tooltip-format": "󰾆 {percentage}%\n {used:0.1f}GB/{total:0.1f}GB"
     },
 
     "backlight": {
@@ -90,14 +100,15 @@
     },
 
     "network": {
-        "interval": 5,
-        "format-wifi": " {bandwidthUpBits}   {bandwidthDownBits}",
-        "format-ethernet": " {bandwidthUpBits}   {bandwidthDownBits}",
-        "format-disconnected": "",
-        //"on-right-click": "kitty -e nmtui",
-        "tooltip-format-wifi": " {signalStrength}% {essid}",
-        "tooltip-format-ethernet": "  {ifname} ({ipaddr}/{cidr})",
+        "tooltip": true,
+        "format-wifi": " ",
+        "format-ethernet": "󰈀 ",
+        "tooltip-format": "Network: <big><b>{essid}</b></big>\nSignal strength: <b>{signaldBm}dBm ({signalStrength}%)</b>\nFrequency: <b>{frequency}MHz</b>\nInterface: <b>{ifname}</b>\nIP: <b>{ipaddr}/{cidr}</b>\nGateway: <b>{gwaddr}</b>\nNetmask: <b>{netmask}</b>",
+        "format-linked": "󰈀 {ifname} (No IP)",
+        "format-disconnected": "󰖪 ",
         "tooltip-format-disconnected": "Disconnected",
+        "format-alt": " {bandwidthDownBytes}   {bandwidthUpBytes}",
+        "interval": 2,
     },
 
     "pulseaudio": {
@@ -174,7 +185,8 @@
       "format": "{icon}",
       "icon-size": 18,
       "spacing": 0,
-      "tooltip": false,
+      "tooltip": true,
+      "tooltip-format": "{title}",
       "on-click": "activate",
       "on-click-middle": "close",
       "ignore-list": [
@@ -193,6 +205,29 @@
         },
         "tooltip-format-activated":"Caffeine Mode Active",
         "tooltip-format-deactivated":"Caffeine Mode Inactive"
+    },
+
+    "privacy": {
+      "icon-spacing": 4,
+      "icon-size": 18,
+      "transition-duration": 250,
+      "modules": [
+        {
+          "type": "screenshare",
+          "tooltip": true,
+          "tooltip-icon-size": 24
+        },
+        {
+          "type": "audio-out",
+          "tooltip": true,
+          "tooltip-icon-size": 24
+        },
+        {
+          "type": "audio-in",
+          "tooltip": true,
+          "tooltip-icon-size": 24
+        }
+      ]
     },
 
     "keyboard-state": {

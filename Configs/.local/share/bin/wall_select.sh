@@ -1,8 +1,8 @@
 #!/bin/env bash
 
 # Define your wallpapers directory
-source $HOME/.cache/hyprdots/variables.sh
-wallDir="$HOME/.config/hyprdots/themes/$GTK_THEME/wallpapers/"
+source $HOME/.cache/hyprdots/theme.sh
+wallDir="$HOME/.config/hyprdots/themes/$theme/wallpapers/"
 rofiConf="$HOME/.config/rofi/wallpaper_select.rasi"
 
 # Retrieve image files using null delimiter to handle spaces in filenames

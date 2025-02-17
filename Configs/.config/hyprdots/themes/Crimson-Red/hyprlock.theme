@@ -1,0 +1,4 @@
+$background =rgb(43, 27, 27)
+$text =rgb(255, 255, 255)
+$subtext =rgb(200, 30, 30)
+$overlay =rgb(10, 10, 10)

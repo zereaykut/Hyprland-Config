@@ -28,6 +28,9 @@ cp -f $themeDir/hypr.theme $HOME/.config/hypr/hyprland/theme.conf
 hyprctl setcursor $CURSOR_THEME $CURSOR_SIZE
 hyprctl reload 
 
+# hyprlock
+cp -f $themeDir/hyprlock.theme $HOME/.config/hypr/hyprlock/theme.conf
+
 # rofi
 cp -f $themeDir/rofi.theme $HOME/.config/rofi/theme.rasi
 
@@ -56,6 +59,9 @@ sed "s/{ICON_THEME}/$ICON_THEME/" $configsDir/qt6ct.theme > $HOME/.config/qt6ct/
 # kde
 sed "s/{ICON_THEME}/$ICON_THEME/" $configsDir/kdeglobals.theme > $HOME/.config/kdeglobals
 
+#xsettings
+sed "s/{CURSOR_THEME}/$CURSOR_THEME/; s/{ICON_THEME}/$ICON_THEME/; s/{GTK_THEME}/$GTK_THEME/" $configsDir/xsettingsd.theme > $HOME/.config/xsettingsd/xsettingsd.conf
+
 # wlogout
 cp -f $themeDir/wlogout.theme $HOME/.config/wlogout/theme.css
 
@@ -76,15 +82,13 @@ cp -f $themeDir/btop.theme $HOME/.config/btop/themes/btop.theme
 
 # cache variables
 mkdir -p $cacheDir
-cat << EOF > $cacheDir/variables.sh
+
+cat << EOF > $cacheDir/theme.sh
 #!/bin/env bash
-export GTK_THEME="$GTK_THEME"
-export ICON_THEME="$ICON_THEME"
-export CURSOR_THEME="$CURSOR_THEME"
-export CURSOR_SIZE=$CURSOR_SIZE
-export COLOR_SCHEME="$COLOR_SCHEME"
-export HYPRCURSOR_THEME="$CURSOR_THEME"
-export HYPRCURSOR_SIZE=$CURSOR_SIZE
-export XCURSOR_THEME="$CURSOR_THEME"
-export XCURSOR_SIZE=$CURSOR_SIZE
+theme="$theme"
+EOF
+
+cat << EOF > $cacheDir/wallSelect.sh
+#!/bin/env bash
+wallSelect="$wallSelect"
 EOF
