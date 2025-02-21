@@ -3,7 +3,7 @@
 @define-color subtext #a6adc8;
 @define-color overlay #6c7086;
 
-@define-color active-background #a6adc8;
+@define-color active-background #CBA6F7;
 @define-color active-foreground #313244;
 
 @define-color hover-background #f5c2e7;
