@@ -3,11 +3,11 @@
 @define-color subtext #5C7F8D;
 @define-color overlay #779EB3;
 
-@define-color active-background rgba(17,180,180,0.6);
-@define-color active-foreground rgba(204,255,255,1);
+@define-color active-background #11b4b4;
+@define-color active-foreground #ccffff;
 
-@define-color hover-background rgba(75,125,125,0.2);
-@define-color hover-foreground rgba(170,240,240,0.8);
+@define-color hover-background #4b7d7d;
+@define-color hover-foreground #aaf0f0;
 
 @define-color pink #B672A6;
 @define-color purple #9604ED;

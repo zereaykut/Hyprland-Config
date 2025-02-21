@@ -6,7 +6,7 @@
 @define-color active-background #afafaf;
 @define-color active-foreground #262626;
 
-@define-color hover-background #a6a6a6;
+@define-color hover-background #858484;
 @define-color hover-foreground #262626;
 
 @define-color pink #F4C2C2;
