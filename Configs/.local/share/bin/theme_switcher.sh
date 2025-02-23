@@ -44,6 +44,7 @@ wall_switcher.sh "$wallSelect"
 sed "s/{CURSOR_THEME}/$CURSOR_THEME/; s/{ICON_THEME}/$ICON_THEME/; s/{GTK_THEME}/$GTK_THEME/; s/{CURSOR_SIZE}/$CURSOR_SIZE/" $configsDir/gtkrc_2_0.theme > $HOME/.gtkrc-2.0
 sed "s/{CURSOR_THEME}/$CURSOR_THEME/" $configsDir/index.theme > $HOME/.icons/default/index.theme
 sed "s/{CURSOR_THEME}/$CURSOR_THEME/; s/{ICON_THEME}/$ICON_THEME/; s/{GTK_THEME}/$GTK_THEME/; s/{CURSOR_SIZE}/$CURSOR_SIZE/" $configsDir/gtk_3_settings.theme > $HOME/.config/gtk-3.0/settings.ini
+sed "s/{CURSOR_THEME}/$CURSOR_THEME/; s/{ICON_THEME}/$ICON_THEME/; s/{GTK_THEME}/$GTK_THEME/; s/{CURSOR_SIZE}/$CURSOR_SIZE/" $configsDir/gtk_4_settings.theme > $HOME/.config/gtk-4.0/settings.ini
 
 # waybar
 cp -f $themeDir/waybar.theme $HOME/.config/waybar/theme.css
