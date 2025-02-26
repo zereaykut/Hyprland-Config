@@ -27,9 +27,9 @@
         "8": "8",
         "9": "9",
         "10":"0",
-        "urgent": "",
+        "urgent": ""
         //"active": "",
-        "default": ""
+        // "default": ""
       }
     },
     
@@ -242,8 +242,11 @@
     
     "disk": {
       "interval": 5,
+      "unit": "GB",
+      "path": "/",
       "format": " {percentage_used:2}%",
-      "path": "/"
+      "tooltip": true,
+      "tooltip-format": "Free: {free:2} GB / {percentage_free:2}%\nUsed: {used} GB / {percentage_used:2}%"
     },
 
     "custom/system-updates": {
