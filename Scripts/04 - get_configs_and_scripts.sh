@@ -14,13 +14,13 @@ cp -rf .config/* ~/.config/
 cp -rf .local/share/bin/* ~/.local/share/bin/
 
 # ========================================================== >> SDDM
-sudo mv move/sddm/sddm.conf /etc/.
-sudo mkdir /usr/share/sddm/themes/Simple-SDDM
-sudo cp -rf move/sddm/Simple-SDDM/* /usr/share/sddm/themes/Simple-SDDM/
+sudo mv ../move/sddm/sddm.conf /etc/.
+sudo mkdir /usr/share/sddm/themes/SDDM-hyprdots
+sudo cp -rf ../move/sddm/SDDM-hyprdots/* /usr/share/sddm/themes/SDDM-hyprdots/
 
 # ========================================================== >> Grub
-sudo mv move/grub/grub.conf /etc/default/grub
-sudo mv move/grub/grub_background.png /boot/grub/.
+sudo mv ../move/grub/grub.conf /etc/default/grub
+sudo mv ../move/grub/grub_background.png /boot/grub/.
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 
