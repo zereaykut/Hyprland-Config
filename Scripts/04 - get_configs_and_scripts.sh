@@ -18,6 +18,9 @@ sudo mv ../move/sddm/sddm.conf /etc/.
 sudo mkdir /usr/share/sddm/themes/SDDM-hyprdots
 sudo cp -rf ../move/sddm/SDDM-hyprdots/* /usr/share/sddm/themes/SDDM-hyprdots/
 
+# ========================================================== >> Cursor
+sudo mv ../move/icons_default/index.theme /usr//share/icons/default/index.theme
+
 # ========================================================== >> Grub
 sudo mv ../move/grub/grub.conf /etc/default/grub
 sudo mv ../move/grub/grub_background.png /boot/grub/.
