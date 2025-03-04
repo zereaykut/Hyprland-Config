@@ -13,3 +13,5 @@ flatpak install -y --noninteractive flathub com.obsproject.Studio            # O
 # flatpak install flathub io.gpt4all.gpt4all                                   # Qt based GUI for GPT4All
 # flatpak install flathub com.jeffser.Alpaca                                   # an ollama client
 # flatpak install -y --noninteractive flathub me.proton.Mail                   # proton mail
+flatpak install flathub org.gnome.NetworkDisplays                            # cast your desktop to a remote display
+flatpak install flathub us.zoom.Zoom                                         # online meeting
