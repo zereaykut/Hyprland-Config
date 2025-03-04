@@ -110,6 +110,9 @@ sudo pacman --needed --noconfirm -S qalculate-gtk
 sudo pacman --needed --noconfirm -S kwalletmanager
 # sudo pacman --needed --noconfirm -S timeshift
 
+# ========================================================== >> Display
+sudo pacman --needed --noconfirm -S nwg-displays
+
 # ========================================================== >> Theming
 sudo pacman --needed --noconfirm -S nwg-look                     # gtk configuration tool
 sudo pacman --needed --noconfirm -S qt5ct                        # qt5 configuration tool
