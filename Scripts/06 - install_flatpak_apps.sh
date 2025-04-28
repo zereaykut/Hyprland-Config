@@ -8,6 +8,7 @@ flatpak install -y --noninteractive flathub io.missioncenter.MissionCenter   # s
 flatpak install -y --noninteractive flathub it.mijorus.collector             # drag and drop files
 # flatpak install -y --noninteractive flathub io.github.shiftey.Desktop        # github desktop
 flatpak install -y --noninteractive flathub com.obsproject.Studio            # OBS
+flatpak install -y --noninteractive flathub io.podman_desktop.PodmanDesktop  # podman desktop
 # flatpak install -y --noninteractive flathub net.pcsx2.PCSX2                  # PS2 emulator
 # flatpak install -y --noninteractive flathub org.ppsspp.PPSSPP                # PSP emulator
 # flatpak install flathub io.gpt4all.gpt4all                                   # Qt based GUI for GPT4All

@@ -167,7 +167,8 @@ sudo pacman --needed --noconfirm -S ttf-jetbrains-mono-nerd
 sudo pacman --needed --noconfirm -S ttf-jetbrains-mono
 
 # ========================================================== >> Containerization
-sudo pacman --needed --noconfirm -S docker
+# sudo pacman --needed --noconfirm -S docker
+sudo pacman --needed --noconfirm -S podman
 
 # ========================================================== >> Install Flatpak
 sudo pacman --needed --noconfirm -S flatpak
