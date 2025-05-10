@@ -20,5 +20,11 @@ chsh -s $(which fish)
 
 # ========================================================== >> Hyprland Plugins
 hyprpm update
-hyprpm add https://github.com/hyprwm/hyprland-plugins
-hyprpm enable hyprexpo
+# hyprpm add https://github.com/hyprwm/hyprland-plugins
+# hyprpm enable hyprexpo
+
+hyprpm add https://github.com/raybbian/hyprtasking
+hyprpm enable hyprtasking
+
+hyprpm add https://github.com/KZDKM/Hyprspace
+hyprpm enable Hyprspace
