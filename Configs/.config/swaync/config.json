@@ -91,7 +91,7 @@
       },
         {
           "label": "󰏘",
-          "command": "color_picker.sh"
+          "command": "swaync-client -t -sw && sleep 1 && color_picker.sh"
         },
         { 
           "label": "󰕧",
