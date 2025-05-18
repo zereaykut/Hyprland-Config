@@ -158,6 +158,9 @@ sudo pacman --needed --noconfirm -S grim                  # screenshot tool
 sudo pacman --needed --noconfirm -S slurp                 # region select for screenshot/screenshare
 sudo pacman --needed --noconfirm -S swappy                # screenshot editor
 
+# ========================================================== >> Screen Recording
+sudo pacman --needed --noconfirm -S wf-recorder           # screen recording tool
+
 # ========================================================== >> Fonts
 sudo pacman --needed --noconfirm -S ttf-font-awesome
 sudo pacman --needed --noconfirm -S ttf-fira-sans
