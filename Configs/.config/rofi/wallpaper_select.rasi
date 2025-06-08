@@ -21,8 +21,9 @@ imagebox {
 
 
 entry {
-  expand: true;
+  expand: false;
   placeholder: "🎞️ Choose Wallpaper";
+  width: 50%;
 }
 
 /* ---- Listview ---- */
@@ -40,7 +41,7 @@ element {
 }
 
 element-icon {
-  size: 20%;
+  size: 25%;
 }
 
 element-text {

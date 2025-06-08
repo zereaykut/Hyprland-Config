@@ -23,12 +23,13 @@ imagebox {
 entry {
   expand: false;
   placeholder: "🎞️ Choose Theme";
+  width: 50%;
 }
 
 /* ---- Listview ---- */
 listview {
   columns: 4;
-  lines: 3;
+  lines: 1;
 }
 
 /* ---- Element ---- */
@@ -40,7 +41,7 @@ element {
 }
 
 element-icon {
-  size: 20%;
+  size: 30%;
 }
 
 element-text {

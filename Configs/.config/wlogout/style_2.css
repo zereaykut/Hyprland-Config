@@ -10,7 +10,7 @@ window {
 }
 
 button {
-    color: ${BtnCol};
+    color: @foreground;
     background-color: @background;
     outline-style: none;
     border: none;

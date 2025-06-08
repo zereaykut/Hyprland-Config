@@ -1,19 +1,19 @@
 #!/bin/env bash
 
 # Input file (could be any image file path)
-wallDir="$1"
-cacheDir="$HOME/.cache/hyprdots/themes"
+wall_path="$1"
+cache_path="$HOME/.cache/hyprdots/themes"
 
-mkdir -p $cacheDir
+mkdir -p $cache_path
 
 # Check if the input file exists
-if [ ! -f "$wallDir" ]; then
+if [ ! -f "$wall_path" ]; then
     echo "File does not exist!"
     exit 1
 fi
 
 # Get the file extension
-fileExtension="${wallDir##*.}"
+fileExtension="${wall_path##*.}"
 
 # Check if ImageMagick is installed with 'convert' or 'magick'
 if command -v convert &> /dev/null; then
@@ -28,10 +28,10 @@ fi
 # Check if the file is already a PNG
 if [ "${fileExtension,,}" == "png" ]; then
     # If it's a PNG, just copy it to the .cache/themes folder
-    cp "$wallDir" "$cacheDir/lock_screen.png"
-    echo "PNG image copied to $cacheDir/lock_screen.png"
+    cp "$wall_path" "$cache_path/lock_screen.png"
+    echo "PNG image copied to $cache_path/lock_screen.png"
 else
     # Otherwise, convert the image to PNG using ImageMagick and copy it to the folder
-    $command "$wallDir[0]" "$cacheDir/lock_screen.png"
-    echo "Image converted to PNG and copied to $cacheDir"
+    $command "$wall_path[0]" "$cache_path/lock_screen.png"
+    echo "Image converted to PNG and copied to $cache_path"
 fi

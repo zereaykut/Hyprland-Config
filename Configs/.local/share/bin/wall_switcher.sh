@@ -1,12 +1,12 @@
 #!/bin/env bash
-cacheDir="$HOME/.cache/hyprdots"
-wallSelect="${1}"
+cache_path="$HOME/.cache/hyprdots"
+wall_select="${1}"
 
-swww img "$wallSelect" --transition-type center --transition-fps 60 --transition-duration 3
+swww img "$wall_select" --transition-type center --transition-fps 60 --transition-duration 3
 
-mkdir -p $cacheDir
+mkdir -p $cache_path
 
-cat << EOF > $cacheDir/wallSelect.sh
+cat << EOF > $cache_path/wall_select.sh
 #!/bin/env bash
-wallSelect="$wallSelect"
+wall_select="$wall_select"
 EOF

@@ -8,8 +8,8 @@ killall xdg-desktop-portal-wlr
 killall xdg-desktop-portal
 sleep 1
 
-libDir=/usr/lib
+lib_path=/usr/lib
 
-$libDir/xdg-desktop-portal-hyprland &
+$lib_path/xdg-desktop-portal-hyprland &
 sleep 2
-$libDir/xdg-desktop-portal &
+$lib_path/xdg-desktop-portal &

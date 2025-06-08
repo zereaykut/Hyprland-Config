@@ -190,6 +190,12 @@ tooltip {
 }
 
 /*Critical Warning*/
+@keyframes blink {
+  to {
+      color: @text;
+  }
+}
+
 #workspaces button.urgent,
 #keyboard-state > label.locked,
 #tray > .needs-attention,

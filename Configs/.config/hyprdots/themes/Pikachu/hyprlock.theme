@@ -1,0 +1,12 @@
+$background = rgb(24, 16, 15)
+$text = rgb(171, 177, 197)
+$subtext = rgb(171, 193, 191)
+$overlay = rgb(119, 135, 133)
+
+$pink =rgb(191, 115, 204)
+$purple =rgb(110, 102, 149)
+$red =rgb(150, 92, 98)
+$orange =rgb(229, 159, 34)
+$yellow =rgb(250, 222, 92)
+$green =rgb(155, 180, 127)
+$blue =rgb(74, 107, 156)

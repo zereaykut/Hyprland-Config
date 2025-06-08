@@ -17,14 +17,15 @@ window#osd {
     color: @foreground;
     border: none;
   }
-  trough {
+  
+}
+
+trough {
     min-height: inherit;
     border-radius: inherit;
     border: none;
-    background: alpha(@foreground, 0.5);
+    background: alpha(@foreground, 0.3);
   }
-  
-}
 
 image,
 label {

@@ -2,13 +2,13 @@
 
 # theme="${'Catppuccin Mocha':-$1}"
 theme="${1}"
-themeDir="$HOME/.config/hyprdots/themes/$theme/"
-# wallSelect="${"$themeDir/Catppuccin Mocha.png":-$2}"
-wallSelect="${2}"
-configsDir="$HOME/.config/hyprdots/configs/"
-cacheDir="$HOME/.cache/hyprdots"
+theme_path="$HOME/.config/hyprdots/themes/$theme/"
+# wall_select="${"$theme_path/Catppuccin Mocha.png":-$2}"
+wall_select="${2}"
+config_path="$HOME/.config/hyprdots/configs/"
+cache_path="$HOME/.cache/hyprdots"
 
-source $themeDir/variables.sh
+source $theme_path/variables.sh
 
 # environment variables
 export HYPRCURSOR_THEME=$CURSOR_THEME
@@ -24,73 +24,76 @@ gsettings set org.gnome.desktop.interface gtk-theme "$GTK_THEME"
 gsettings set org.gnome.desktop.interface color-scheme "$COLOR_SCHEME"
 
 # hyprland
-cp -f $themeDir/hypr.theme $HOME/.config/hypr/hyprland/theme.conf
+cp -f $theme_path/hypr.theme $HOME/.config/hypr/hyprland/theme.conf
 hyprctl setcursor $CURSOR_THEME $CURSOR_SIZE
 hyprctl reload 
 
 # hyprlock
-cp -f $themeDir/hyprlock.theme $HOME/.config/hypr/hyprlock/theme.conf
+cp -f $theme_path/hyprlock.theme $HOME/.config/hypr/hyprlock/theme.conf
 
 # rofi
-cp -f $themeDir/rofi.theme $HOME/.config/rofi/theme.rasi
+cp -f $theme_path/rofi.theme $HOME/.config/rofi/theme.rasi
 
 # kitty
-cp -f $themeDir/kitty.theme $HOME/.config/kitty/theme.conf
+cp -f $theme_path/kitty.theme $HOME/.config/kitty/theme.conf
 
 # swww
-wall_switcher.sh "$wallSelect"
+wall_switcher.sh "$wall_select"
 
 # gtk 2/3/4
-sed "s/{CURSOR_THEME}/$CURSOR_THEME/; s/{ICON_THEME}/$ICON_THEME/; s/{GTK_THEME}/$GTK_THEME/; s/{CURSOR_SIZE}/$CURSOR_SIZE/" $configsDir/gtkrc_2_0.theme > $HOME/.gtkrc-2.0
-sed "s/{CURSOR_THEME}/$CURSOR_THEME/" $configsDir/index.theme > $HOME/.icons/default/index.theme
-sed "s/{CURSOR_THEME}/$CURSOR_THEME/; s/{ICON_THEME}/$ICON_THEME/; s/{GTK_THEME}/$GTK_THEME/; s/{CURSOR_SIZE}/$CURSOR_SIZE/" $configsDir/gtk_3_settings.theme > $HOME/.config/gtk-3.0/settings.ini
-sed "s/{CURSOR_THEME}/$CURSOR_THEME/; s/{ICON_THEME}/$ICON_THEME/; s/{GTK_THEME}/$GTK_THEME/; s/{CURSOR_SIZE}/$CURSOR_SIZE/" $configsDir/gtk_4_settings.theme > $HOME/.config/gtk-4.0/settings.ini
+sed "s/{CURSOR_THEME}/$CURSOR_THEME/; s/{ICON_THEME}/$ICON_THEME/; s/{GTK_THEME}/$GTK_THEME/; s/{CURSOR_SIZE}/$CURSOR_SIZE/" $config_path/gtkrc_2_0.theme > $HOME/.gtkrc-2.0
+sed "s/{CURSOR_THEME}/$CURSOR_THEME/" $config_path/index.theme > $HOME/.icons/default/index.theme
+sed "s/{CURSOR_THEME}/$CURSOR_THEME/; s/{ICON_THEME}/$ICON_THEME/; s/{GTK_THEME}/$GTK_THEME/; s/{CURSOR_SIZE}/$CURSOR_SIZE/" $config_path/gtk_3_settings.theme > $HOME/.config/gtk-3.0/settings.ini
+sed "s/{CURSOR_THEME}/$CURSOR_THEME/; s/{ICON_THEME}/$ICON_THEME/; s/{GTK_THEME}/$GTK_THEME/; s/{CURSOR_SIZE}/$CURSOR_SIZE/" $config_path/gtk_4_settings.theme > $HOME/.config/gtk-4.0/settings.ini
 
 # waybar
-cp -f $themeDir/waybar.theme $HOME/.config/waybar/theme.css
+cp -f $theme_path/waybar.theme $HOME/.config/waybar/theme.css
 killall waybar && waybar &
 
 # kvantum
-cp -f $themeDir/kvantum/kvantum.theme $HOME/.config/Kvantum/kv_theme/kv_theme.svg
-cp -f $themeDir/kvantum/kvconfig.theme $HOME/.config/Kvantum/kv_theme/kv_theme.kvconfig
+cp -f $theme_path/kvantum/kvantum.theme $HOME/.config/Kvantum/kv_theme/kv_theme.svg
+cp -f $theme_path/kvantum/kvconfig.theme $HOME/.config/Kvantum/kv_theme/kv_theme.kvconfig
 
 # qt
-sed "s/{ICON_THEME}/$ICON_THEME/" $configsDir/qt5ct.theme > $HOME/.config/qt5ct/qt5ct.conf
-sed "s/{ICON_THEME}/$ICON_THEME/" $configsDir/qt6ct.theme > $HOME/.config/qt6ct/qt6ct.conf
+sed "s/{ICON_THEME}/$ICON_THEME/" $config_path/qt5ct.theme > $HOME/.config/qt5ct/qt5ct.conf
+sed "s/{ICON_THEME}/$ICON_THEME/" $config_path/qt6ct.theme > $HOME/.config/qt6ct/qt6ct.conf
 
 # kde
-sed "s/{ICON_THEME}/$ICON_THEME/" $configsDir/kdeglobals.theme > $HOME/.config/kdeglobals
+sed "s/{ICON_THEME}/$ICON_THEME/" $config_path/kdeglobals.theme > $HOME/.config/kdeglobals
 
-#xsettings
-sed "s/{CURSOR_THEME}/$CURSOR_THEME/; s/{ICON_THEME}/$ICON_THEME/; s/{GTK_THEME}/$GTK_THEME/" $configsDir/xsettingsd.theme > $HOME/.config/xsettingsd/xsettingsd.conf
+# xsettings
+sed "s/{CURSOR_THEME}/$CURSOR_THEME/; s/{ICON_THEME}/$ICON_THEME/; s/{GTK_THEME}/$GTK_THEME/" $config_path/xsettingsd.theme > $HOME/.config/xsettingsd/xsettingsd.conf
 
 # wlogout
-cp -f $themeDir/wlogout.theme $HOME/.config/wlogout/theme.css
+cp -f $theme_path/wlogout.theme $HOME/.config/wlogout/theme.css
 
 # swaync
-cp -f $themeDir/swaync.theme $HOME/.config/swaync/theme.css
+cp -f $theme_path/swaync.theme $HOME/.config/swaync/theme.css
 killall swaync && swaync &
 
 # swayosd
-cp -f $themeDir/swayosd.theme $HOME/.config/swayosd/theme.css
+cp -f $theme_path/swayosd.theme $HOME/.config/swayosd/theme.css
 killall swayosd-server && swayosd-server &
 
 # hyprlock
-# cp -f $wallSelect $HOME/.cache/themes/lock_screen.png
-theme_lock_cache.sh "$wallSelect"
+# cp -f $wall_select $HOME/.cache/themes/lock_screen.png
+theme_lock_cache.sh "$wall_select"
 
 # btop
-cp -f $themeDir/btop.theme $HOME/.config/btop/themes/btop.theme
+cp -f $theme_path/btop.theme $HOME/.config/btop/themes/btop.theme
+
+# overview
+cp -f $theme_path/hyprland-overview.theme $HOME/.config/hyprland-overview/style.qss
 
 # cache variables
-mkdir -p $cacheDir
+mkdir -p $cache_path
 
-cat << EOF > $cacheDir/theme.sh
+cat << EOF > $cache_path/theme.sh
 #!/bin/env bash
 theme="$theme"
 EOF
 
-cat << EOF > $cacheDir/wallSelect.sh
+cat << EOF > $cache_path/wall_select.sh
 #!/bin/env bash
-wallSelect="$wallSelect"
+wall_select="$wall_select"
 EOF

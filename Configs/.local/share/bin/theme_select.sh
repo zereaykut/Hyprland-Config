@@ -1,12 +1,12 @@
 #!/bin/env bash
 
-themesDir="$HOME/.config/hyprdots/themes/"
-rofiConf="$HOME/.config/rofi/theme_select.rasi"
+themes_path="$HOME/.config/hyprdots/themes/"
+rofi_conf="$HOME/.config/rofi/theme_select.rasi"
 
-mapfile -d '' PICS < <(find "$themesDir" -maxdepth 2 -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.gif" \) -print0)
+mapfile -d '' PICS < <(find "$themes_path" -maxdepth 2 -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.gif" \) -print0)
 
 # Rofi command
-rofi_command="rofi -i -show -dmenu -config $rofiConf"
+rofi_command="rofi -i -show -dmenu -config $rofi_conf"
 
 # Sorting Wallpapers
 menu() {
@@ -28,7 +28,7 @@ menu() {
     done
 }
 
-# Choice of wallpapers
+# Choice of theme
 main() {
     choice=$(menu | $rofi_command)
 
@@ -52,12 +52,12 @@ main() {
         fi
     done
 
-    # Check if a wallpaper was selected
+    # Check if a theme was selected
     if [ -n "$choice" ]; then
-        # Change wallpaper using sww
+        # Change theme & wallpaper
         theme_switcher.sh "${choice}" "${PICS[$pic_index]}"
     else
-        echo "No wallpaper selected."
+        echo "No theme selected."
         exit 1
     fi
 }

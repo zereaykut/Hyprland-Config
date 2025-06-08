@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
-pacUpds=$(checkupdates | wc -l)
-yayUpds=$(yay -Qum | wc -l)
-flatUpds=$(flatpak remote-ls --updates | wc -l)
+pacman_updates=$(checkupdates | wc -l)
+yay_updates=$(yay -Qum | wc -l)
+flatpak_updates=$(flatpak remote-ls --updates | wc -l)
 
-upds=$(( pacUpds + yayUpds + flatUpds ))
+updates=$(( pacman_updates + yay_updates + flatpak_updates ))
 
-if [ $upds -eq 0 ] ; then
+if [ $updates -eq 0 ] ; then
     echo "{\"text\":\"󰮯\", \"tooltip\":\" Packages are up to date\"}"
 else
-    echo "{\"text\":\"󰮯 $upds\", \"tooltip\":\"󰮯 pacman $pacUpds\n yay $yayUpds\n flatpak $flatUpds \"}"
+    echo "{\"text\":\"󰮯 $updates\", \"tooltip\":\"󰮯 pacman $pacman_updates\n yay $yay_updates\n flatpak $flatpak_updates \"}"
 fi

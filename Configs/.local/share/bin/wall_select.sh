@@ -2,14 +2,14 @@
 
 # Define your wallpapers directory
 source $HOME/.cache/hyprdots/theme.sh
-wallDir="$HOME/.config/hyprdots/themes/$theme/wallpapers/"
-rofiConf="$HOME/.config/rofi/wallpaper_select.rasi"
+wall_path="$HOME/.config/hyprdots/themes/$theme/wallpapers/"
+rofi_conf="$HOME/.config/rofi/wallpaper_select.rasi"
 
 # Retrieve image files using null delimiter to handle spaces in filenames
-mapfile -d '' PICS < <(find "$wallDir" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.gif" \) -print0)
+mapfile -d '' PICS < <(find "$wall_path" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.gif" \) -print0)
 
 # Rofi command
-rofi_command="rofi -i -show -dmenu -config $rofiConf"
+rofi_command="rofi -i -show -dmenu -config $rofi_conf"
 
 # Sorting Wallpapers
 menu() {

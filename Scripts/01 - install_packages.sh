@@ -78,6 +78,7 @@ sudo pacman --needed --noconfirm -S fzf         # fuzzy finder
 sudo pacman --needed --noconfirm -S neovim      # terminal text editor
 sudo pacman --needed --noconfirm -S npm         # javascript package manager
 sudo pacman --needed --noconfirm -S unzip       # extract .zip files
+sudo pacman --needed --noconfirm -S unrar       # extract .rar files
 sudo pacman --needed --noconfirm -S fish        # interactive terminal
 sudo pacman --needed --noconfirm -S fisher      # fish plugin manager
 sudo pacman --needed --noconfirm -S starship    # customizable shell prompt
