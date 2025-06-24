@@ -264,7 +264,7 @@ trough slider:hover {
 /* Volume */
 .widget-volume {
   background: @active-background;
-  color: @text;
+  color: @hover-background;
   padding: 4px;
   margin: 6px;
   border-radius: 6px;
@@ -276,7 +276,7 @@ trough slider:hover {
 
 .widget-backlight {
   background: @active-background;
-  color: @text;
+  color: @hover-background;
   padding: 4px;
   margin: 6px;
   border-radius: 6px;
