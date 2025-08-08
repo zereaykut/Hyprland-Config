@@ -4,7 +4,7 @@
 source $HOME/.cache/hyprdots/theme.sh
 wall_path="$HOME/.config/hyprdots/themes/$theme/wallpapers/"
 rofi_conf="$HOME/.config/rofi/wallpaper_select.rasi"
-cache_path="/tmp/$theme/"
+cache_path="/$HOME/.cache/hyprdots/$theme/"
 mkdir -p $cache_path
 
 # Retrieve image files using null delimiter to handle spaces in filenames
@@ -23,7 +23,7 @@ menu() {
 
         # If it's a GIF, extract the first frame as a temporary file
         # if [[ "$pic_name" =~ \.gif$ ]]; then
-            cached_pic="/tmp/$theme/$(basename "$pic_path" .gif).png"
+            cached_pic="$cache_path/$(basename "$pic_path" .gif).png"
             
             # Check if the cached version already exists
             if [[ ! -f "$cached_pic" ]]; then
