@@ -91,8 +91,11 @@ sudo pacman --needed --noconfirm -S cmake
 sudo pacman --needed --noconfirm -S cpio
 sudo pacman --needed --noconfirm -S hyprwayland-scanner
 
-# ========================================================== >> Apps
+# ========================================================== >> Media
 sudo pacman --needed --noconfirm -S vlc
+sudo pacman --needed --noconfirm -S mpv
+
+# ========================================================== >> Apps
 sudo pacman --needed --noconfirm -S bitwarden
 sudo pacman --needed --noconfirm -S gimp
 sudo pacman --needed --noconfirm -S gwenview
