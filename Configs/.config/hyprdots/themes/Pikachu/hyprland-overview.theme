@@ -20,7 +20,7 @@
 
 #specialCell {
     background-color: #18100f;
-    border: 2px solid #FADE5C;
+    border: 2px solid #fad429ff;
 }
 
 
