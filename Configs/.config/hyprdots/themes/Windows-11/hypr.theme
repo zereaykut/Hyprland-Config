@@ -1,0 +1,30 @@
+general {
+    gaps_in = 3
+    gaps_out = 8
+    border_size = 2
+    col.active_border = rgba(3C92E3FF) rgba(A2C9A2FF) 45deg
+    col.inactive_border = rgba(4C4C6BFF) rgba(1E1E2EFF) 45deg
+    layout = dwindle
+    resize_on_border = true
+}
+
+group {
+    col.border_active = rgba(3C92E3FF) rgba(A2C9A2FF) 45deg
+    col.border_inactive = rgba(4C4C6BFF) rgba(1E1E2EFF) 45deg
+    col.border_locked_active = rgba(3C92E3FF) rgba(A2C9A2FF) 45deg
+    col.border_locked_inactive = rgba(4C4C6BFF) rgba(1E1E2EFF) 45deg
+}
+
+decoration {
+    rounding = 10
+    shadow:enabled = false
+
+    blur {
+        enabled = yes
+        size = 6
+        passes = 3
+        new_optimizations = on
+        ignore_opacity = on
+        xray = false
+    }
+}

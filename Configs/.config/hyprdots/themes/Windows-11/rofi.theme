@@ -1,0 +1,8 @@
+* {
+    background:            #1E1E2EFF;
+    text:                  #EDEDEDFF;
+    select-background:     #B9D8FFFF;
+    select-foreground:     #1A1A1AFF;
+    separatorcolor:          transparent;
+    border-color:            transparent;
+}

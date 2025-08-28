@@ -48,7 +48,8 @@ sed "s/{CURSOR_THEME}/$CURSOR_THEME/; s/{ICON_THEME}/$ICON_THEME/; s/{GTK_THEME}
 
 # waybar
 cp -f $theme_path/waybar.theme $HOME/.config/waybar/theme.css
-killall waybar && waybar &
+pgrep waybar && killall waybar 
+waybar &
 
 # kvantum
 cp -f $theme_path/kvantum/kvantum.theme $HOME/.config/Kvantum/kv_theme/kv_theme.svg
@@ -69,17 +70,20 @@ cp -f $theme_path/wlogout.theme $HOME/.config/wlogout/theme.css
 
 # swaync
 cp -f $theme_path/swaync.theme $HOME/.config/swaync/theme.css
-killall swaync && swaync &
+pgrep swaync && killall swaync 
+swaync &
 
 # swayosd
 cp -f $theme_path/swayosd.theme $HOME/.config/swayosd/theme.css
-killall swayosd-server && swayosd-server &
+pgrep swayosd-server && killall swayosd-server
+swayosd-server &
 
 # hyprlock
 # cp -f $wall_select $HOME/.cache/themes/lock_screen.png
 theme_lock_cache.sh "$wall_select"
 
 # btop
+sed "s/{USER}/$USER/" $config_path/btop.theme > $HOME/.config/btop/btop.conf
 cp -f $theme_path/btop.theme $HOME/.config/btop/themes/btop.theme
 
 # overview

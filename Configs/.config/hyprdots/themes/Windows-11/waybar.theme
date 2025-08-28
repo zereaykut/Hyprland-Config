@@ -1,0 +1,18 @@
+@define-color background #1E1E2E;
+@define-color text #EDEDED;
+@define-color subtext #B8B8B8;
+@define-color overlay #4C4C6B;
+
+@define-color active-background #3B3B44;
+@define-color active-foreground #FFFFFF;
+
+@define-color hover-background #B9D8FF;
+@define-color hover-foreground #1A1A1A;
+
+@define-color pink #F5C2E7;
+@define-color purple #9B5F98;
+@define-color red #D13F5F;
+@define-color orange #F7A141;
+@define-color yellow #F3B900;
+@define-color green #A2C9A2;
+@define-color blue #3C92E3;

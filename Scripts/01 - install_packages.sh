@@ -77,8 +77,6 @@ sudo pacman --needed --noconfirm -S zoxide      # zoxide is a smarter cd command
 sudo pacman --needed --noconfirm -S fzf         # fuzzy finder
 sudo pacman --needed --noconfirm -S neovim      # terminal text editor
 sudo pacman --needed --noconfirm -S npm         # javascript package manager
-sudo pacman --needed --noconfirm -S unzip       # extract .zip files
-sudo pacman --needed --noconfirm -S unrar       # extract .rar files
 sudo pacman --needed --noconfirm -S fish        # interactive terminal
 sudo pacman --needed --noconfirm -S fisher      # fish plugin manager
 sudo pacman --needed --noconfirm -S starship    # customizable shell prompt
@@ -95,6 +93,12 @@ sudo pacman --needed --noconfirm -S hyprwayland-scanner
 sudo pacman --needed --noconfirm -S vlc
 sudo pacman --needed --noconfirm -S mpv
 
+# ========================================================== >> Archive
+sudo pacman --needed --noconfirm -S unzip       # extract .zip files
+sudo pacman --needed --noconfirm -S unrar       # extract .rar files
+sudo pacman --needed --noconfirm -S 7zip
+sudo pacman --needed --noconfirm -S ark
+
 # ========================================================== >> Apps
 sudo pacman --needed --noconfirm -S bitwarden
 sudo pacman --needed --noconfirm -S gimp
@@ -104,7 +108,6 @@ sudo pacman --needed --noconfirm -S thunderbird
 sudo pacman --needed --noconfirm -S notepadqq
 # sudo pacman --needed --noconfirm -S obs-studio
 sudo pacman --needed --noconfirm -S okular
-sudo pacman --needed --noconfirm -S ark
 # sudo pacman --needed --noconfirm -S discord
 sudo pacman --needed --noconfirm -S obsidian
 sudo pacman --needed --noconfirm -S libreoffice-fresh
@@ -175,7 +178,7 @@ sudo pacman --needed --noconfirm -S ttf-jetbrains-mono
 
 # ========================================================== >> Containerization
 # sudo pacman --needed --noconfirm -S docker
-sudo pacman --needed --noconfirm -S podman
+# sudo pacman --needed --noconfirm -S podman
 
 # ========================================================== >> Install Flatpak
 sudo pacman --needed --noconfirm -S flatpak
