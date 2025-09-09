@@ -15,9 +15,13 @@ sudo flatpak override --filesystem=$HOME/.icons
 sudo usermod -aG input $(whoami)   # Adds used user to input group for waybar keyboard-state widget to work
 sudo usermod -aG video $(whoami)   
 
-# ========================================================== >> dnscrypt-proxy
-systemctl enable --now dnscrypt-proxy.socket
-systemctl enable --now dnscrypt-proxy.service
+# ========================================================== >> resolved (DNS)
+sudo systemctl enable systemd-resolved
+sudo systemctl start systemd-resolved
+
+# ========================================================== >> zapret
+sudo systemctl enable zapret
+sudo systemctl start zapret
 
 # ========================================================== >> Shell
 chsh -s $(which fish)

@@ -26,8 +26,9 @@ sudo mv ../Move/grub/grub.conf /etc/default/grub
 sudo mv ../Move/grub/grub_background.png /boot/grub/.
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 
-# ========================================================== >> dnscrypt-proxy
-sudo mv ../Move/dnscrypt-proxy/dnscrypt-proxy.toml /etc/dnscrypt-proxy/dnscrypt-proxy.toml
+# ========================================================== >> resolved (DNS)
+sudo mv ../Move/resolved/resolved.conf /etc/systemd/resolved.conf
+sudo ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf        # Make /etc/resolv.conf a symlink to Systemd-Resolved file
 
 # ========================================================== >> zapret
 sudo mv ../Move/zapret/config /opt/zapret/config
