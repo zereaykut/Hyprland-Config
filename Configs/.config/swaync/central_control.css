@@ -27,7 +27,8 @@
 /* Notifications  */
 .control-center .notification-row .notification-background,
 .control-center .notification-row .notification-background .notification.critical {
-  background-color: @active-background;
+  background-color: @background;
+  border: 3px solid @active-background;
   border-radius: 16px;
   margin: 4px 0px;
   padding: 4px;
@@ -166,7 +167,7 @@ trough slider:hover {
 }
 
 .widget-dnd > switch {
-  background: @active-background;
+  border: 3px solid @active-background;
   font-size: initial;
   border-radius: 8px;
   box-shadow: none;
@@ -196,7 +197,8 @@ trough slider:hover {
   padding: 6px 2px;
   margin: 6px;
   border-radius: 12px;
-  background: @active-background;
+  border-top: 3px solid @active-background;
+  border-bottom: 3px solid @active-background;
 }
 
 .widget-buttons-grid>flowbox>flowboxchild>button {
@@ -220,7 +222,8 @@ trough slider:hover {
 
   /* Music player */
 .widget-mpris {
-    background: @active-background;
+    border-top: 3px solid @active-background;
+    border-bottom: 3px solid @active-background;
     border-radius: 16px;
     color: @text;
     margin:  20px 6px;
@@ -263,7 +266,8 @@ trough slider:hover {
 
 /* Volume */
 .widget-volume {
-  background: @active-background;
+  border-top: 3px solid @active-background;
+  border-bottom: 3px solid @active-background;
   color: @hover-background;
   padding: 4px;
   margin: 6px;
@@ -275,7 +279,8 @@ trough slider:hover {
 }
 
 .widget-backlight {
-  background: @active-background;
+  border-top: 3px solid @active-background;
+  border-bottom: 3px solid @active-background;
   color: @hover-background;
   padding: 4px;
   margin: 6px;

@@ -4,10 +4,10 @@
 @define-color overlay #0a0a0a;
 
 @define-color active-background #c81e1e;
-@define-color active-foreground #0a0a0a;
+@define-color active-foreground #ffffff;
 
 @define-color hover-background #961414;
-@define-color hover-foreground #323232;
+@define-color hover-foreground #ffffff;
 
 @define-color pink #be95b3;
 @define-color purple #8d73ad;
