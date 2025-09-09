@@ -27,7 +27,7 @@ sudo mv ../Move/grub/grub_background.png /boot/grub/.
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 # ========================================================== >> resolved (DNS)
-sudo mv ../Move/resolved/resolved.conf /etc/systemd/resolved.conf
+sudo mv ../Move/systemd-resolved/resolved.conf /etc/systemd/resolved.conf
 sudo ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf        # Make /etc/resolv.conf a symlink to Systemd-Resolved file
 
 # ========================================================== >> zapret
