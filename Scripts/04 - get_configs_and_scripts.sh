@@ -26,4 +26,8 @@ sudo mv ../Move/grub/grub.conf /etc/default/grub
 sudo mv ../Move/grub/grub_background.png /boot/grub/.
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 
+# ========================================================== >> dnscrypt-proxy
+sudo mv ../Move/dnscrypt-proxy/dnscrypt-proxy.toml /etc/dnscrypt-proxy/dnscrypt-proxy.toml
 
+# ========================================================== >> zapret
+sudo mv ../Move/zapret/config /opt/zapret/config

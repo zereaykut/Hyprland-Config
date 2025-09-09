@@ -14,6 +14,8 @@ flatpak install -y --noninteractive flathub org.localsend.localsend_app      # l
 # flatpak install -y --noninteractive flathub org.ppsspp.PPSSPP                # PSP emulator
 # flatpak install flathub io.gpt4all.gpt4all                                   # Qt based GUI for GPT4All
 # flatpak install flathub com.jeffser.Alpaca                                   # an ollama client
+flatpak install -y --noninteractive flathub com.protonvpn.www                  # proton vpn
 # flatpak install -y --noninteractive flathub me.proton.Mail                   # proton mail
-flatpak install flathub org.gnome.NetworkDisplays                            # cast your desktop to a remote display
-flatpak install flathub us.zoom.Zoom                                         # online meeting
+flatpak install -y --noninteractive flathub org.gnome.NetworkDisplays          # cast your desktop to a remote display
+flatpak install -y --noninteractive flathub us.zoom.Zoom                       # online meeting
+flatpak install -y --noninteractive flathub info.febvre.Komikku                # comic reader

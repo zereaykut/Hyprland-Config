@@ -155,6 +155,8 @@ sudo pacman --needed --noconfirm -S nwg-drawer            # application launcher
 # ========================================================== >> Internet
 sudo pacman --needed --noconfirm -S openvpn               # VPN
 sudo pacman --needed --noconfirm -S firewalld             # firewall manager
+sudo pacman --needed --noconfirm -S dnscrypt-proxy        # DNS
+sudo pacman --needed --noconfirm -S zapret                # zapret for DPI
 
 # ========================================================== >> Notification
 # sudo pacman --needed --noconfirm -S dunst                 # notification daemon
