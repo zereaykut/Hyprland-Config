@@ -1,7 +1,7 @@
 @define-color background #2b1b1b;
 @define-color text #ffffff;
 @define-color subtext #c81e1e;
-@define-color overlay #0a0a0a;
+@define-color overlay #ffffff;
 
 @define-color active-background #c81e1e;
 @define-color active-foreground #ffffff;
