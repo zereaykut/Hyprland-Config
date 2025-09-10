@@ -18,4 +18,3 @@ flatpak install -y --noninteractive flathub com.protonvpn.www                # p
 # flatpak install -y --noninteractive flathub me.proton.Mail                   # proton mail
 flatpak install -y --noninteractive flathub org.gnome.NetworkDisplays        # cast your desktop to a remote display
 flatpak install -y --noninteractive flathub us.zoom.Zoom                     # online meeting
-flatpak install -y --noninteractive flathub info.febvre.Komikku              # comic reader
