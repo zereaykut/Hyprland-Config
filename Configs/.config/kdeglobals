@@ -30,3 +30,6 @@ View Style=DetailTree
 [PreviewSettings]
 EnableRemoteFolderThumbnail=false
 MaximumRemoteSize=0
+
+[Wallet]
+Enabled=false

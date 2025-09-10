@@ -150,7 +150,7 @@ sudo pacman --needed --noconfirm -S power-profiles-daemon     # power profile da
 
 # ========================================================== >> Launcher
 sudo pacman --needed --noconfirm -S rofi-wayland          # dmenu and application launcher
-sudo pacman --needed --noconfirm -S nwg-drawer            # application launcher
+# sudo pacman --needed --noconfirm -S nwg-drawer            # application launcher
 
 # ========================================================== >> Internet
 sudo pacman --needed --noconfirm -S openvpn               # VPN
@@ -179,7 +179,7 @@ sudo pacman --needed --noconfirm -S ttf-jetbrains-mono-nerd
 sudo pacman --needed --noconfirm -S ttf-jetbrains-mono
 
 # ========================================================== >> Containerization
-# sudo pacman --needed --noconfirm -S docker
+sudo pacman --needed --noconfirm -S docker
 # sudo pacman --needed --noconfirm -S podman
 
 # ========================================================== >> Install Flatpak
