@@ -9,3 +9,4 @@ yay --needed --noconfirm -S pikaur             # aur helper
 yay --needed --noconfirm -S wlogout            # logout menu
 yay --needed --noconfirm -S smile              # emoji picker
 yay --needed --noconfirm -S ventoy             # create bootable drives
+yay --needed --noconfirm -S netbird            # vpn client for homelab

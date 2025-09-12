@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# Update system as follows with pacman, yay, and flatpak
+
 sudo pacman -Syu
 yay -Syu
 flatpak update

@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# Script to configure and launch wlogout with custom layout and style options based on user input.
+# It supports two modes: "dark" (style_1.css, layout_1) and "light" (style_2.css, layout_2).
+# If wlogout is already running, it terminates the existing process before starting a new one.
+
 print_error() {
     local cmd
     cmd=$(basename "$0")

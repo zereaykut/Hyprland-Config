@@ -1,8 +1,13 @@
 #!/bin/env bash
 # source = https://github.com/JaKooLit/Hyprland-Dots/blob/main/config/hypr/scripts/ClipManager.sh
 
+# Script to manage clipboard history using rofi and cliphist.
+
 # CTRL Del to delete an entry
 # ALT Del to wipe clipboard contents
+
+# Allows the user to select from previous clipboard entries and paste them or delete them.
+# Notifications are sent to indicate actions like copying or clearing the clipboard.
 
 while true; do
     result=$(rofi -i -dmenu -kb-custom-1 "Control-Delete" -kb-custom-2 "Alt-Delete" -config ~/.config/rofi/clip_manager.rasi< <(cliphist list))

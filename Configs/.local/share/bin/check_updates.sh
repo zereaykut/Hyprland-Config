@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+# Script to check for updates across pacman, yay, and flatpak, and display the count of updates in Waybar.
+# If no updates are available, shows a "Packages are up to date" message.
+# Otherwise, displays the number of updates for each package manager (pacman, yay, flatpak) in the tooltip.
+
+
 pacman_updates=$(checkupdates | wc -l)
 yay_updates=$(yay -Qum | wc -l)
 flatpak_updates=$(flatpak remote-ls --updates | wc -l)
