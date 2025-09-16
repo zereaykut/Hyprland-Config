@@ -11,12 +11,15 @@ alias ls='eza -1   --icons=auto' # short list
 alias ll='eza -lha --icons=auto --sort=name --group-directories-first' # long list all
 alias ld='eza -lhD --icons=auto' # long list dirs
 
-# Cd
+# Directory 
 alias ..='cd ..'
 alias ...='cd ../..'
 alias .3='cd ../../..'
 alias .4='cd ../../../..'
 alias .5='cd ../../../../..'
+
+abbr mkdir 'mkdir -p'
+abbr rm 'rm -rf'
 
 # Pacman
 alias pacs='sudo pacman -S'    # Install a package
@@ -31,10 +34,13 @@ alias pl='yay -Qs'                # list installed package
 alias pa='yay -Ss'                # list availabe package
 alias pc='yay -Sc'                # remove unused cache
 alias po='yay -Qtdq | yay -Rns -' # remove unused packages, also try > yay -Qqd | yay -Rsu --print -
-alias vc='code --disable-gpu'     # gui code editor
+alias vc='codium --disable-gpu'     # gui code editor
 
 # Pikaur
 alias pik='pikaur'
+
+# Git
+abbr gitc 'git clone'
 
 # Python
 alias pyev='python -m venv venv'      # create python environment named env

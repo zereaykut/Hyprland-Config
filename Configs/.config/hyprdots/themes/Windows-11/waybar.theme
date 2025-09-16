@@ -7,7 +7,7 @@
 @define-color active-foreground #FFFFFF;
 
 @define-color hover-background #B9D8FF;
-@define-color hover-foreground #1A1A1A;
+@define-color hover-foreground #B9D8FF;
 
 @define-color pink #F5C2E7;
 @define-color purple #9B5F98;
